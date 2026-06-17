@@ -1,0 +1,27 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full bg-zinc-50 border-t border-zinc-100 px-6 py-16 md:py-24 flex flex-col items-center text-center">
+  <div class="max-w-4xl mx-auto flex flex-col gap-8 items-center">
+    
+    <!-- Logo / Return to top -->
+    <a href="#" class="font-sans text-sm font-semibold tracking-[0.2em] uppercase text-zinc-800 transition-opacity hover:opacity-70">
+      HC Property
+    </a>
+    
+    <!-- Location Context -->
+    <p class="font-sans text-xs text-zinc-500 font-light tracking-[0.2em] uppercase">
+      Kutchan, Hokkaido, Japan
+    </p>
+    
+    <!-- Elegant Divider -->
+    <div class="h-px w-12 bg-zinc-200 my-4"></div>
+    
+    <!-- Copyright -->
+    <p class="font-sans text-xs text-zinc-400 font-light tracking-wider">
+      &copy; {currentYear} HC Property. All rights reserved.
+    </p>
+
+  </div>
+</footer>

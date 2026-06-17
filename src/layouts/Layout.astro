@@ -1,23 +1,145 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Luxury Property Real Estate" } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+		
+		<title>{title}</title>
+
+		<style is:global>
+			html.lenis, html.lenis body { height: auto; }
+			.lenis.lenis-smooth { scroll-behavior: auto !important; }
+			.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+			.lenis.lenis-stopped { overflow: hidden; }
+
+			/* THE NEW LIGHTWEIGHT REVEAL CLASSES */
+			.reveal-el {
+				opacity: 0;
+				/* Sped up from 1.4s to 0.8s for a snappier, lighter feel */
+				transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+				will-change: opacity, transform;
+			}
+			.hero-reveal {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+				will-change: opacity, transform;
+			}
+			/* The !important overrides the JS starting positions to snap it perfectly into place */
+			.is-revealed {
+				opacity: 1 !important;
+				transform: translateY(0) !important;
+			}
+		</style>
 	</head>
-	<body>
+	<body class="bg-white text-zinc-800 font-sans antialiased selection:bg-zinc-200 selection:text-zinc-900 lg:cursor-none">
+		
+		<div id="preloader" class="fixed inset-0 z-[10000] bg-white flex items-center justify-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
+			<div id="preloader-text" class="font-sans text-xs md:text-sm font-medium tracking-[0.4em] uppercase text-zinc-800 transition-all duration-700 ease-out translate-y-0 opacity-100">
+				HC Property
+			</div>
+		</div>
+
+		<div id="custom-cursor" class="hidden lg:block fixed top-0 left-0 w-12 h-12 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference will-change-transform" style="transform: translate3d(0px, 0px, 0px) translate(-50%, -50%) scale(0.25);"></div>
+
 		<slot />
+
+		<script is:inline src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', () => {
+				
+				// --- LENIS SMOOTH SCROLL ---
+				const lenis = new window.Lenis({ lerp: 0.1, wheelMultiplier: 1.0, smooth: true, smoothTouch: false });
+				lenis.stop();
+
+				function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+				requestAnimationFrame(raf);
+
+				// --- PRELOADER & HERO SEQUENCE ---
+				const preloader = document.getElementById('preloader');
+				const preloaderText = document.getElementById('preloader-text');
+
+				setTimeout(() => {
+					if (preloaderText) { preloaderText.style.opacity = '0'; preloaderText.style.transform = 'translateY(-15px)'; }
+				}, 1000);
+
+				setTimeout(() => {
+					if (preloader) preloader.style.transform = 'translateY(-100%)';
+					const heroElements = document.querySelectorAll('.hero-reveal');
+					heroElements.forEach((el, index) => {
+						setTimeout(() => { el.classList.add('is-revealed'); }, index * 150);
+					});
+				}, 1600);
+
+				setTimeout(() => {
+					lenis.start();
+					if (preloader) preloader.remove();
+				}, 2800);
+
+				// --- DIRECTION-AWARE SCROLL REVEAL ---
+				const revealObserver = new IntersectionObserver((entries, observer) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							// Trigger the reveal instantly when it enters the screen
+							requestAnimationFrame(() => { entry.target.classList.add('is-revealed'); });
+							observer.unobserve(entry.target);
+						} else if (!entry.target.classList.contains('is-revealed')) {
+							// INITIALIZATION: Check where the element is before it enters the screen!
+							if (entry.boundingClientRect.top > window.innerHeight / 2) {
+								entry.target.style.transform = 'translateY(40px)'; // It's below, so it will slide UP
+							} else {
+								entry.target.style.transform = 'translateY(-40px)'; // It's above, so it will slide DOWN
+							}
+						}
+					});
+				}, { rootMargin: '0px 0px -5% 0px', threshold: 0 }); // Triggers instantly
+
+				// Observe the new class
+				document.querySelectorAll('.reveal-el').forEach(el => { revealObserver.observe(el); });
+
+				// --- CUSTOM CURSOR ---
+				const cursor = document.getElementById('custom-cursor');
+				if (window.matchMedia("(pointer: fine)").matches && cursor) {
+					let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
+					let cursorX = mouseX; let cursorY = mouseY;
+					let currentScale = 0.25; let targetScale = 0.25;
+
+					window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+
+					function updateCursor() {
+						currentScale += (targetScale - currentScale) * 0.15;
+						cursorX += (mouseX - cursorX) * 0.4; cursorY += (mouseY - cursorY) * 0.4;
+						if (cursor) cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%) scale(${currentScale})`;
+						requestAnimationFrame(updateCursor);
+					}
+					requestAnimationFrame(updateCursor);
+
+					const interactables = document.querySelectorAll('a, button, input, textarea, #menu-toggle');
+					interactables.forEach(el => {
+						el.addEventListener('mouseenter', () => { targetScale = 1; });
+						el.addEventListener('mouseleave', () => { targetScale = 0.25; });
+					});
+				}
+			});
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
