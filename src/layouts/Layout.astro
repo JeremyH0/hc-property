@@ -30,23 +30,29 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 			.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 			.lenis.lenis-stopped { overflow: hidden; }
 
-			/* THE NEW LIGHTWEIGHT REVEAL CLASSES */
+			/* 
+			  120FPS GPU ACCELERATION
+			  Using translate3d, backface-visibility, and perspective forces the GPU to render the animations, bypassing the slower CPU.
+			*/
 			.reveal-el {
 				opacity: 0;
-				/* Sped up from 1.4s to 0.8s for a snappier, lighter feel */
+				transform: translate3d(0, 40px, 0);
 				transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 				will-change: opacity, transform;
+				backface-visibility: hidden;
+				perspective: 1000px;
 			}
 			.hero-reveal {
 				opacity: 0;
-				transform: translateY(30px);
+				transform: translate3d(0, 30px, 0);
 				transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 				will-change: opacity, transform;
+				backface-visibility: hidden;
+				perspective: 1000px;
 			}
-			/* The !important overrides the JS starting positions to snap it perfectly into place */
 			.is-revealed {
 				opacity: 1 !important;
-				transform: translateY(0) !important;
+				transform: translate3d(0, 0, 0) !important;
 			}
 		</style>
 	</head>
@@ -67,23 +73,32 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 		<script is:inline>
 			document.addEventListener('DOMContentLoaded', () => {
 				
-				// --- LENIS SMOOTH SCROLL ---
-				const lenis = new window.Lenis({ lerp: 0.1, wheelMultiplier: 1.0, smooth: true, smoothTouch: false });
+				// --- MAC/IPAD PROMOTION 120HZ LENIS CONFIG ---
+				const lenis = new window.Lenis({ 
+					lerp: 0.08, // Slightly tighter interpolation for high refresh rates
+					wheelMultiplier: 1.0, 
+					smoothWheel: true,
+					syncTouch: true // Syncs with native Apple touch momentum
+				});
 				lenis.stop();
 
-				function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+				// Ensure requestAnimationFrame fires at the monitor's native refresh rate
+				function raf(time) { 
+					lenis.raf(time); 
+					requestAnimationFrame(raf); 
+				}
 				requestAnimationFrame(raf);
 
-				// --- PRELOADER & HERO SEQUENCE ---
+				// --- PRELOADER ---
 				const preloader = document.getElementById('preloader');
 				const preloaderText = document.getElementById('preloader-text');
 
 				setTimeout(() => {
-					if (preloaderText) { preloaderText.style.opacity = '0'; preloaderText.style.transform = 'translateY(-15px)'; }
+					if (preloaderText) { preloaderText.style.opacity = '0'; preloaderText.style.transform = 'translate3d(0, -15px, 0)'; }
 				}, 1000);
 
 				setTimeout(() => {
-					if (preloader) preloader.style.transform = 'translateY(-100%)';
+					if (preloader) preloader.style.transform = 'translate3d(0, -100%, 0)';
 					const heroElements = document.querySelectorAll('.hero-reveal');
 					heroElements.forEach((el, index) => {
 						setTimeout(() => { el.classList.add('is-revealed'); }, index * 150);
@@ -95,35 +110,35 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 					if (preloader) preloader.remove();
 				}, 2800);
 
-				// --- DIRECTION-AWARE SCROLL REVEAL ---
+				// --- GPU ACCELERATED SCROLL REVEAL ---
 				const revealObserver = new IntersectionObserver((entries, observer) => {
 					entries.forEach(entry => {
 						if (entry.isIntersecting) {
-							// Trigger the reveal instantly when it enters the screen
 							requestAnimationFrame(() => { entry.target.classList.add('is-revealed'); });
 							observer.unobserve(entry.target);
 						} else if (!entry.target.classList.contains('is-revealed')) {
-							// INITIALIZATION: Check where the element is before it enters the screen!
 							if (entry.boundingClientRect.top > window.innerHeight / 2) {
-								entry.target.style.transform = 'translateY(40px)'; // It's below, so it will slide UP
+								entry.target.style.transform = 'translate3d(0, 40px, 0)';
 							} else {
-								entry.target.style.transform = 'translateY(-40px)'; // It's above, so it will slide DOWN
+								entry.target.style.transform = 'translate3d(0, -40px, 0)';
 							}
 						}
 					});
-				}, { rootMargin: '0px 0px -5% 0px', threshold: 0 }); // Triggers instantly
+				}, { rootMargin: '0px 0px -5% 0px', threshold: 0 });
 
-				// Observe the new class
 				document.querySelectorAll('.reveal-el').forEach(el => { revealObserver.observe(el); });
 
-				// --- CUSTOM CURSOR ---
+				// --- HIGH PERFORMANCE CUSTOM CURSOR ---
 				const cursor = document.getElementById('custom-cursor');
 				if (window.matchMedia("(pointer: fine)").matches && cursor) {
 					let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
 					let cursorX = mouseX; let cursorY = mouseY;
 					let currentScale = 0.25; let targetScale = 0.25;
 
-					window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+					window.addEventListener('mousemove', (e) => { 
+						mouseX = e.clientX; 
+						mouseY = e.clientY; 
+					}, { passive: true }); // Passive event listener prevents scroll blocking
 
 					function updateCursor() {
 						currentScale += (targetScale - currentScale) * 0.15;
