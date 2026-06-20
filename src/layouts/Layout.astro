@@ -30,8 +30,7 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 			.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 			.lenis.lenis-stopped { overflow: hidden; }
 
-			/* 
-			  120FPS GPU ACCELERATION
+			/* 120FPS GPU ACCELERATION
 			  Using translate3d, backface-visibility, and perspective forces the GPU to render the animations, bypassing the slower CPU.
 			*/
 			.reveal-el {
@@ -75,40 +74,21 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 				
 				// --- MAC/IPAD PROMOTION 120HZ LENIS CONFIG ---
 				const lenis = new window.Lenis({ 
-					lerp: 0.08, // Slightly tighter interpolation for high refresh rates
+					lerp: 0.08,
 					wheelMultiplier: 1.0, 
 					smoothWheel: true,
-					syncTouch: true // Syncs with native Apple touch momentum
+					syncTouch: true
 				});
 				lenis.stop();
 
-				// Ensure requestAnimationFrame fires at the monitor's native refresh rate
+				// Expose lenis globally so the Navigation component can hook into it
+				window.lenis = lenis;
+
 				function raf(time) { 
 					lenis.raf(time); 
 					requestAnimationFrame(raf); 
 				}
 				requestAnimationFrame(raf);
-
-				// --- PRELOADER ---
-				const preloader = document.getElementById('preloader');
-				const preloaderText = document.getElementById('preloader-text');
-
-				setTimeout(() => {
-					if (preloaderText) { preloaderText.style.opacity = '0'; preloaderText.style.transform = 'translate3d(0, -15px, 0)'; }
-				}, 1000);
-
-				setTimeout(() => {
-					if (preloader) preloader.style.transform = 'translate3d(0, -100%, 0)';
-					const heroElements = document.querySelectorAll('.hero-reveal');
-					heroElements.forEach((el, index) => {
-						setTimeout(() => { el.classList.add('is-revealed'); }, index * 150);
-					});
-				}, 1600);
-
-				setTimeout(() => {
-					lenis.start();
-					if (preloader) preloader.remove();
-				}, 2800);
 
 				// --- GPU ACCELERATED SCROLL REVEAL ---
 				const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -125,7 +105,6 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 						}
 					});
 				}, { rootMargin: '0px 0px -5% 0px', threshold: 0 });
-
 				document.querySelectorAll('.reveal-el').forEach(el => { revealObserver.observe(el); });
 
 				// --- HIGH PERFORMANCE CUSTOM CURSOR ---
@@ -134,11 +113,10 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 					let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
 					let cursorX = mouseX; let cursorY = mouseY;
 					let currentScale = 0.25; let targetScale = 0.25;
-
 					window.addEventListener('mousemove', (e) => { 
 						mouseX = e.clientX; 
 						mouseY = e.clientY; 
-					}, { passive: true }); // Passive event listener prevents scroll blocking
+					}, { passive: true });
 
 					function updateCursor() {
 						currentScale += (targetScale - currentScale) * 0.15;
@@ -155,6 +133,44 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 					});
 				}
 			});
+
+			// --- RELIABLE PRELOADER (Wait for full page load) ---
+			window.addEventListener('load', () => {
+				const preloader = document.getElementById('preloader');
+				const preloaderText = document.getElementById('preloader-text');
+				
+				requestAnimationFrame(() => {
+					if (preloaderText) { 
+						preloaderText.style.opacity = '0'; 
+						preloaderText.style.transform = 'translate3d(0, -15px, 0)'; 
+					}
+					
+					setTimeout(() => {
+						if (preloader) preloader.style.transform = 'translate3d(0, -100%, 0)';
+						
+						const heroElements = document.querySelectorAll('.hero-reveal');
+						heroElements.forEach((el, index) => {
+							setTimeout(() => { el.classList.add('is-revealed'); }, index * 150);
+						});
+						
+						setTimeout(() => {
+							if (window.lenis) window.lenis.start();
+							if (preloader) {
+								setTimeout(() => preloader.remove(), 1200);
+							}
+						}, 600);
+					}, 800);
+				});
+			});
+
+			// Fallback in case the load event hangs (e.g., failed network image)
+			setTimeout(() => {
+				const preloader = document.getElementById('preloader');
+				if (preloader && document.body.contains(preloader)) {
+					if (window.lenis) window.lenis.start();
+					preloader.remove();
+				}
+			}, 6000);
 		</script>
 	</body>
 </html>
