@@ -54,7 +54,8 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 	</head>
 	<body class="bg-white text-zinc-800 font-sans antialiased selection:bg-zinc-200 selection:text-zinc-900 lg:cursor-none">
 		
-		<div id="preloader" class="fixed inset-0 z-[10000] bg-white flex items-center justify-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
+		<!-- CHANGED: bg-white is now bg-zinc-50 to match the footer -->
+		<div id="preloader" class="fixed inset-0 z-[10000] bg-zinc-50 flex items-center justify-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
 			<div id="preloader-text" class="font-sans text-xs md:text-sm font-medium tracking-[0.4em] uppercase text-zinc-800 transition-all duration-700 ease-out translate-y-0 opacity-100">
 				HC Property
 			</div>
@@ -74,10 +75,10 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 					lerp: 0.08,
 					wheelMultiplier: 1.0, 
 					smoothWheel: true,
-					syncTouch: false // CRITICAL FIX: Disabled to prevent iOS scroll freeze. Mobile relies on native momentum now.
+					syncTouch: false 
 				});
 				lenis.stop();
-				window.lenis = lenis; // Expose safely for Navigation component
+				window.lenis = lenis; 
 
 				function raf(time) { 
 					lenis.raf(time); 
