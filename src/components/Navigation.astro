@@ -89,22 +89,16 @@
   const allLinks = [...mobileLinks, ...desktopLinks];
   
   let isOpen = false;
-  let savedScrollY = 0;
 
+  // New, safer scroll lock that doesn't collapse the layout math
   function lockScroll() {
-    savedScrollY = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top      = `-${savedScrollY}px`;
-    document.body.style.width    = '100%';
+    if (window['lenis']) window['lenis'].stop();
     document.body.style.overflow = 'hidden';
   }
 
   function unlockScroll() {
-    document.body.style.position = '';
-    document.body.style.top      = '';
-    document.body.style.width    = '';
     document.body.style.overflow = '';
-    window.scrollTo(0, savedScrollY);
+    if (window['lenis']) window['lenis'].start();
   }
 
   function openMenu() {
@@ -130,18 +124,19 @@
     toggle.addEventListener('click', () => { isOpen ? closeMenu() : openMenu(); });
   }
 
-  // Bypass TS compilation limits to securely route scroll requests
   allLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
       
       if (href && href.startsWith('#')) {
         e.preventDefault();
-        closeMenu();
         
-        setTimeout(() => {
-          const target = document.querySelector(href);
-          if (target) {
+        const target = document.querySelector(href);
+        if (target) {
+          closeMenu(); // Unlocks the page layout instantly
+          
+          // Waits for the browser paint to settle, then executes the scroll jump
+          requestAnimationFrame(() => {
             const headerOffset = 96; 
             const lenisInstance = window['lenis']; 
             
@@ -152,8 +147,8 @@
               const offsetPosition = elementPosition + window.scrollY - headerOffset;
               window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
-          }
-        }, 50);
+          });
+        }
       } else {
         closeMenu();
       }
