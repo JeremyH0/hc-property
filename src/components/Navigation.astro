@@ -9,12 +9,13 @@
       HC Property
     </a>
 
+    <!-- Reverted to original gap-12 -->
     <nav class="hidden md:flex items-center gap-12" id="desktop-nav">
-      <a href="#concept"    class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Concept</a>
-      <a href="#highlights" class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Highlights</a>
-      <a href="#gallery"    class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Gallery</a>
-      <a href="#specs"      class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Specs</a>
-      <a href="#inquire"    class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Inquire</a>
+      <a href="#concept"      class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Concept</a>
+      <a href="#architecture" class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Architecture</a>
+      <a href="#gallery"      class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Gallery</a>
+      <a href="#area"         class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Area</a>
+      <a href="#inquire"      class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Inquire</a>
     </nav>
 
     <button id="menu-toggle" class="md:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-end gap-[7px] focus:outline-none cursor-pointer" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -25,13 +26,14 @@
 </header>
 
 <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center">
+  <!-- Reverted to original gap-8 -->
   <nav class="flex flex-col items-center gap-8">
-    <a href="#concept"    class="mobile-link" style="--i:1">Concept</a>
-    <a href="#highlights" class="mobile-link" style="--i:2">Highlights</a>
-    <a href="#gallery"    class="mobile-link" style="--i:3">Gallery</a>
-    <a href="#specs"      class="mobile-link" style="--i:4">Specs</a>
+    <a href="#concept"      class="mobile-link" style="--i:1">Concept</a>
+    <a href="#architecture" class="mobile-link" style="--i:2">Architecture</a>
+    <a href="#gallery"      class="mobile-link" style="--i:3">Gallery</a>
+    <a href="#area"         class="mobile-link" style="--i:4">Area</a>
     <div class="w-8 h-px bg-zinc-200 my-1" aria-hidden="true"></div>
-    <a href="#inquire" class="mobile-link-cta" style="--i:5">Inquire</a>
+    <a href="#inquire"      class="mobile-link-cta" style="--i:5">Inquire</a>
   </nav>
   <span class="absolute bottom-10 font-sans text-xs tracking-[0.2em] uppercase text-zinc-300">
     Kutchan &middot; Hokkaido &middot; Japan
@@ -90,7 +92,6 @@
   
   let isOpen = false;
 
-  // New, safer scroll lock that doesn't collapse the layout math
   function lockScroll() {
     if (window['lenis']) window['lenis'].stop();
     document.body.style.overflow = 'hidden';
@@ -133,9 +134,8 @@
         
         const target = document.querySelector(href);
         if (target) {
-          closeMenu(); // Unlocks the page layout instantly
+          closeMenu();
           
-          // Waits for the browser paint to settle, then executes the scroll jump
           requestAnimationFrame(() => {
             const headerOffset = 96; 
             const lenisInstance = window['lenis']; 
