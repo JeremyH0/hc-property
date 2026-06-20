@@ -96,8 +96,7 @@ import Footer from '../components/Footer.astro';
 			</div>
 		</section>
 
-		<!-- INFINITE LOOP SLIDER GALLERY -->
-		<section id="gallery" class="py-24 md:py-32 border-t border-zinc-100 overflow-hidden w-full">
+		<section id="gallery" class="py-24 md:py-32 border-t border-zinc-100 overflow-hidden">
 			
 			<div class="px-6 md:px-12 max-w-[100rem] mx-auto mb-10 md:mb-16 flex justify-between items-end">
 				<div class="reveal-el">
@@ -106,59 +105,58 @@ import Footer from '../components/Footer.astro';
 				</div>
 				
 				<div class="hidden md:flex gap-4 reveal-el">
-					<button id="gal-prev" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center hover:border-zinc-800 hover:bg-zinc-800 hover:text-white transition-all cursor-pointer text-zinc-400 focus:outline-none" aria-label="Previous image">
+					<button id="gal-prev" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center hover:border-zinc-800 hover:bg-zinc-800 hover:text-white transition-all cursor-pointer text-zinc-800 focus:outline-none" aria-label="Previous image">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
 					</button>
-					<button id="gal-next" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center hover:border-zinc-800 hover:bg-zinc-800 hover:text-white transition-all cursor-pointer text-zinc-400 focus:outline-none" aria-label="Next image">
+					<button id="gal-next" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center hover:border-zinc-800 hover:bg-zinc-800 hover:text-white transition-all cursor-pointer text-zinc-800 focus:outline-none" aria-label="Next image">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
 					</button>
 				</div>
 			</div>
 
-			<!-- Notice there is no padding-left here so it bleeds fully off the edges -->
-			<div class="reveal-el w-full">
-				<div id="gallery-slider" class="flex gap-4 md:gap-8 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 cursor-grab active:cursor-grabbing scroll-smooth w-full">
+			<div class="reveal-el w-full pl-6 md:pl-12 overflow-hidden">
+				<div id="gallery-track" class="flex gap-4 md:gap-8 w-max will-change-transform cursor-grab active:cursor-grabbing">
 					
-					<div class="gallery-item snap-center shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
+					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
 						<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Living room" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
 						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">01 &nbsp;&mdash;&nbsp; Living Space</span>
+						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Living Space</span>
 					</div>
 
-					<div class="gallery-item snap-center shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
+					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
 						<img src="https://unsplash.com/photos/5a0JBpFl22U/download?w=2500" alt="Kitchen" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
 						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">02 &nbsp;&mdash;&nbsp; The Kitchen</span>
+						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">The Kitchen</span>
 					</div>
 
-					<div class="gallery-item snap-center shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
+					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
 						<img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Formal Dining" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
 						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">03 &nbsp;&mdash;&nbsp; Formal Dining</span>
+						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Formal Dining</span>
 					</div>
 
-					<div class="gallery-item snap-center shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
+					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
 						<img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Master Suite" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
 						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">04 &nbsp;&mdash;&nbsp; The Suite</span>
+						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">The Suite</span>
 					</div>
 
-					<div class="gallery-item snap-center shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
+					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
 						<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Master Bath" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
 						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">05 &nbsp;&mdash;&nbsp; Master Bath</span>
+						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Master Bath</span>
 					</div>
 
-					<div class="gallery-item snap-center shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
+					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
 						<img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Private Onsen" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
 						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">06 &nbsp;&mdash;&nbsp; Private Onsen</span>
+						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Private Onsen</span>
 					</div>
 
-					<div class="gallery-item snap-center shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
+					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
 						<img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Winter Architecture" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
 						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">07 &nbsp;&mdash;&nbsp; Winter Architecture</span>
+						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Winter Architecture</span>
 					</div>
 
 				</div>
@@ -221,96 +219,95 @@ import Footer from '../components/Footer.astro';
 	</div>
 </Layout>
 
-<style>
-	.hide-scrollbar::-webkit-scrollbar { display: none; }
-	.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
-
 <script>
-	// --- INFINITE LOOP & ARROW LOGIC ---
+	// --- BULLETPROOF 3X CLONE INFINITE CAROUSEL ---
 	document.addEventListener('DOMContentLoaded', () => {
-		const slider = document.getElementById('gallery-slider');
+		const track = document.getElementById('gallery-track');
 		const prevBtn = document.getElementById('gal-prev');
 		const nextBtn = document.getElementById('gal-next');
 		
-		if (!slider) return;
+		if (!track || !prevBtn || !nextBtn) return;
 
-		const items = Array.from(slider.querySelectorAll('.gallery-item'));
-		if (items.length === 0) return;
+		const originalItems = Array.from(track.querySelectorAll('.gallery-item'));
+		const totalOriginal = originalItems.length;
 
-		// 1. Clone items to create a massive continuous track
-		items.forEach(item => {
-			const clone = item.cloneNode(true) as HTMLElement;
-			slider.appendChild(clone);
-		});
-		
-		items.slice().reverse().forEach(item => {
-			const clone = item.cloneNode(true) as HTMLElement;
-			slider.insertBefore(clone, slider.firstChild);
+		// 1. Create a seamlessly massive track by cloning the set before and after
+		originalItems.forEach(item => {
+			const clone = item.cloneNode(true);
+			track.appendChild(clone);
 		});
 
-		// 2. Seamless Infinite Loop Logic
-		const resetScroll = () => {
-			const firstEl = slider.firstElementChild as HTMLElement;
-			if (!firstEl) return;
-			
-			const itemWidth = firstEl.getBoundingClientRect().width;
-			const gap = parseFloat(window.getComputedStyle(slider).gap) || 0;
-			const setWidth = items.length * (itemWidth + gap);
+		originalItems.slice().reverse().forEach(item => {
+			const clone = item.cloneNode(true);
+			track.insertBefore(clone, track.firstElementChild);
+		});
 
-			// If scrolled too far left into the clones
-			if (slider.scrollLeft < setWidth / 2) {
-				slider.style.scrollBehavior = 'auto';
-				slider.style.scrollSnapType = 'none'; // Temporarily kill CSS snap to prevent glitching
-				slider.scrollLeft += setWidth;
-				slider.offsetHeight; // Force browser to repaint instantly
-				slider.style.scrollBehavior = 'smooth';
-				slider.style.scrollSnapType = 'x mandatory';
-			} 
-			// If scrolled too far right into the clones
-			else if (slider.scrollLeft > setWidth * 1.5) {
-				slider.style.scrollBehavior = 'auto';
-				slider.style.scrollSnapType = 'none';
-				slider.scrollLeft -= setWidth;
-				slider.offsetHeight; // Force browser to repaint instantly
-				slider.style.scrollBehavior = 'smooth';
-				slider.style.scrollSnapType = 'x mandatory';
+		let currentIndex = totalOriginal; // Start exactly at the first original image in the middle
+		let isAnimating = false;
+		let moveDistance = 0;
+
+		// 2. Calculate accurate layout measurements
+		const updateDimensions = () => {
+			const firstItem = track.firstElementChild as HTMLElement;
+			if (!firstItem) return;
+			const itemWidth = firstItem.getBoundingClientRect().width;
+			const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+			moveDistance = itemWidth + gap;
+
+			// Instantly lock to the exact right pixel without animating
+			track.style.transition = 'none';
+			track.style.transform = `translate3d(-${currentIndex * moveDistance}px, 0, 0)`;
+		};
+
+		// 3. The Core Movement Engine
+		const moveTo = (index: number, animate = true) => {
+			if (isAnimating && animate) return;
+
+			currentIndex = index;
+
+			if (animate) {
+				isAnimating = true;
+				// This is the luxurious, heavy "Seren Collective" deceleration curve
+				track.style.transition = 'transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)';
+			} else {
+				track.style.transition = 'none';
+			}
+
+			track.style.transform = `translate3d(-${currentIndex * moveDistance}px, 0, 0)`;
+
+			if (animate) {
+				setTimeout(() => {
+					isAnimating = false;
+					
+					// TELEPORTATION: If we reach the clones on either side, teleport back to the center seamlessly
+					if (currentIndex < totalOriginal) {
+						moveTo(currentIndex + totalOriginal, false);
+					} else if (currentIndex >= totalOriginal * 2) {
+						moveTo(currentIndex - totalOriginal, false);
+					}
+				}, 700); // Matches transition duration perfectly
 			}
 		};
 
-		// Check bounds passively during scroll
-		slider.addEventListener('scroll', resetScroll, { passive: true });
+		// Setup bindings
+		updateDimensions();
+		window.addEventListener('resize', updateDimensions);
 
-		// 3. Initialize Starting Position
-		setTimeout(() => {
-			const firstEl = slider.firstElementChild as HTMLElement;
-			if (!firstEl) return;
+		nextBtn.addEventListener('click', () => moveTo(currentIndex + 1));
+		prevBtn.addEventListener('click', () => moveTo(currentIndex - 1));
 
-			const itemWidth = firstEl.getBoundingClientRect().width;
-			const gap = parseFloat(window.getComputedStyle(slider).gap) || 0;
-			
-			// Start exactly at the beginning of the ORIGINAL image set, centered perfectly
-			slider.style.scrollBehavior = 'auto';
-			slider.scrollLeft = (items.length * (itemWidth + gap)) - (window.innerWidth - itemWidth) / 2;
-			slider.offsetHeight;
-			slider.style.scrollBehavior = 'smooth';
-		}, 100);
+		// Mobile Swipe Touch Support
+		let touchStartX = 0;
+		let touchEndX = 0;
 
-		// 4. Desktop Navigation Arrows
-		const getScrollAmount = () => {
-			const firstEl = slider.firstElementChild as HTMLElement;
-			if (!firstEl) return 0;
-			const itemWidth = firstEl.getBoundingClientRect().width;
-			const gap = parseFloat(window.getComputedStyle(slider).gap) || 0;
-			return itemWidth + gap;
-		};
+		track.addEventListener('touchstart', e => {
+			touchStartX = e.changedTouches[0].screenX;
+		}, { passive: true });
 
-		prevBtn?.addEventListener('click', () => {
-			slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-		});
-
-		nextBtn?.addEventListener('click', () => {
-			slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-		});
+		track.addEventListener('touchend', e => {
+			touchEndX = e.changedTouches[0].screenX;
+			if (touchStartX - touchEndX > 40) moveTo(currentIndex + 1); // Swiped Left (Next)
+			if (touchEndX - touchStartX > 40) moveTo(currentIndex - 1); // Swiped Right (Prev)
+		}, { passive: true });
 	});
 </script>
