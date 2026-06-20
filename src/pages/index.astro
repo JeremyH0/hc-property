@@ -21,7 +21,7 @@ import Footer from '../components/Footer.astro';
 					Discover an exclusive retreat designed to blend seamlessly with the alpine landscapes of Japan. A masterclass in space, light, and silence.
 				</p>
 			</div>
-			<div class="hero-reveal w-full aspect-video lg:aspect-[21/9] bg-zinc-100 overflow-hidden">
+			<div class="hero-reveal w-full aspect-video lg:aspect-[21/9] bg-zinc-100 overflow-hidden rounded-xl">
 				<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Exterior view of the luxury property" class="w-full h-full object-cover" loading="eager" decoding="async"/>
 			</div>
 		</section>
@@ -44,11 +44,11 @@ import Footer from '../components/Footer.astro';
 					<h3 class="font-serif text-3xl md:text-4xl font-light text-zinc-800">Unobstructed Views</h3>
 					<p class="font-sans text-base text-zinc-500 font-light leading-loose">Floor-to-ceiling triple-glazed glass spans the entire living area, framing the dramatic silhouettes of Mount Yotei. The architecture ensures you are always connected to the changing light.</p>
 				</div>
-				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden">
+				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl">
 					<img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Interior living space" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
 				</div>
 
-				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden md:order-last">
+				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden md:order-last rounded-xl">
 					<img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Architectural detail" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
 				</div>
 				<div class="reveal-el flex flex-col gap-6 lg:px-8 md:order-first">
@@ -59,105 +59,59 @@ import Footer from '../components/Footer.astro';
 			</div>
 		</section>
 
-		<section id="architect" class="px-6 md:px-12 py-24 md:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
-			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
-				
-				<div class="reveal-el flex flex-col gap-8 lg:col-span-5 lg:sticky lg:top-40">
-					<div>
-						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
-						<h2 class="font-serif text-3xl md:text-5xl font-light text-zinc-800 tracking-wide">Architectural Vision.</h2>
-					</div>
-					<div class="flex flex-col gap-6 font-sans text-base text-zinc-500 font-light leading-loose">
-						<p>Designed to honor the regional heritage, the masterplan integrates the residence flawlessly into its natural topography. Every angle is meticulously calculated to maximize winter sunlight and frame the surrounding alpine landscape.</p>
-						<p>The layout emphasizes a fluid transition between indoor warmth and outdoor wilderness, ensuring complete privacy while offering expansive, open-concept living spaces tailored for sophisticated entertaining.</p>
-					</div>
-					<div class="pt-6 mt-2 border-t border-zinc-100">
-						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-800 block mb-1">Lead Architect</span>
-						<span class="font-sans text-sm text-zinc-500 font-light">Design Studio Hokkaido</span>
-					</div>
-				</div>
-
-				<div class="lg:col-span-7 flex flex-col gap-12 md:gap-16">
-					<div class="reveal-el flex flex-col gap-4">
-						<div class="w-full aspect-[4/3] md:aspect-[16/10] bg-zinc-100 overflow-hidden">
-							<img src="https://unsplash.com/photos/Vew4xyLkpdY/download?w=1600" alt="Lead architect sketching" class="w-full h-full object-cover grayscale" loading="lazy" decoding="async"/>
-						</div>
-						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center md:text-left">Design Process & Iteration</span>
-					</div>
-					
-					<div class="reveal-el flex flex-col gap-4">
-						<div class="w-full aspect-[4/3] md:aspect-[16/10] bg-zinc-100 overflow-hidden">
-							<img src="https://unsplash.com/photos/1hSh1aDG6Mg/download?w=1600" alt="Architectural elevations" class="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" loading="lazy" decoding="async"/>
-						</div>
-						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center md:text-left">Original Elevations & Floor Plan</span>
-					</div>
-				</div>
-
-			</div>
-		</section>
-
-		<section id="gallery" class="py-24 md:py-32 border-t border-zinc-100 overflow-hidden">
+		<!-- MASTER & THUMBNAIL GALLERY -->
+		<section id="gallery" class="px-6 md:px-12 py-24 md:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
 			
-			<div class="px-6 md:px-12 max-w-[100rem] mx-auto mb-10 md:mb-16 flex justify-between items-end">
-				<div class="reveal-el">
-					<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Gallery</span>
-					<h2 class="font-serif text-3xl md:text-5xl font-light text-zinc-800 tracking-wide">A visual exploration.</h2>
-				</div>
-				
-				<div class="hidden md:flex gap-4 reveal-el">
-					<button id="gal-prev" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center hover:border-zinc-800 hover:bg-zinc-800 hover:text-white transition-all cursor-pointer text-zinc-800 focus:outline-none" aria-label="Previous image">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-					</button>
-					<button id="gal-next" class="w-12 h-12 rounded-full border border-zinc-200 flex items-center justify-center hover:border-zinc-800 hover:bg-zinc-800 hover:text-white transition-all cursor-pointer text-zinc-800 focus:outline-none" aria-label="Next image">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-					</button>
-				</div>
+			<div class="reveal-el mb-10 md:mb-16">
+				<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Gallery</span>
+				<h2 class="font-serif text-3xl md:text-5xl font-light text-zinc-800 tracking-wide">A visual exploration.</h2>
 			</div>
 
-			<div class="reveal-el w-full pl-6 md:pl-12 overflow-hidden">
-				<div id="gallery-track" class="flex gap-4 md:gap-8 w-max will-change-transform cursor-grab active:cursor-grabbing">
+			<div class="reveal-el flex flex-col lg:flex-row gap-3 md:gap-4 lg:gap-6 w-full">
+				
+				<!-- 1. Master Viewer -->
+				<div class="w-full lg:w-[65%] relative aspect-[4/3] md:aspect-[16/10] bg-zinc-100 overflow-hidden rounded-xl shadow-sm">
+					<img id="main-gallery-image" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="The Exterior" class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100" loading="lazy" decoding="async"/>
 					
-					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
-						<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Living room" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
-						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Living Space</span>
-					</div>
+					<div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 to-transparent pointer-events-none z-20 rounded-b-xl"></div>
+					<span id="main-gallery-caption" class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none drop-shadow-md z-20">
+						The Exterior
+					</span>
+				</div>
 
-					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
-						<img src="https://unsplash.com/photos/5a0JBpFl22U/download?w=2500" alt="Kitchen" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
-						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">The Kitchen</span>
-					</div>
+				<!-- 2. The Thumbnails -->
+				<div class="w-full lg:w-[35%] grid grid-cols-4 gap-2 md:gap-3 lg:gap-4 content-start">
+					<button class="gallery-thumb active w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="The Exterior" aria-label="View The Exterior">
+						<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="The Exterior" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					</button>
 
-					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
-						<img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Formal Dining" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
-						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Formal Dining</span>
-					</div>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Living Space" aria-label="View Living Space">
+						<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Living Space" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					</button>
 
-					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
-						<img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Master Suite" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
-						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">The Suite</span>
-					</div>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://unsplash.com/photos/5a0JBpFl22U/download?w=2500" data-caption="The Kitchen" aria-label="View The Kitchen">
+						<img src="https://unsplash.com/photos/5a0JBpFl22U/download?w=600" alt="The Kitchen" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					</button>
 
-					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
-						<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Master Bath" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
-						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Master Bath</span>
-					</div>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Formal Dining" aria-label="View Formal Dining">
+						<img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Formal Dining" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					</button>
 
-					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
-						<img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Private Onsen" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
-						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Private Onsen</span>
-					</div>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Master Suite" aria-label="View Master Suite">
+						<img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Master Suite" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					</button>
 
-					<div class="gallery-item shrink-0 w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[4/3] md:aspect-[16/9] bg-zinc-100 relative group">
-						<img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Winter Architecture" class="w-full h-full object-cover pointer-events-none select-none" loading="lazy" decoding="async"/>
-						<div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
-						<span class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none">Winter Architecture</span>
-					</div>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Master Bath" aria-label="View Master Bath">
+						<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Master Bath" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					</button>
+
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Private Onsen" aria-label="View Private Onsen">
+						<img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Private Onsen" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					</button>
+
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Winter Architecture" aria-label="View Winter Architecture">
+						<img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Winter Architecture" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					</button>
 
 				</div>
 			</div>
@@ -219,95 +173,64 @@ import Footer from '../components/Footer.astro';
 	</div>
 </Layout>
 
+<style>
+	.gallery-thumb {
+		opacity: 0.4;
+		transition: opacity 0.4s ease;
+	}
+	.gallery-thumb:hover {
+		opacity: 0.7;
+	}
+	.gallery-thumb.active {
+		opacity: 1;
+	}
+</style>
+
 <script>
-	// --- BULLETPROOF 3X CLONE INFINITE CAROUSEL ---
+	// --- PRO EVENT-DRIVEN CROSSFADE ENGINE ---
 	document.addEventListener('DOMContentLoaded', () => {
-		const track = document.getElementById('gallery-track');
-		const prevBtn = document.getElementById('gal-prev');
-		const nextBtn = document.getElementById('gal-next');
-		
-		if (!track || !prevBtn || !nextBtn) return;
+		const mainImage = document.getElementById('main-gallery-image') as HTMLImageElement;
+		const mainCaption = document.getElementById('main-gallery-caption');
+		const thumbnails = document.querySelectorAll('.gallery-thumb');
 
-		const originalItems = Array.from(track.querySelectorAll('.gallery-item'));
-		const totalOriginal = originalItems.length;
+		if (!mainImage || thumbnails.length === 0) return;
 
-		// 1. Create a seamlessly massive track by cloning the set before and after
-		originalItems.forEach(item => {
-			const clone = item.cloneNode(true);
-			track.appendChild(clone);
+		let isTransitioning = false;
+
+		thumbnails.forEach(thumb => {
+			thumb.addEventListener('click', () => {
+				// If clicked on active, or already transitioning, ignore to prevent glitching
+				if (isTransitioning || thumb.classList.contains('active')) return;
+				
+				const newSrc = thumb.getAttribute('data-src');
+				const newCaption = thumb.getAttribute('data-caption');
+				if (!newSrc) return;
+
+				isTransitioning = true;
+
+				// 1. Fade out the main image
+				mainImage.style.opacity = '0';
+
+				// 2. Wait for the CSS transition to complete (Event-driven)
+				mainImage.addEventListener('transitionend', function handler() {
+					mainImage.removeEventListener('transitionend', handler);
+
+					// 3. Swap the source
+					mainImage.src = newSrc;
+					mainImage.alt = newCaption || 'Gallery Image';
+					if (mainCaption) mainCaption.innerHTML = newCaption || '';
+
+					// 4. Update thumbnails state
+					thumbnails.forEach(t => t.classList.remove('active'));
+					thumb.classList.add('active');
+
+					// 5. Fade back in once the new image is ready
+					mainImage.onload = () => {
+						mainImage.style.opacity = '1';
+						isTransitioning = false; // Ready for next click
+					};
+				}, { once: true });
+			});
 		});
-
-		originalItems.slice().reverse().forEach(item => {
-			const clone = item.cloneNode(true);
-			track.insertBefore(clone, track.firstElementChild);
-		});
-
-		let currentIndex = totalOriginal; // Start exactly at the first original image in the middle
-		let isAnimating = false;
-		let moveDistance = 0;
-
-		// 2. Calculate accurate layout measurements
-		const updateDimensions = () => {
-			const firstItem = track.firstElementChild as HTMLElement;
-			if (!firstItem) return;
-			const itemWidth = firstItem.getBoundingClientRect().width;
-			const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-			moveDistance = itemWidth + gap;
-
-			// Instantly lock to the exact right pixel without animating
-			track.style.transition = 'none';
-			track.style.transform = `translate3d(-${currentIndex * moveDistance}px, 0, 0)`;
-		};
-
-		// 3. The Core Movement Engine
-		const moveTo = (index: number, animate = true) => {
-			if (isAnimating && animate) return;
-
-			currentIndex = index;
-
-			if (animate) {
-				isAnimating = true;
-				// This is the luxurious, heavy "Seren Collective" deceleration curve
-				track.style.transition = 'transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)';
-			} else {
-				track.style.transition = 'none';
-			}
-
-			track.style.transform = `translate3d(-${currentIndex * moveDistance}px, 0, 0)`;
-
-			if (animate) {
-				setTimeout(() => {
-					isAnimating = false;
-					
-					// TELEPORTATION: If we reach the clones on either side, teleport back to the center seamlessly
-					if (currentIndex < totalOriginal) {
-						moveTo(currentIndex + totalOriginal, false);
-					} else if (currentIndex >= totalOriginal * 2) {
-						moveTo(currentIndex - totalOriginal, false);
-					}
-				}, 700); // Matches transition duration perfectly
-			}
-		};
-
-		// Setup bindings
-		updateDimensions();
-		window.addEventListener('resize', updateDimensions);
-
-		nextBtn.addEventListener('click', () => moveTo(currentIndex + 1));
-		prevBtn.addEventListener('click', () => moveTo(currentIndex - 1));
-
-		// Mobile Swipe Touch Support
-		let touchStartX = 0;
-		let touchEndX = 0;
-
-		track.addEventListener('touchstart', e => {
-			touchStartX = e.changedTouches[0].screenX;
-		}, { passive: true });
-
-		track.addEventListener('touchend', e => {
-			touchEndX = e.changedTouches[0].screenX;
-			if (touchStartX - touchEndX > 40) moveTo(currentIndex + 1); // Swiped Left (Next)
-			if (touchEndX - touchStartX > 40) moveTo(currentIndex - 1); // Swiped Right (Prev)
-		}, { passive: true });
 	});
 </script>
