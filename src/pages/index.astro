@@ -2,165 +2,228 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+
+import { Image } from 'astro:assets';
+import imgHero from '../assets/gallery/hero.jpeg';
+import imgLiving from '../assets/gallery/living.jpeg';
+import imgKitchen from '../assets/gallery/kitchen.jpeg';
+import imgDining from '../assets/gallery/dining.jpeg';
+import imgSuite from '../assets/gallery/suite.jpeg';
+import imgBath from '../assets/gallery/bath.jpeg';
+import imgOnsen from '../assets/gallery/onsen.jpeg';
+import imgFloorplan1 from '../assets/gallery/floorplan1.jpeg';
+import imgFloorplan2 from '../assets/gallery/floorplan2.jpeg';
+import imgWinter from '../assets/gallery/winter.jpeg';
 ---
 
-<Layout title="HC Property | Exclusive Residence">
+<Layout title="Seren Collective MAPLE | Karuizawa">
 	<Navigation />
 	
-	<main class="w-full tracking-normal leading-loose pt-20 md:pt-24">
+	<main class="w-full tracking-normal leading-loose">
 		
-		<section class="relative w-full px-6 md:px-12 py-16 md:py-24 max-w-[100rem] mx-auto flex flex-col gap-12 md:gap-16">
-			<div class="flex flex-col items-center text-center max-w-4xl mx-auto mt-8 md:mt-12">
-				<span class="hero-reveal font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">
-					Kutchan, Hokkaido
-				</span>
-				<h1 class="hero-reveal font-serif text-5xl md:text-7xl lg:text-8xl font-light text-zinc-800 tracking-tight leading-none mb-8">
-					A sanctuary of minimalist purity.
+		<!-- EDITORIAL BANNER HERO -->
+		<section id="hero-section" class="relative w-full h-[35svh] min-h-[320px] md:h-[35svh] md:min-h-[400px] lg:h-[100svh] lg:min-h-[700px] flex flex-col overflow-hidden bg-zinc-950">
+			
+			<div class="absolute inset-0 w-full h-full">
+				<Image src={imgHero} alt="Exterior view of Seren Collective Maple" class="w-full h-full object-cover opacity-90" loading="eager" fetchpriority="high" />
+				<div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 md:from-zinc-950/60 lg:from-zinc-950/50 via-transparent to-black/30"></div>
+			</div>
+
+			<div class="relative z-10 flex flex-col items-start justify-end text-left px-6 md:px-12 w-full max-w-[100rem] mx-auto h-full pb-8 md:pb-12 lg:pb-32">
+				<h1 class="hero-reveal font-sans text-2xl md:text-3xl lg:text-5xl font-light tracking-[0.15em] text-white drop-shadow-md flex items-center">
+					Karuizawa <span class="mx-3 md:mx-4 font-extralight text-white/50 text-xl md:text-2xl lg:text-4xl">|</span> 轻井泽
 				</h1>
-				<p class="hero-reveal font-sans text-base md:text-lg text-zinc-500 max-w-2xl font-light leading-loose">
-					Discover an exclusive retreat designed to blend seamlessly with the alpine landscapes of Japan. A masterclass in space, light, and silence.
-				</p>
 			</div>
-			<div class="hero-reveal w-full aspect-video lg:aspect-[21/9] bg-zinc-100 overflow-hidden rounded-xl">
-				<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="Exterior view of the luxury property" class="w-full h-full object-cover" loading="eager" decoding="async"/>
+
+			<div class="hidden lg:flex absolute bottom-12 right-12 z-10 hero-reveal flex-col items-center gap-4">
+				<span class="font-sans text-[9px] tracking-[0.3em] uppercase text-white/60" style="writing-mode: vertical-rl;">Scroll</span>
+				<div class="w-px h-12 bg-white/20 relative overflow-hidden">
+					<div class="absolute top-0 left-0 w-full h-1/2 bg-white animate-scroll-drop"></div>
+				</div>
 			</div>
 		</section>
 
-		<section id="concept" class="px-6 py-32 md:py-48 max-w-4xl mx-auto text-center">
-			<span class="reveal-el font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-8 block">The Concept</span>
-			<h2 class="reveal-el font-serif text-4xl md:text-6xl font-light text-zinc-800 tracking-wide mb-16 leading-tight">
-				A seamless dialogue <br class="hidden md:block"/> between nature and architecture.
+		<!-- CONCEPT SECTION -->
+		<section id="concept" class="px-6 py-24 md:py-32 lg:py-48 max-w-4xl mx-auto text-center">
+			<span class="reveal-el font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-8 block">The Estate</span>
+			<h2 class="reveal-el font-serif text-3xl md:text-5xl lg:text-6xl font-light text-zinc-800 tracking-wide mb-12 md:mb-16 leading-tight">
+				A sanctuary divided, <br class="hidden md:block"/> yet perfectly unified.
 			</h2>
-			<div class="reveal-el font-sans text-zinc-500 font-light leading-loose flex flex-col gap-8 text-left md:text-center text-base md:text-lg max-w-3xl mx-auto">
-				<p>Inspired by the serenity of Kutchan's ancient forests, this residence is designed as an instrument for experiencing nature. The architecture does not impose upon the landscape; rather, it frames it, allowing the shifting seasons to become the primary artwork of the home.</p>
-				<p>By stripping away the superfluous, we create a space where time slows down. A return to the essential, where light, texture, and silence elevate the everyday into something profound.</p>
+			<div class="reveal-el font-sans text-zinc-500 font-light leading-loose flex flex-col gap-6 md:gap-8 text-left md:text-center text-sm md:text-base lg:text-lg max-w-3xl mx-auto">
+				<p>Set within a deeply forested enclave of Karuizawa, this expansive residence is ingeniously designed as two distinct structures—a main house and a guest house—connected seamlessly by an elegant hallway.</p>
+				<p>This intelligent layout allows the property to function flawlessly as a single, grand estate for large gatherings, or it can be secured to provide absolute privacy and independence for both hosts and guests.</p>
 			</div>
 		</section>
 
-		<section id="architecture" class="px-6 md:px-12 py-24 md:py-32 max-w-[100rem] mx-auto">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
-				<div class="reveal-el flex flex-col gap-6 lg:px-8">
-					<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Architecture</span>
-					<h3 class="font-serif text-3xl md:text-4xl font-light text-zinc-800">Unobstructed Views</h3>
-					<p class="font-sans text-base text-zinc-500 font-light leading-loose">Floor-to-ceiling triple-glazed glass spans the entire living area, framing the dramatic silhouettes of Mount Yotei. The architecture ensures you are always connected to the changing light.</p>
+		<!-- FEATURES SECTION -->
+		<section id="architecture" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+				
+				<div class="reveal-el flex flex-col gap-4 md:gap-6 lg:px-8">
+					<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Accommodations</span>
+					<h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
+					<p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The estate accommodates family and guests with uncompromising comfort. The main residence features four spacious bedrooms, while the guest house offers three. Crucially, every single bedroom in the estate is complemented by its own private ensuite bathroom.</p>
 				</div>
 				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl">
-					<img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Interior living space" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
+					<Image src={imgLiving} alt="Main house interior" class="w-full h-full object-cover" />
 				</div>
 
-				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden md:order-last rounded-xl">
-					<img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Architectural detail" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
+				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden lg:order-last rounded-xl">
+					<Image src={imgSuite} alt="Wellness and Deck" class="w-full h-full object-cover" />
 				</div>
-				<div class="reveal-el flex flex-col gap-6 lg:px-8 md:order-first">
-					<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Materials</span>
-					<h3 class="font-serif text-3xl md:text-4xl font-light text-zinc-800">Raw & Refined</h3>
-					<p class="font-sans text-base text-zinc-500 font-light leading-loose">A curated palette of locally sourced volcanic stone and weathered cedar. Materials chosen for their longevity and their ability to age with grace alongside the Hokkaido seasons.</p>
+				<div class="reveal-el flex flex-col gap-4 md:gap-6 lg:px-8 lg:order-first">
+					<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Wellness & Leisure</span>
+					<h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Private Spa & Firepit</h3>
+					<p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The second floor of the main house is dedicated to wellness, featuring a private spa with dual large soaking tubs and a custom sauna. Outside, an expansive wooden deck centers around a sunken firepit—the perfect setting for evening relaxation under the forest canopy.</p>
 				</div>
+
+			</div>
+		</section>
+
+		<!-- FLOORPLAN SECTION -->
+		<section id="floorplan" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+				
+				<div class="reveal-el flex flex-col gap-6 md:gap-8 lg:col-span-4 lg:sticky lg:top-40">
+					<div>
+						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
+						<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
+					</div>
+					<div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
+						<p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
+						<p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
+					</div>
+				</div>
+
+				<div class="lg:col-span-8 flex flex-col gap-12 md:gap-16 lg:gap-24">
+					<div class="reveal-el flex flex-col gap-6">
+						<div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
+							<Image src={imgFloorplan1} alt="First Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
+						</div>
+						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center lg:text-left">
+							First Floor: Living & Gathering Spaces
+						</span>
+					</div>
+					
+					<div class="reveal-el flex flex-col gap-6">
+						<div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
+							<Image src={imgFloorplan2} alt="Second Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
+						</div>
+						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center lg:text-left">
+							Second Floor: Private Suites & Spa
+						</span>
+					</div>
+				</div>
+
 			</div>
 		</section>
 
 		<!-- MASTER & THUMBNAIL GALLERY -->
-		<section id="gallery" class="px-6 md:px-12 py-24 md:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
+		<section id="gallery" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
 			
-			<div class="reveal-el mb-10 md:mb-16">
+			<div class="reveal-el mb-8 md:mb-12 lg:mb-20">
 				<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Gallery</span>
-				<h2 class="font-serif text-3xl md:text-5xl font-light text-zinc-800 tracking-wide">A visual exploration.</h2>
 			</div>
 
-			<div class="reveal-el flex flex-col lg:flex-row gap-3 md:gap-4 lg:gap-6 w-full">
+			<div class="reveal-el flex flex-col lg:flex-row justify-between items-start gap-6 md:gap-8 lg:gap-16 w-full">
 				
-				<!-- 1. Master Viewer -->
-				<div class="w-full lg:w-[65%] relative aspect-[4/3] md:aspect-[16/10] bg-zinc-100 overflow-hidden rounded-xl shadow-sm">
-					<img id="main-gallery-image" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" alt="The Exterior" class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100" loading="lazy" decoding="async"/>
-					
-					<div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 to-transparent pointer-events-none z-20 rounded-b-xl"></div>
-					<span id="main-gallery-caption" class="absolute bottom-6 left-6 md:bottom-8 md:left-8 font-sans text-xs tracking-[0.2em] uppercase text-white pointer-events-none drop-shadow-md z-20">
-						The Exterior
-					</span>
+				<div id="main-gallery-container" class="w-full lg:w-[55%] relative aspect-[4/3] md:aspect-[16/11] bg-zinc-100 overflow-hidden rounded-xl shadow-sm">
+					<img id="main-gallery-image" src={imgHero.src} alt="Gallery Image" class="w-full h-full object-cover transition-opacity duration-500 ease-in-out opacity-100" loading="lazy" decoding="async"/>
 				</div>
 
-				<!-- 2. The Thumbnails -->
-				<div class="w-full lg:w-[35%] grid grid-cols-4 gap-2 md:gap-3 lg:gap-4 content-start">
-					<button class="gallery-thumb active w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="The Exterior" aria-label="View The Exterior">
-						<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="The Exterior" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+				<!-- CHANGED: content-start aligns the thumbnails exactly to the top right -->
+				<div class="w-full lg:w-[40%] grid grid-cols-4 gap-2 md:gap-3 lg:gap-5 content-start pt-1">
+					<button class="gallery-thumb active w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300 ring-0" data-src={imgHero.src} aria-label="View Exterior">
+						<Image src={imgHero} width={600} alt="Exterior" class="w-full h-full object-cover pointer-events-none" />
 					</button>
 
-					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Living Space" aria-label="View Living Space">
-						<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Living Space" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300 ring-0" data-src={imgLiving.src} aria-label="View Main House">
+						<Image src={imgLiving} width={600} alt="Main House" class="w-full h-full object-cover pointer-events-none" />
 					</button>
 
-					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://unsplash.com/photos/5a0JBpFl22U/download?w=2500" data-caption="The Kitchen" aria-label="View The Kitchen">
-						<img src="https://unsplash.com/photos/5a0JBpFl22U/download?w=600" alt="The Kitchen" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300 ring-0" data-src={imgKitchen.src} aria-label="View Kitchen">
+						<Image src={imgKitchen} width={600} alt="Kitchen" class="w-full h-full object-cover pointer-events-none" />
 					</button>
 
-					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Formal Dining" aria-label="View Formal Dining">
-						<img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Formal Dining" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300 ring-0" data-src={imgDining.src} aria-label="View Dining Area">
+						<Image src={imgDining} width={600} alt="Dining Area" class="w-full h-full object-cover pointer-events-none" />
 					</button>
 
-					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Master Suite" aria-label="View Master Suite">
-						<img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Master Suite" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300 ring-0" data-src={imgSuite.src} aria-label="View Bedroom Suites">
+						<Image src={imgSuite} width={600} alt="Bedroom Suites" class="w-full h-full object-cover pointer-events-none" />
 					</button>
 
-					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Master Bath" aria-label="View Master Bath">
-						<img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Master Bath" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300 ring-0" data-src={imgBath.src} aria-label="View Ensuites">
+						<Image src={imgBath} width={600} alt="Ensuites" class="w-full h-full object-cover pointer-events-none" />
 					</button>
 
-					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Private Onsen" aria-label="View Private Onsen">
-						<img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Private Onsen" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300 ring-0" data-src={imgOnsen.src} aria-label="View 2F Spa">
+						<Image src={imgOnsen} width={600} alt="2F Spa and Tubs" class="w-full h-full object-cover pointer-events-none" />
 					</button>
 
-					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300" data-src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=2500&q=80" data-caption="Winter Architecture" aria-label="View Winter Architecture">
-						<img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Winter Architecture" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async"/>
+					<button class="gallery-thumb w-full aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none transition-all duration-300 ring-0" data-src={imgWinter.src} aria-label="View Outdoor Deck">
+						<Image src={imgWinter} width={600} alt="Outdoor Deck and Firepit" class="w-full h-full object-cover pointer-events-none" />
 					</button>
-
 				</div>
 			</div>
 		</section>
 
-		<section id="area" class="px-6 py-24 md:py-32 max-w-4xl mx-auto border-t border-zinc-100">
-			<div class="reveal-el text-center mb-16 md:mb-24">
+		<!-- RESTORED TEXT-ONLY AREA SECTION -->
+		<section id="area" class="px-6 py-16 md:py-24 lg:py-32 max-w-4xl mx-auto border-t border-zinc-100">
+			<div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
 				<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Area</span>
-				<h2 class="font-serif text-3xl md:text-5xl font-light text-zinc-800 tracking-wide">Kutchan & Niseko</h2>
+				<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Karuizawa</h2>
 			</div>
 
 			<div class="flex flex-col border-t border-zinc-100">
+				
 				<div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
-					<div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Location</div>
-					<div class="font-sans text-base md:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">Kutchan, Hokkaido, Japan</div>
+					<div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Address</div>
+					<div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose flex flex-col gap-1">
+						<span>19-29 Seisatsuba, Oaza Nagakura, Karuizawa-machi, Kitasaku-gun, Nagano</span>
+						<span class="text-xs md:text-sm text-zinc-500 font-light tracking-wide mt-1">長野県北佐久郡軽井沢町大字長倉字制札場１９－２９</span>
+					</div>
 				</div>
+
 				<div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
-					<div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Winter Access</div>
-					<div class="font-sans text-base md:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">Minutes from the world-class powder snow of Grand Hirafu and Niseko Hanazono resorts.</div>
+					<div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Neighborhood</div>
+					<div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
+						Situated within a deeply forested area of Karuizawa, offering profound tranquility, shade, and seclusion, while maintaining convenient access to the town's refined amenities.
+					</div>
 				</div>
+				
 				<div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
-					<div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Surroundings</div>
-					<div class="font-sans text-base md:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">Immersed in serene alpine forests with commanding views of Mount Yotei.</div>
+					<div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Access</div>
+					<div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
+						Conveniently accessible via the Hokuriku Shinkansen from central Tokyo.
+					</div>
 				</div>
+
 			</div>
 		</section>
 
-		<section id="inquire" class="px-6 py-32 md:py-48 max-w-3xl mx-auto border-t border-zinc-100">
-			<div class="reveal-el text-center mb-16 md:mb-24">
+		<section id="inquire" class="px-6 py-24 md:py-32 lg:py-48 max-w-3xl mx-auto border-t border-zinc-100">
+			<div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
 				<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">Private Viewing</span>
-				<h2 class="font-serif text-3xl md:text-5xl font-light text-zinc-800 tracking-wide mb-8">Inquire about this property</h2>
+				<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide mb-8">Inquire about this property</h2>
 			</div>
 
-			<form class="flex flex-col gap-12">
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-					<div class="reveal-el flex flex-col gap-3">
-						<label for="name" class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Name</label>
-						<input type="text" id="name" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+			<form class="flex flex-col gap-8 md:gap-12">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+					<div class="reveal-el flex flex-col gap-2 md:gap-3">
+						<label for="name" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Name</label>
+						<input type="text" id="name" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
 					</div>
-					<div class="reveal-el flex flex-col gap-3">
-						<label for="email" class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Email</label>
-						<input type="email" id="email" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+					<div class="reveal-el flex flex-col gap-2 md:gap-3">
+						<label for="email" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Email</label>
+						<input type="email" id="email" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
 					</div>
 				</div>
-				<div class="reveal-el flex flex-col gap-3">
-					<label for="message" class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Message</label>
-					<textarea id="message" rows="4" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors resize-none rounded-none"></textarea>
+				<div class="reveal-el flex flex-col gap-2 md:gap-3">
+					<label for="message" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Message</label>
+					<textarea id="message" rows="4" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors resize-none rounded-none"></textarea>
 				</div>
-				<button type="submit" class="reveal-el self-center mt-8 bg-zinc-800 text-white font-sans text-xs font-medium tracking-[0.2em] uppercase px-12 py-5 hover:bg-zinc-700 transition-colors w-full md:w-auto cursor-pointer">
+				<button type="submit" class="reveal-el self-center mt-4 md:mt-8 bg-zinc-800 text-white font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase px-10 md:px-12 py-4 md:py-5 hover:bg-zinc-700 transition-colors w-full md:w-auto cursor-pointer">
 					Submit Inquiry
 				</button>
 			</form>
@@ -174,6 +237,15 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
+	@keyframes scrollDrop {
+		0% { transform: translateY(-100%); opacity: 0; }
+		50% { opacity: 1; }
+		100% { transform: translateY(200%); opacity: 0; }
+	}
+	.animate-scroll-drop {
+		animation: scrollDrop 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+	}
+
 	.gallery-thumb {
 		opacity: 0.4;
 		transition: opacity 0.4s ease;
@@ -187,10 +259,8 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <script>
-	// --- PRO EVENT-DRIVEN CROSSFADE ENGINE ---
 	document.addEventListener('DOMContentLoaded', () => {
 		const mainImage = document.getElementById('main-gallery-image') as HTMLImageElement;
-		const mainCaption = document.getElementById('main-gallery-caption');
 		const thumbnails = document.querySelectorAll('.gallery-thumb');
 
 		if (!mainImage || thumbnails.length === 0) return;
@@ -199,35 +269,26 @@ import Footer from '../components/Footer.astro';
 
 		thumbnails.forEach(thumb => {
 			thumb.addEventListener('click', () => {
-				// If clicked on active, or already transitioning, ignore to prevent glitching
 				if (isTransitioning || thumb.classList.contains('active')) return;
 				
 				const newSrc = thumb.getAttribute('data-src');
-				const newCaption = thumb.getAttribute('data-caption');
 				if (!newSrc) return;
 
 				isTransitioning = true;
 
-				// 1. Fade out the main image
 				mainImage.style.opacity = '0';
 
-				// 2. Wait for the CSS transition to complete (Event-driven)
 				mainImage.addEventListener('transitionend', function handler() {
 					mainImage.removeEventListener('transitionend', handler);
 
-					// 3. Swap the source
 					mainImage.src = newSrc;
-					mainImage.alt = newCaption || 'Gallery Image';
-					if (mainCaption) mainCaption.innerHTML = newCaption || '';
 
-					// 4. Update thumbnails state
 					thumbnails.forEach(t => t.classList.remove('active'));
 					thumb.classList.add('active');
 
-					// 5. Fade back in once the new image is ready
 					mainImage.onload = () => {
 						mainImage.style.opacity = '1';
-						isTransitioning = false; // Ready for next click
+						isTransitioning = false; 
 					};
 				}, { once: true });
 			});

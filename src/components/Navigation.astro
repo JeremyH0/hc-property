@@ -1,41 +1,72 @@
 ---
-// Navigation.astro - Minimalist Header with Full-Screen Mobile Overlay
+// Navigation.astro - Minimalist Transparent Header with Smart Lang Logic
 ---
 
-<header class="w-full fixed top-0 left-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-100">
+<header id="main-header" class="w-full fixed top-0 left-0 z-50 transition-all duration-300 bg-transparent border-none">
   <div class="max-w-[100rem] mx-auto px-6 md:px-12 h-20 md:h-24 flex items-center justify-between">
     
-    <a href="#" class="font-sans text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-zinc-800 transition-opacity hover:opacity-70 relative z-50">
+    <a href="#" id="header-logo" class="font-sans text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-white transition-colors duration-300 hover:opacity-70 relative z-50">
       HC Property
     </a>
 
-    <!-- Reverted to original gap-12 -->
-    <nav class="hidden md:flex items-center gap-12" id="desktop-nav">
-      <a href="#concept"      class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Concept</a>
-      <a href="#architecture" class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Architecture</a>
-      <a href="#gallery"      class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Gallery</a>
-      <a href="#area"         class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Area</a>
-      <a href="#inquire"      class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-800 transition-colors duration-300">Inquire</a>
-    </nav>
+    <!-- Desktop Navigation Links & Right Controls -->
+    <div class="flex items-center gap-6 md:gap-10">
+      <nav class="hidden md:flex items-center gap-10 lg:gap-12" id="desktop-nav">
+        <a href="#concept"      class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Concept</a>
+        <a href="#architecture" class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Architecture</a>
+        <a href="#floorplan"    class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Masterplan</a>
+        <a href="#gallery"      class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Gallery</a>
+        <a href="#area"         class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Area</a>
+        <a href="#inquire"      class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Inquire</a>
+      </nav>
 
-    <button id="menu-toggle" class="md:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-end gap-[7px] focus:outline-none cursor-pointer" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span id="line-1" class="block w-6 h-px bg-zinc-800"></span>
-      <span id="line-2" class="block w-4 h-px bg-zinc-800"></span>
-    </button>
+      <!-- Desktop Luxury Language Dropdown (Hidden on Mobile) -->
+      <div id="lang-menu" class="hidden md:block relative group z-50 font-sans text-[10px] md:text-xs tracking-[0.2em] transition-colors duration-300 text-white">
+        <!-- Current Language Toggle -->
+        <button class="flex items-center gap-1.5 hover:opacity-70 transition-opacity focus:outline-none uppercase py-2" aria-haspopup="true">
+          <span id="current-lang-display">EN</span>
+          <svg class="w-3 h-3 opacity-50 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        
+        <!-- Dropdown Panel (Rounded evenly, more transparent) -->
+        <div class="absolute right-0 top-full mt-2 w-32 py-2 bg-white/75 backdrop-blur-md border border-zinc-100/50 opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-300 shadow-sm flex flex-col text-left rounded-lg">
+          <a href="/" class="block px-5 py-3 text-[10px] tracking-[0.2em] uppercase text-zinc-500 hover:text-zinc-950 transition-colors">English</a>
+          <!-- Once you build your JP and ZH pages, update the hrefs below to "/jp" and "/zh" -->
+          <a href="#" class="block px-5 py-3 text-[10px] tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-950 transition-colors">日本語</a>
+          <a href="#" class="block px-5 py-3 text-[10px] tracking-[0.2em] uppercase text-zinc-400 hover:text-zinc-950 transition-colors">中文</a>
+        </div>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-toggle" class="md:hidden relative z-50 w-8 h-10 flex flex-col justify-center items-end gap-[7px] focus:outline-none cursor-pointer md:pl-4" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span id="line-1" class="block w-6 h-px bg-white transition-colors duration-300"></span>
+        <span id="line-2" class="block w-4 h-px bg-white transition-colors duration-300"></span>
+      </button>
+    </div>
   </div>
 </header>
 
-<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center">
-  <!-- Reverted to original gap-8 -->
+<!-- Full Screen Mobile Menu -->
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true" class="fixed inset-0 z-40 bg-zinc-50 flex flex-col items-center justify-center">
   <nav class="flex flex-col items-center gap-8">
     <a href="#concept"      class="mobile-link" style="--i:1">Concept</a>
     <a href="#architecture" class="mobile-link" style="--i:2">Architecture</a>
-    <a href="#gallery"      class="mobile-link" style="--i:3">Gallery</a>
-    <a href="#area"         class="mobile-link" style="--i:4">Area</a>
+    <a href="#floorplan"    class="mobile-link" style="--i:3">Masterplan</a>
+    <a href="#gallery"      class="mobile-link" style="--i:4">Gallery</a>
+    <a href="#area"         class="mobile-link" style="--i:5">Area</a>
     <div class="w-8 h-px bg-zinc-200 my-1" aria-hidden="true"></div>
-    <a href="#inquire"      class="mobile-link-cta" style="--i:5">Inquire</a>
+    <a href="#inquire"      class="mobile-link-cta" style="--i:6">Inquire</a>
+    
+    <!-- Mobile Direct Language Switcher -->
+    <div class="flex items-center gap-6 mt-6 mobile-lang" style="--i:7">
+      <a href="/" class="font-sans text-xs font-medium tracking-[0.2em] text-zinc-800 hover:text-zinc-500 transition-colors">EN</a>
+      <a href="#" class="font-sans text-xs font-light tracking-[0.2em] text-zinc-400 hover:text-zinc-800 transition-colors">JP</a>
+      <a href="#" class="font-sans text-xs font-light tracking-[0.2em] text-zinc-400 hover:text-zinc-800 transition-colors">ZH</a>
+    </div>
   </nav>
-  <span class="absolute bottom-10 font-sans text-xs tracking-[0.2em] uppercase text-zinc-300">
+  <span class="absolute bottom-10 font-sans text-xs tracking-[0.2em] uppercase text-zinc-400">
     Kutchan &middot; Hokkaido &middot; Japan
   </span>
 </div>
@@ -57,12 +88,12 @@
     transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0s;
   }
 
-  .mobile-link, .mobile-link-cta {
+  .mobile-link, .mobile-link-cta, .mobile-lang {
     opacity: 0; transform: translateY(16px);
     transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), color 0.25s ease, border-color 0.25s ease;
     transition-delay: 0s;
   }
-  #mobile-menu.is-open .mobile-link, #mobile-menu.is-open .mobile-link-cta {
+  #mobile-menu.is-open .mobile-link, #mobile-menu.is-open .mobile-link-cta, #mobile-menu.is-open .mobile-lang {
     opacity: 1; transform: translateY(0);
     transition-delay: calc(0.07s + (var(--i) - 1) * 0.065s);
   }
@@ -82,16 +113,81 @@
 </style>
 
 <script>
-  const toggle     = document.getElementById('menu-toggle');
-  const menu       = document.getElementById('mobile-menu');
-  const desktopNav = document.getElementById('desktop-nav');
+  const toggle       = document.getElementById('menu-toggle');
+  const menu         = document.getElementById('mobile-menu');
+  const desktopNav   = document.getElementById('desktop-nav');
+  const logo         = document.getElementById('header-logo');
+  const navLinks     = document.querySelectorAll('.nav-link');
+  const langMenu     = document.getElementById('lang-menu');
+  const line1        = document.getElementById('line-1');
+  const line2        = document.getElementById('line-2');
+  const header       = document.getElementById('main-header');
   
   const mobileLinks = menu ? Array.from(menu.querySelectorAll('a')) : [];
   const desktopLinks = desktopNav ? Array.from(desktopNav.querySelectorAll('a')) : [];
-  const allLinks = [...mobileLinks, ...desktopLinks];
+  const allLinks = [...mobileLinks, ...desktopLinks]; 
   
   let isOpen = false;
 
+  // --- 1. PIXEL-PERFECT SCROLL LOGIC ---
+  function updateHeaderState() {
+    const hero = document.getElementById('hero-section');
+    const headerHeight = header ? header.offsetHeight : 80;
+    
+    let isPastHero = false;
+
+    if (hero) {
+      // getBoundingClientRect().bottom gives the exact pixel location of the hero's bottom edge.
+      // When the bottom edge of the hero is higher than the header's height + 10px buffer,
+      // it means the header text is now resting over the white section.
+      isPastHero = hero.getBoundingClientRect().bottom <= (headerHeight + 10);
+    } else {
+      isPastHero = window.scrollY > 50;
+    }
+
+    if (isPastHero) {
+      // Over White Sections: Use Zinc-950, completely transparent background
+      logo?.classList.remove('text-white');
+      logo?.classList.add('text-zinc-950');
+
+      langMenu?.classList.remove('text-white');
+      langMenu?.classList.add('text-zinc-950');
+
+      navLinks.forEach(link => {
+        link.classList.remove('text-white/90', 'hover:text-white');
+        link.classList.add('text-zinc-500', 'hover:text-zinc-950');
+      });
+
+      if (!isOpen) {
+        line1?.classList.remove('bg-white'); line1?.classList.add('bg-zinc-950');
+        line2?.classList.remove('bg-white'); line2?.classList.add('bg-zinc-950');
+      }
+    } else {
+      // Over Dark Hero Image: Use White
+      logo?.classList.add('text-white');
+      logo?.classList.remove('text-zinc-950');
+
+      langMenu?.classList.add('text-white');
+      langMenu?.classList.remove('text-zinc-950');
+
+      navLinks.forEach(link => {
+        link.classList.add('text-white/90', 'hover:text-white');
+        link.classList.remove('text-zinc-500', 'hover:text-zinc-950');
+      });
+
+      if (!isOpen) {
+        line1?.classList.add('bg-white'); line1?.classList.remove('bg-zinc-950');
+        line2?.classList.add('bg-white'); line2?.classList.remove('bg-zinc-950');
+      }
+    }
+  }
+
+  // Use passive listeners for high performance
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
+  window.addEventListener('resize', updateHeaderState, { passive: true });
+  updateHeaderState(); 
+
+  // --- 2. MENU TOGGLE & SCROLL ROUTING ---
   function lockScroll() {
     if (window['lenis']) window['lenis'].stop();
     document.body.style.overflow = 'hidden';
@@ -108,6 +204,10 @@
     toggle?.classList.add('is-open');
     toggle?.setAttribute('aria-expanded', 'true');
     menu?.setAttribute('aria-hidden', 'false');
+    
+    line1?.classList.remove('bg-white'); line1?.classList.add('bg-zinc-950');
+    line2?.classList.remove('bg-white'); line2?.classList.add('bg-zinc-950');
+    
     lockScroll();
   }
 
@@ -118,6 +218,8 @@
     toggle?.classList.remove('is-open');
     toggle?.setAttribute('aria-expanded', 'false');
     menu?.setAttribute('aria-hidden', 'true');
+    
+    updateHeaderState();
     unlockScroll();
   }
 
@@ -135,13 +237,12 @@
         const target = document.querySelector(href);
         if (target) {
           closeMenu();
-          
           requestAnimationFrame(() => {
-            const headerOffset = 96; 
+            const headerOffset = 0; 
             const lenisInstance = window['lenis']; 
             
             if (lenisInstance) {
-              lenisInstance.scrollTo(target, { offset: -headerOffset });
+              lenisInstance.scrollTo(target, { offset: headerOffset });
             } else {
               const elementPosition = target.getBoundingClientRect().top;
               const offsetPosition = elementPosition + window.scrollY - headerOffset;
@@ -158,4 +259,20 @@
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 768 && isOpen) closeMenu();
   });
+
+  // --- 3. AUTO LANGUAGE REDIRECT LOGIC ---
+  const hasVisited = localStorage.getItem('hc_lang_checked');
+  if (!hasVisited) {
+    localStorage.setItem('hc_lang_checked', 'true'); 
+    
+    const userLang = navigator.language.toLowerCase();
+    
+    /* Uncomment these lines when localized pages exist
+    if (userLang.startsWith('ja') && window.location.pathname !== '/jp/') {
+       window.location.href = '/jp/';
+    } else if (userLang.startsWith('zh') && window.location.pathname !== '/zh/') {
+       window.location.href = '/zh/';
+    }
+    */
+  }
 </script>
