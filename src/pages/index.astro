@@ -33,455 +33,446 @@ import img16 from '../assets/gallery/16.jpeg';
 
 // Helper array to generate the sets effortlessly
 const galleryImages = [
-	{ src: img1, label: "Image 1" }, { src: img2, label: "Image 2" },
-	{ src: img3, label: "Image 3" }, { src: img4, label: "Image 4" },
-	{ src: img5, label: "Image 5" }, { src: img6, label: "Image 6" },
-	{ src: img7, label: "Image 7" }, { src: img8, label: "Image 8" },
-	{ src: img9, label: "Image 9" }, { src: img10, label: "Image 10" },
-	{ src: img11, label: "Image 11" }, { src: img12, label: "Image 12" },
-	{ src: img13, label: "Image 13" }, { src: img14, label: "Image 14" },
-	{ src: img15, label: "Image 15" }, { src: img16, label: "Image 16" }
+    { src: img1, label: "Image 1" }, { src: img2, label: "Image 2" },
+    { src: img3, label: "Image 3" }, { src: img4, label: "Image 4" },
+    { src: img5, label: "Image 5" }, { src: img6, label: "Image 6" },
+    { src: img7, label: "Image 7" }, { src: img8, label: "Image 8" },
+    { src: img9, label: "Image 9" }, { src: img10, label: "Image 10" },
+    { src: img11, label: "Image 11" }, { src: img12, label: "Image 12" },
+    { src: img13, label: "Image 13" }, { src: img14, label: "Image 14" },
+    { src: img15, label: "Image 15" }, { src: img16, label: "Image 16" }
 ];
 ---
 
-<Layout title="Seren Collective MAPLE | Karuizawa">
-	<Navigation />
-	
-	<main class="w-full tracking-normal leading-loose">
-		
-		<section id="hero-section" class="relative w-full h-[35svh] min-h-[320px] md:h-[35svh] md:min-h-[400px] lg:h-[100svh] lg:min-h-[700px] flex flex-col overflow-hidden bg-zinc-950">
-			
-			<div class="absolute inset-0 w-full h-full">
-				<Image 
-					src={imgHeroHQ} 
-					alt="Exterior view of Seren Collective Maple" 
-					widths={[768, 1280, 1920, 2560]}
-					sizes="100vw"
-					class="w-full h-full object-cover opacity-90" 
-					loading="eager" 
-					fetchpriority="high" 
-				/>
-				<div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 md:from-zinc-950/60 lg:from-zinc-950/50 via-transparent to-black/30"></div>
-			</div>
+<Layout title="Karuizawa | 轻井泽">
+    <Navigation />
+    
+    <main class="w-full tracking-normal leading-loose">
+        
+        <section id="hero-section" class="relative w-full h-[35svh] min-h-[320px] md:h-[35svh] md:min-h-[400px] lg:h-[100svh] lg:min-h-[700px] flex flex-col overflow-hidden bg-zinc-950">
+            
+            <div class="absolute inset-0 w-full h-full">
+                <Image 
+                    src={imgHeroHQ} 
+                    alt="Exterior view of Seren Collective Maple" 
+                    widths={[768, 1280, 1920, 2560]}
+                    sizes="100vw"
+                    class="w-full h-full object-cover opacity-90" 
+                    loading="eager" 
+                    fetchpriority="high" 
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 md:from-zinc-950/60 lg:from-zinc-950/50 via-transparent to-black/30"></div>
+            </div>
 
-			<div class="relative z-10 flex flex-col items-start justify-end text-left px-6 md:px-12 w-full max-w-[100rem] mx-auto h-full pb-8 md:pb-12 lg:pb-32">
-				<h1 class="hero-reveal font-sans text-2xl md:text-3xl lg:text-5xl font-light tracking-[0.15em] text-white drop-shadow-md flex items-center">
-					Karuizawa <span class="mx-3 md:mx-4 font-extralight text-white/50 text-xl md:text-2xl lg:text-4xl">|</span> 轻井泽
-				</h1>
-			</div>
+            <div class="relative z-10 flex flex-col items-start justify-end text-left px-6 md:px-12 w-full max-w-[100rem] mx-auto h-full pb-8 md:pb-12 lg:pb-32">
+                <h1 class="hero-reveal font-sans text-2xl md:text-3xl lg:text-5xl font-light tracking-[0.15em] text-white drop-shadow-md flex items-center">
+                    Karuizawa <span class="mx-3 md:mx-4 font-extralight text-white/50 text-xl md:text-2xl lg:text-4xl">|</span> 轻井泽
+                </h1>
+            </div>
 
-			<div class="hidden xl:flex absolute bottom-12 right-12 z-10 hero-reveal flex-col items-center gap-4">
-				<span class="font-sans text-[9px] tracking-[0.3em] uppercase text-white/60" style="writing-mode: vertical-rl;">Scroll</span>
-				<div class="w-px h-12 bg-white/20 relative overflow-hidden">
-					<div class="absolute top-0 left-0 w-full h-1/2 bg-white animate-scroll-drop"></div>
-				</div>
-			</div>
-		</section>
+            <div class="hidden xl:flex absolute bottom-12 right-12 z-10 hero-reveal flex-col items-center gap-4">
+                <span class="font-sans text-[9px] tracking-[0.3em] uppercase text-white/60" style="writing-mode: vertical-rl;">Scroll</span>
+                <div class="w-px h-12 bg-white/20 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1/2 bg-white animate-scroll-drop"></div>
+                </div>
+            </div>
+        </section>
 
-		<section id="concept" class="px-6 py-24 md:py-32 lg:py-48 max-w-4xl mx-auto text-center">
-			<span class="reveal-el font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-8 block">The Estate</span>
-			<h2 class="reveal-el font-serif text-3xl md:text-5xl lg:text-6xl font-light text-zinc-800 tracking-wide mb-12 md:mb-16 leading-tight">
-				A sanctuary divided, <br class="hidden md:block"/> yet perfectly unified.
-			</h2>
-			<div class="reveal-el font-sans text-zinc-500 font-light leading-loose flex flex-col gap-6 md:gap-8 text-left md:text-center text-sm md:text-base lg:text-lg max-w-3xl mx-auto">
-				<p>Set within a deeply forested enclave of Karuizawa, this expansive residence is ingeniously designed as two distinct structures—a main house and a guest house—connected seamlessly by an elegant hallway.</p>
-				<p>This intelligent layout allows the property to function flawlessly as a single, grand estate for large gatherings, or it can be secured to provide absolute privacy and independence for both hosts and guests.</p>
-			</div>
-		</section>
+        <section id="concept" class="px-6 py-24 md:py-32 lg:py-48 max-w-4xl mx-auto text-center">
+            <span class="reveal-el font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-8 block">The Estate</span>
+            <h2 class="reveal-el font-serif text-3xl md:text-5xl lg:text-6xl font-light text-zinc-800 tracking-wide mb-12 md:mb-16 leading-tight">
+                A sanctuary divided, <br class="hidden md:block"/> yet perfectly unified.
+            </h2>
+            <div class="reveal-el font-sans text-zinc-500 font-light leading-loose flex flex-col gap-6 md:gap-8 text-left md:text-center text-sm md:text-base lg:text-lg max-w-3xl mx-auto">
+                <p>Set within a deeply forested enclave of Karuizawa, this expansive residence is ingeniously designed as two distinct structures—a main house and a guest house—connected seamlessly by an elegant hallway.</p>
+                <p>This intelligent layout allows the property to function flawlessly as a single, grand estate for large gatherings, or it can be secured to provide absolute privacy and independence for both hosts and guests.</p>
+            </div>
+        </section>
 
-		<section id="architecture" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto">
-			<div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-				
-				<div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-1">
-					<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Accommodations</span>
-					<h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
-					<p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The estate accommodates family and guests with uncompromising comfort. The main residence features four spacious bedrooms, while the guest house offers three. Crucially, every single bedroom in the estate is complemented by its own private ensuite bathroom.</p>
-				</div>
-				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl order-2">
-					<Image src={imgSuite} alt="Private Suite Interior" class="w-full h-full object-cover" />
-				</div>
+        <section id="architecture" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                
+                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-1">
+                    <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Accommodations</span>
+                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
+                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The estate accommodates family and guests with uncompromising comfort. The main residence features four spacious bedrooms, while the guest house offers three. Crucially, every single bedroom in the estate is complemented by its own private ensuite bathroom.</p>
+                </div>
+                <div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl order-2">
+                    <Image src={imgSuite} alt="Private Suite Interior" class="w-full h-full object-cover" />
+                </div>
 
-				<div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-3 xl:order-4">
-					<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Wellness & Leisure</span>
-					<h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Private Spa & Firepit</h3>
-					<p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The second floor of the main house is dedicated to wellness, featuring a private spa with dual large soaking tubs and a custom sauna. Outside, an expansive wooden deck centers around a sunken firepit—the perfect setting for evening relaxation under the forest canopy.</p>
-				</div>
-				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl order-4 xl:order-3">
-					<Image src={imgFirepit} alt="Wellness and Deck Firepit" class="w-full h-full object-cover" />
-				</div>
+                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-3 xl:order-4">
+                    <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Wellness & Leisure</span>
+                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Private Spa & Firepit</h3>
+                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The second floor of the main house is dedicated to wellness, featuring a private spa with dual large soaking tubs and a custom sauna. Outside, an expansive wooden deck centers around a sunken firepit—the perfect setting for evening relaxation under the forest canopy.</p>
+                </div>
+                <div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl order-4 xl:order-3">
+                    <Image src={imgFirepit} alt="Wellness and Deck Firepit" class="w-full h-full object-cover" />
+                </div>
 
-			</div>
-		</section>
+            </div>
+        </section>
 
-		<section id="floorplan" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
-			<div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 relative items-start">
-				
-				<div class="xl:col-span-4 xl:sticky xl:top-32 transition-all duration-300">
-					<div class="reveal-el flex flex-col gap-6 md:gap-8">
-						<div>
-							<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
-							<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
-						</div>
-						<div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
-							<p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
-							<p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
-						</div>
-					</div>
-				</div>
+        <section id="floorplan" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
+            <div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 relative">
+                
+                <div class="xl:col-span-4 relative">
+                    <div class="xl:sticky xl:top-32 transition-all duration-300">
+                        <div class="reveal-el flex flex-col gap-6 md:gap-8">
+                            <div>
+                                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
+                                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
+                            </div>
+                            <div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
+                                <p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
+                                <p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="xl:col-span-8 flex flex-col gap-12 md:gap-16 lg:gap-24">
-					<div class="reveal-el flex flex-col gap-6">
-						<div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
-							<Image src={imgFloorplan1} alt="First Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
-						</div>
-						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center xl:text-left">
-							First Floor: Living & Gathering Spaces
-						</span>
-					</div>
-					
-					<div class="reveal-el flex flex-col gap-6">
-						<div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
-							<Image src={imgFloorplan2} alt="Second Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
-						</div>
-						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center xl:text-left">
-							Second Floor: Private Suites & Spa
-						</span>
-					</div>
-				</div>
+                <div class="xl:col-span-8 flex flex-col gap-12 md:gap-16 lg:gap-24">
+                    <div class="reveal-el flex flex-col gap-6">
+                        <div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
+                            <Image src={imgFloorplan1} alt="First Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
+                        </div>
+                        <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center xl:text-left">
+                            First Floor: Living & Gathering Spaces
+                        </span>
+                    </div>
+                    
+                    <div class="reveal-el flex flex-col gap-6">
+                        <div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
+                            <Image src={imgFloorplan2} alt="Second Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
+                        </div>
+                        <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center xl:text-left">
+                            Second Floor: Private Suites & Spa
+                        </span>
+                    </div>
+                </div>
 
-			</div>
-		</section>
+            </div>
+        </section>
 
-		<section id="gallery" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100 relative">
-			
-			<div class="reveal-el mb-8 md:mb-12 lg:mb-20">
-				<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Gallery</span>
-			</div>
+        <section id="gallery" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100 relative">
+            
+            <div class="reveal-el mb-8 md:mb-12 lg:mb-20">
+                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Gallery</span>
+            </div>
 
-			<div class="reveal-el grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6 xl:gap-12 items-stretch w-full">
-				
-				<div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-100 overflow-hidden rounded-xl shadow-sm">
-					<img id="main-gallery-image" src={img1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none" loading="lazy" decoding="async"/>
-				</div>
+            <div class="reveal-el grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6 xl:gap-12 items-stretch w-full">
+                
+                <div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-100 overflow-hidden rounded-xl shadow-sm">
+                    <img id="main-gallery-image" src={img1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none" loading="lazy" decoding="async"/>
+                </div>
 
-				<div class="xl:hidden w-full relative mask-edges overflow-hidden">
-					<div id="mobile-thumb-scroll" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-[5vw]">
-						
-						<div class="mobile-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
-							{galleryImages.map((img, index) => (
-								<button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
-									<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
-								</button>
-							))}
-						</div>
+                <div class="xl:hidden w-full relative mask-edges overflow-hidden">
+                    <div id="mobile-thumb-scroll" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-[5vw]">
+                        
+                        <div class="mobile-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
+                            {galleryImages.map((img, index) => (
+                                <button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+                                    <Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
+                                </button>
+                            ))}
+                        </div>
 
-						<div class="mobile-set middle-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
-							{galleryImages.map((img, index) => (
-								<button class={`gallery-thumb mobile-thumb mobile-target group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
-									<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
-								</button>
-							))}
-						</div>
+                        <div class="mobile-set middle-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
+                            {galleryImages.map((img, index) => (
+                                <button class={`gallery-thumb mobile-thumb mobile-target group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+                                    <Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
+                                </button>
+                            ))}
+                        </div>
 
-						<div class="mobile-set flex gap-2 md:gap-3 shrink-0">
-							{galleryImages.map((img, index) => (
-								<button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
-									<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
-								</button>
-							))}
-						</div>
+                        <div class="mobile-set flex gap-2 md:gap-3 shrink-0">
+                            {galleryImages.map((img, index) => (
+                                <button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+                                    <Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
+                                </button>
+                            ))}
+                        </div>
 
-					</div>
-				</div>
+                    </div>
+                </div>
 
-				<div class="hidden xl:grid xl:col-span-5 w-full grid-cols-4 grid-rows-4 gap-3 content-start">
-					{galleryImages.map((img, index) => (
-						<button class={`gallery-thumb desktop-thumb group w-full h-full aspect-auto bg-zinc-100 rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
-							<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-						</button>
-					))}
-				</div>
+                <div class="hidden xl:grid xl:col-span-5 w-full grid-cols-4 grid-rows-4 gap-3 content-start">
+                    {galleryImages.map((img, index) => (
+                        <button class={`gallery-thumb desktop-thumb group w-full h-full aspect-auto bg-zinc-100 rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+                            <Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
+                        </button>
+                    ))}
+                </div>
 
-			</div>
-		</section>
+            </div>
+        </section>
 
-		<section id="area" class="px-6 py-16 md:py-24 lg:py-32 max-w-4xl mx-auto border-t border-zinc-100">
-			<div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
-				<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Area</span>
-				<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Karuizawa</h2>
-			</div>
+        <section id="area" class="px-6 py-16 md:py-24 lg:py-32 max-w-4xl mx-auto border-t border-zinc-100">
+            <div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
+                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Area</span>
+                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Karuizawa</h2>
+            </div>
 
-			<div class="flex flex-col border-t border-zinc-100">
-				
-				<div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
-					<div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Address</div>
-					<div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose flex flex-col gap-1">
-						<span>19-29 Seisatsuba, Oaza Nagakura, Karuizawa-machi, Kitasaku-gun, Nagano</span>
-						<span class="text-xs md:text-sm text-zinc-500 font-light tracking-wide mt-1">長野県北佐久郡軽井沢町大字長倉字制札場１９－２９</span>
-					</div>
-				</div>
+            <div class="flex flex-col border-t border-zinc-100">
+                
+                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
+                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Address</div>
+                    <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose flex flex-col gap-1">
+                        <span>19-29 Seisatsuba, Oaza Nagakura, Karuizawa-machi, Kitasaku-gun, Nagano</span>
+                        <span class="text-xs md:text-sm text-zinc-500 font-light tracking-wide mt-1">長野県北佐久郡軽井沢町大字長倉字制札場１９－２９</span>
+                    </div>
+                </div>
 
-				<div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
-					<div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Neighborhood</div>
-					<div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
-						Situated within a deeply forested area of Karuizawa, offering profound tranquility, shade, and seclusion, while maintaining convenient access to the town's refined amenities.
-					</div>
-				</div>
-				
-				<div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
-					<div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Access</div>
-					<div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
-						Conveniently accessible via the Hokuriku Shinkansen from central Tokyo.
-					</div>
-				</div>
+                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
+                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Neighborhood</div>
+                    <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
+                        Situated within a deeply forested area of Karuizawa, offering profound tranquility, shade, and seclusion, while maintaining convenient access to the town's refined amenities.
+                    </div>
+                </div>
+                
+                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
+                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Access</div>
+                    <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
+                        Conveniently accessible via the Hokuriku Shinkansen from central Tokyo.
+                    </div>
+                </div>
 
-			</div>
-		</section>
+            </div>
+        </section>
 
-		<section id="inquire" class="px-6 py-24 md:py-32 lg:py-48 max-w-3xl mx-auto border-t border-zinc-100">
-			<div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
-				<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">Private Viewing</span>
-				<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide mb-8">Inquire about this property</h2>
-			</div>
+        <section id="inquire" class="px-6 py-24 md:py-32 lg:py-48 max-w-3xl mx-auto border-t border-zinc-100">
+            <div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
+                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">Private Viewing</span>
+                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide mb-8">Inquire about this property</h2>
+            </div>
 
-			<form class="flex flex-col gap-8 md:gap-12">
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-					<div class="reveal-el flex flex-col gap-2 md:gap-3">
-						<label for="name" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Name</label>
-						<input type="text" id="name" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
-					</div>
-					<div class="reveal-el flex flex-col gap-2 md:gap-3">
-						<label for="email" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Email</label>
-						<input type="email" id="email" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
-					</div>
-				</div>
-				<div class="reveal-el flex flex-col gap-2 md:gap-3">
-					<label for="message" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Message</label>
-					<textarea id="message" rows="4" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors resize-none rounded-none"></textarea>
-				</div>
-				<button type="submit" class="reveal-el self-center mt-4 md:mt-8 bg-zinc-800 text-white font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase px-10 md:px-12 py-4 md:py-5 hover:bg-zinc-700 transition-colors w-full md:w-auto cursor-pointer">
+            <form class="flex flex-col gap-8 md:gap-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <div class="reveal-el flex flex-col gap-2 md:gap-3">
+                        <label for="name" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Name</label>
+                        <input type="text" id="name" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+                    </div>
+                    <div class="reveal-el flex flex-col gap-2 md:gap-3">
+                        <label for="email" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Email</label>
+                        <input type="email" id="email" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+                    </div>
+                </div>
+                <div class="reveal-el flex flex-col gap-2 md:gap-3">
+                    <label for="message" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Message</label>
+                    <textarea id="message" rows="4" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors resize-none rounded-none"></textarea>
+                </div>
+                <button type="submit" class="reveal-el self-center mt-4 md:mt-8 bg-zinc-800 text-white font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase px-10 md:px-12 py-4 md:py-5 hover:bg-zinc-700 transition-colors w-full md:w-auto cursor-pointer">
 					Submit Inquiry
-				</button>
-			</form>
-		</section>
+                </button>
+            </form>
+        </section>
 
-	</main>
-	
-	<div class="reveal-el">
-		<Footer />
-	</div>
+    </main>
+    
+    <div class="reveal-el">
+        <Footer />
+    </div>
 </Layout>
 
+<style is:global>
+    /* Safely secures mobile dimensions without disabling sticky logic */
+    html, body {
+        overflow-x: clip;
+        width: 100%;
+    }
+</style>
+
 <style>
-	@keyframes scrollDrop {
-		0% { transform: translateY(-100%); opacity: 0; }
-		50% { opacity: 1; }
-		100% { transform: translateY(200%); opacity: 0; }
-	}
-	.animate-scroll-drop {
-		animation: scrollDrop 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-	}
+    @keyframes scrollDrop {
+        0% { transform: translateY(-100%); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(200%); opacity: 0; }
+    }
+    .animate-scroll-drop {
+        animation: scrollDrop 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+    }
 
-	.gallery-thumb::after {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background-color: white;
-		opacity: 0;
-		transition: opacity 0.3s ease;
-		pointer-events: none;
-	}
-	.gallery-thumb:hover::after {
-		opacity: 0.15; 
-	}
-	.gallery-thumb.active::after {
-		opacity: 0.65; 
-	}
-	.gallery-thumb.active {
-		pointer-events: none; 
-	}
+    .gallery-thumb::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    .gallery-thumb:hover::after {
+        opacity: 0.15; 
+    }
+    .gallery-thumb.active::after {
+        opacity: 0.65; 
+    }
+    .gallery-thumb.active {
+        pointer-events: none; 
+    }
 
-	.mask-edges {
-		-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-		mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-	}
+    /* REDUCED MASK EFFECT: Beautiful, subtle 4% fade per your request */
+    .mask-edges {
+        -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+    }
 
-	.scrollbar-hide::-webkit-scrollbar {
-		display: none;
-	}
-	.scrollbar-hide {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
-	}
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 </style>
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 
-		// ---------------------------------------------------------
-		// GALLERY INTERACTIVE ENGINE
-		// ---------------------------------------------------------
-		const mainImage = document.getElementById('main-gallery-image') as HTMLImageElement;
-		const mainContainer = document.getElementById('main-gallery-container');
-		const thumbnails = document.querySelectorAll('.gallery-thumb');
-		const mobileScroll = document.getElementById('mobile-thumb-scroll');
+        // ---------------------------------------------------------
+        // GALLERY INTERACTIVE ENGINE
+        // ---------------------------------------------------------
+        const mainImage = document.getElementById('main-gallery-image') as HTMLImageElement;
+        const mainContainer = document.getElementById('main-gallery-container');
+        const thumbnails = document.querySelectorAll('.gallery-thumb');
+        const mobileScroll = document.getElementById('mobile-thumb-scroll');
 
-		if (!mainImage || !mainContainer || thumbnails.length === 0) return;
+        if (!mainImage || !mainContainer || thumbnails.length === 0) return;
 
-		let isTransitioning = false;
-		let currentIndex = 0;
-		const totalImages = 16; 
+        let isTransitioning = false;
+        let currentIndex = 0;
+        const totalImages = 16; 
 
-		const desktopThumbs = document.querySelectorAll('.desktop-thumb');
-		const imageList = Array.from(desktopThumbs).map(t => t.getAttribute('data-src'));
+        const desktopThumbs = document.querySelectorAll('.desktop-thumb');
+        const imageList = Array.from(desktopThumbs).map(t => t.getAttribute('data-src'));
 
-		// --- SILENT BACKGROUND PRELOADER ---
-		window.addEventListener('load', () => {
-			setTimeout(() => {
-				imageList.forEach(src => {
-					if (src) {
-						const img = new Image();
-						img.src = src;
-					}
-				});
-			}, 800);
+        // --- SILENT BACKGROUND PRELOADER ---
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                imageList.forEach(src => {
+                    if (src) {
+                        const img = new Image();
+                        img.src = src;
+                    }
+                });
+            }, 800);
 		});
 
-		// --- GLITCH-FREE INFINITE SCROLL TRACKING ---
-		let activeMobileThumb: Element | null = null;
-		
-		function initInfiniteScroll() {
-			if (!mobileScroll || window.innerWidth >= 1280) return;
-			
-			const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
-			if (allMobileThumbs.length < 48) return;
+        // --- GLITCH-FREE INFINITE SCROLL TRACKING ---
+        function initInfiniteScroll() {
+            if (!mobileScroll || window.innerWidth >= 1280) return;
+            
+            const sets = mobileScroll.querySelectorAll('.mobile-set');
+            if (sets.length < 3) return;
 
-			activeMobileThumb = allMobileThumbs[16];
-			const setWidth = mobileScroll.scrollWidth / 3;
+            const setWidth = sets[0].getBoundingClientRect().width;
+            
+            // Only force jump on initial setup to not disrupt user flow
+            if (mobileScroll.scrollLeft === 0) {
+                mobileScroll.scrollLeft = setWidth;
+            }
 
-			mobileScroll.scrollLeft = setWidth;
+            let scrollTimeout;
+            mobileScroll.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const currentScroll = mobileScroll.scrollLeft;
+                    
+                    if (currentScroll < setWidth * 0.5) {
+                        mobileScroll.style.scrollSnapType = 'none';
+                        mobileScroll.style.scrollBehavior = 'auto'; 
+                        mobileScroll.scrollLeft += setWidth;
+                        void mobileScroll.offsetWidth; 
+                        mobileScroll.style.scrollSnapType = 'x mandatory';
+                    } 
+                    else if (currentScroll > setWidth * 1.5) {
+                        mobileScroll.style.scrollSnapType = 'none';
+                        mobileScroll.style.scrollBehavior = 'auto';
+                        mobileScroll.scrollLeft -= setWidth;
+                        void mobileScroll.offsetWidth; 
+                        mobileScroll.style.scrollSnapType = 'x mandatory';
+                    }
+                }, 150); 
+            }, { passive: true });
+        }
 
-			let scrollTimeout;
-			mobileScroll.addEventListener('scroll', () => {
-				clearTimeout(scrollTimeout);
-				scrollTimeout = setTimeout(() => {
-					const currentScroll = mobileScroll.scrollLeft;
-					
-					if (currentScroll < setWidth * 0.5) {
-						mobileScroll.style.scrollSnapType = 'none';
-						mobileScroll.style.scrollBehavior = 'auto'; 
-						mobileScroll.scrollLeft += setWidth;
-						shiftActiveThumb(16); 
-						void mobileScroll.offsetWidth; 
-						mobileScroll.style.scrollSnapType = 'x mandatory';
-					} 
-					else if (currentScroll > setWidth * 1.5) {
-						mobileScroll.style.scrollSnapType = 'none';
-						mobileScroll.style.scrollBehavior = 'auto';
-						mobileScroll.scrollLeft -= setWidth;
-						shiftActiveThumb(-16); 
-						void mobileScroll.offsetWidth; 
-						mobileScroll.style.scrollSnapType = 'x mandatory';
-					}
-				}, 200); 
-			}, { passive: true });
-		}
-
-		// Sync the active reference when teleporting
-		function shiftActiveThumb(offset: number) {
-			const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
-			if (!activeMobileThumb) return;
-			const currentIndexInArray = allMobileThumbs.indexOf(activeMobileThumb as Element);
-			const newIndex = currentIndexInArray + offset;
-			if (newIndex >= 0 && newIndex < allMobileThumbs.length) {
-				activeMobileThumb = allMobileThumbs[newIndex];
-			}
-		}
-
-		setTimeout(initInfiniteScroll, 100);
-		window.addEventListener('resize', initInfiniteScroll);
+        setTimeout(initInfiniteScroll, 100);
+        window.addEventListener('resize', initInfiniteScroll);
 
 
-		// --- CORE GALLERY UPDATE FUNCTION ---
-		function updateGallery(clickedThumbElement: Element) {
-			if (!clickedThumbElement || isTransitioning || clickedThumbElement.classList.contains('active')) return;
-			
-			isTransitioning = true;
-			const newSrc = clickedThumbElement.getAttribute('data-src');
-			const realIndex = clickedThumbElement.getAttribute('data-index');
+        // --- CORE GALLERY UPDATE FUNCTION ---
+        function updateGallery(clickedThumbElement: Element) {
+            if (!clickedThumbElement || isTransitioning || clickedThumbElement.classList.contains('active')) return;
+            
+            isTransitioning = true;
+            const newSrc = clickedThumbElement.getAttribute('data-src');
+            const realIndex = parseInt(clickedThumbElement.getAttribute('data-index') || "0", 10);
 
-			mainImage.style.opacity = '0';
+            mainImage.style.opacity = '0';
 
-			mainImage.addEventListener('transitionend', function handler() {
-				mainImage.removeEventListener('transitionend', handler);
+            mainImage.addEventListener('transitionend', function handler() {
+                mainImage.removeEventListener('transitionend', handler);
 
-				if (newSrc) mainImage.src = newSrc;
+                if (newSrc) mainImage.src = newSrc;
+                currentIndex = realIndex;
 
-				thumbnails.forEach(t => t.classList.remove('active'));
-				const matchingThumbs = document.querySelectorAll(`.gallery-thumb[data-index="${realIndex}"]`);
-				matchingThumbs.forEach(t => t.classList.add('active'));
+                thumbnails.forEach(t => t.classList.remove('active'));
+                const matchingThumbs = document.querySelectorAll(`.gallery-thumb[data-index="${realIndex}"]`);
+                matchingThumbs.forEach(t => t.classList.add('active'));
 
-				if (window.innerWidth < 1280 && mobileScroll && activeMobileThumb) {
-					activeMobileThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-				}
+                if (window.innerWidth < 1280 && mobileScroll) {
+                    const targetMiddleThumb = document.querySelector(`.mobile-target[data-index="${realIndex}"]`);
+                    if (targetMiddleThumb) {
+                        targetMiddleThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                }
 
-				mainImage.onload = () => {
-					mainImage.style.opacity = '1';
-					isTransitioning = false; 
-				};
-			}, { once: true });
-		}
-
-
-		// 1. Click Event for all Thumbnails
-		thumbnails.forEach(thumb => {
-			thumb.addEventListener('click', () => {
-				if (thumb.classList.contains('mobile-thumb') || thumb.classList.contains('mobile-target')) {
-					activeMobileThumb = thumb; 
-				} else {
-					// If a desktop thumb is clicked, sync the mobile logic to the true middle array
-					const realIndex = thumb.getAttribute('data-index');
-					activeMobileThumb = document.querySelector(`.mobile-target[data-index="${realIndex}"]`);
-				}
-				updateGallery(thumb);
-			});
-		});
+                mainImage.onload = () => {
+                    mainImage.style.opacity = '1';
+                    isTransitioning = false; 
+                };
+            }, { once: true });
+        }
 
 
-		// 2. Touch/Swipe Logic for Main Image
-		let touchStartX = 0;
-		let touchEndX = 0;
+        // 1. Click Event for all Thumbnails
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                updateGallery(thumb);
+            });
+        });
 
-		mainContainer.addEventListener('touchstart', (e: TouchEvent) => {
-			touchStartX = e.changedTouches[0].screenX;
-		}, { passive: true });
 
-		mainContainer.addEventListener('touchend', (e: TouchEvent) => {
-			touchEndX = e.changedTouches[0].screenX;
-			handleSwipe();
-		}, { passive: true });
+        // 2. Touch/Swipe Logic for Main Image
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-		// The Swipe engine now traverses the raw DOM array linearly, preventing set-boundary glitches
-		function handleSwipe() {
-			if (window.innerWidth >= 1280 || !activeMobileThumb) return; 
-			
-			const threshold = 40; 
-			const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
-			const currentIndexInArray = allMobileThumbs.indexOf(activeMobileThumb as Element);
-			
-			if (touchStartX - touchEndX > threshold) {
-				// Swiped Left -> Move physically to the exact next element in the array
-				if (currentIndexInArray < allMobileThumbs.length - 1) {
-					activeMobileThumb = allMobileThumbs[currentIndexInArray + 1];
-					updateGallery(activeMobileThumb);
-				}
-			} else if (touchEndX - touchStartX > threshold) {
-				// Swiped Right -> Move physically to the exact previous element in the array
-				if (currentIndexInArray > 0) {
-					activeMobileThumb = allMobileThumbs[currentIndexInArray - 1];
-					updateGallery(activeMobileThumb);
-				}
-			}
-		}
-	});
+        mainContainer.addEventListener('touchstart', (e: TouchEvent) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        mainContainer.addEventListener('touchend', (e: TouchEvent) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        // THE FLAWLESS SWIPE: Decoupled entirely from physical array layout
+        function handleSwipe() {
+            if (window.innerWidth >= 1280) return; 
+            
+            const threshold = 30; // Very responsive light swipe detection
+            
+            if (touchStartX - touchEndX > threshold) {
+                // Swiped Left -> Mathematical Next
+                const nextIndex = (currentIndex + 1) % totalImages;
+                const targetThumb = document.querySelector(`.mobile-target[data-index="${nextIndex}"]`);
+                if (targetThumb) updateGallery(targetThumb);
+            } else if (touchEndX - touchStartX > threshold) {
+                // Swiped Right -> Mathematical Previous
+                const prevIndex = (currentIndex - 1 + totalImages) % totalImages;
+                const targetThumb = document.querySelector(`.mobile-target[data-index="${prevIndex}"]`);
+                if (targetThumb) updateGallery(targetThumb);
+            }
+        }
+    });
 </script>
