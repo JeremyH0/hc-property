@@ -5,10 +5,9 @@ import Footer from '../components/Footer.astro';
 
 import { Image } from 'astro:assets';
 
-// Updated Hero Image Import
+// Hero Image
 import imgHeroHQ from '../assets/gallery/hero-hq.jpeg';
 
-import imgLiving from '../assets/gallery/living.jpeg';
 import imgSuite from '../assets/gallery/suite.jpeg';
 import imgFirepit from '../assets/gallery/firepit1.jpeg'; 
 import imgFloorplan1 from '../assets/gallery/floorplan1.jpeg';
@@ -115,19 +114,17 @@ const galleryImages = [
 		</section>
 
 		<section id="floorplan" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
-			<div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 relative">
+			<div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 relative items-start">
 				
-				<div class="xl:col-span-4 relative">
-					<div class="xl:sticky xl:top-32 xl:pt-4">
-						<div class="reveal-el flex flex-col gap-6 md:gap-8">
-							<div>
-								<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
-								<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
-							</div>
-							<div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
-								<p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
-								<p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
-							</div>
+				<div class="xl:col-span-4 xl:sticky xl:top-32 transition-all duration-300">
+					<div class="reveal-el flex flex-col gap-6 md:gap-8">
+						<div>
+							<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
+							<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
+						</div>
+						<div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
+							<p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
+							<p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
 						</div>
 					</div>
 				</div>
@@ -180,7 +177,7 @@ const galleryImages = [
 
 						<div class="mobile-set middle-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
 							{galleryImages.map((img, index) => (
-								<button class={`gallery-thumb mobile-target group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+								<button class={`gallery-thumb mobile-thumb mobile-target group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
 									<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
 								</button>
 							))}
@@ -188,7 +185,7 @@ const galleryImages = [
 
 						<div class="mobile-set flex gap-2 md:gap-3 shrink-0">
 							{galleryImages.map((img, index) => (
-								<button class={`gallery-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+								<button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
 									<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
 								</button>
 							))}
@@ -275,13 +272,6 @@ const galleryImages = [
 	</div>
 </Layout>
 
-<style is:global>
-	html, body {
-		overflow-x: hidden;
-		width: 100%;
-	}
-</style>
-
 <style>
 	@keyframes scrollDrop {
 		0% { transform: translateY(-100%); opacity: 0; }
@@ -327,6 +317,10 @@ const galleryImages = [
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
+
+		// ---------------------------------------------------------
+		// GALLERY INTERACTIVE ENGINE
+		// ---------------------------------------------------------
 		const mainImage = document.getElementById('main-gallery-image') as HTMLImageElement;
 		const mainContainer = document.getElementById('main-gallery-container');
 		const thumbnails = document.querySelectorAll('.gallery-thumb');
@@ -354,7 +348,7 @@ const galleryImages = [
 		});
 
 		// --- GLITCH-FREE INFINITE SCROLL TRACKING ---
-		let activeMobileThumb = null;
+		let activeMobileThumb: Element | null = null;
 		
 		function initInfiniteScroll() {
 			if (!mobileScroll || window.innerWidth >= 1280) return;
@@ -393,9 +387,11 @@ const galleryImages = [
 			}, { passive: true });
 		}
 
-		function shiftActiveThumb(offset) {
+		// Sync the active reference when teleporting
+		function shiftActiveThumb(offset: number) {
 			const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
-			const currentIndexInArray = allMobileThumbs.indexOf(activeMobileThumb);
+			if (!activeMobileThumb) return;
+			const currentIndexInArray = allMobileThumbs.indexOf(activeMobileThumb as Element);
 			const newIndex = currentIndexInArray + offset;
 			if (newIndex >= 0 && newIndex < allMobileThumbs.length) {
 				activeMobileThumb = allMobileThumbs[newIndex];
@@ -407,7 +403,7 @@ const galleryImages = [
 
 
 		// --- CORE GALLERY UPDATE FUNCTION ---
-		function updateGallery(clickedThumbElement) {
+		function updateGallery(clickedThumbElement: Element) {
 			if (!clickedThumbElement || isTransitioning || clickedThumbElement.classList.contains('active')) return;
 			
 			isTransitioning = true;
@@ -419,7 +415,7 @@ const galleryImages = [
 			mainImage.addEventListener('transitionend', function handler() {
 				mainImage.removeEventListener('transitionend', handler);
 
-				mainImage.src = newSrc;
+				if (newSrc) mainImage.src = newSrc;
 
 				thumbnails.forEach(t => t.classList.remove('active'));
 				const matchingThumbs = document.querySelectorAll(`.gallery-thumb[data-index="${realIndex}"]`);
@@ -440,8 +436,12 @@ const galleryImages = [
 		// 1. Click Event for all Thumbnails
 		thumbnails.forEach(thumb => {
 			thumb.addEventListener('click', () => {
-				if (thumb.classList.contains('mobile-thumb')) {
+				if (thumb.classList.contains('mobile-thumb') || thumb.classList.contains('mobile-target')) {
 					activeMobileThumb = thumb; 
+				} else {
+					// If a desktop thumb is clicked, sync the mobile logic to the true middle array
+					const realIndex = thumb.getAttribute('data-index');
+					activeMobileThumb = document.querySelector(`.mobile-target[data-index="${realIndex}"]`);
 				}
 				updateGallery(thumb);
 			});
@@ -461,19 +461,24 @@ const galleryImages = [
 			handleSwipe();
 		}, { passive: true });
 
+		// The Swipe engine now traverses the raw DOM array linearly, preventing set-boundary glitches
 		function handleSwipe() {
 			if (window.innerWidth >= 1280 || !activeMobileThumb) return; 
 			
 			const threshold = 40; 
+			const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
+			const currentIndexInArray = allMobileThumbs.indexOf(activeMobileThumb as Element);
 			
 			if (touchStartX - touchEndX > threshold) {
-				if (activeMobileThumb.nextElementSibling) {
-					activeMobileThumb = activeMobileThumb.nextElementSibling;
+				// Swiped Left -> Move physically to the exact next element in the array
+				if (currentIndexInArray < allMobileThumbs.length - 1) {
+					activeMobileThumb = allMobileThumbs[currentIndexInArray + 1];
 					updateGallery(activeMobileThumb);
 				}
 			} else if (touchEndX - touchStartX > threshold) {
-				if (activeMobileThumb.previousElementSibling) {
-					activeMobileThumb = activeMobileThumb.previousElementSibling;
+				// Swiped Right -> Move physically to the exact previous element in the array
+				if (currentIndexInArray > 0) {
+					activeMobileThumb = allMobileThumbs[currentIndexInArray - 1];
 					updateGallery(activeMobileThumb);
 				}
 			}
