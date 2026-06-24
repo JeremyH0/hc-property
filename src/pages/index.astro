@@ -30,14 +30,25 @@ import img13 from '../assets/gallery/13.jpeg';
 import img14 from '../assets/gallery/14.jpeg';
 import img15 from '../assets/gallery/15.jpeg';
 import img16 from '../assets/gallery/16.jpeg';
+
+// Helper array to generate the sets effortlessly
+const galleryImages = [
+	{ src: img1, label: "Image 1" }, { src: img2, label: "Image 2" },
+	{ src: img3, label: "Image 3" }, { src: img4, label: "Image 4" },
+	{ src: img5, label: "Image 5" }, { src: img6, label: "Image 6" },
+	{ src: img7, label: "Image 7" }, { src: img8, label: "Image 8" },
+	{ src: img9, label: "Image 9" }, { src: img10, label: "Image 10" },
+	{ src: img11, label: "Image 11" }, { src: img12, label: "Image 12" },
+	{ src: img13, label: "Image 13" }, { src: img14, label: "Image 14" },
+	{ src: img15, label: "Image 15" }, { src: img16, label: "Image 16" }
+];
 ---
 
 <Layout title="Seren Collective MAPLE | Karuizawa">
 	<Navigation />
 	
-	<main class="w-full tracking-normal leading-loose">
+	<main class="w-full tracking-normal leading-loose overflow-x-hidden">
 		
-		<!-- EDITORIAL BANNER HERO -->
 		<section id="hero-section" class="relative w-full h-[35svh] min-h-[320px] md:h-[35svh] md:min-h-[400px] lg:h-[100svh] lg:min-h-[700px] flex flex-col overflow-hidden bg-zinc-950">
 			
 			<div class="absolute inset-0 w-full h-full">
@@ -51,7 +62,7 @@ import img16 from '../assets/gallery/16.jpeg';
 				</h1>
 			</div>
 
-			<div class="hidden lg:flex absolute bottom-12 right-12 z-10 hero-reveal flex-col items-center gap-4">
+			<div class="hidden xl:flex absolute bottom-12 right-12 z-10 hero-reveal flex-col items-center gap-4">
 				<span class="font-sans text-[9px] tracking-[0.3em] uppercase text-white/60" style="writing-mode: vertical-rl;">Scroll</span>
 				<div class="w-px h-12 bg-white/20 relative overflow-hidden">
 					<div class="absolute top-0 left-0 w-full h-1/2 bg-white animate-scroll-drop"></div>
@@ -59,7 +70,6 @@ import img16 from '../assets/gallery/16.jpeg';
 			</div>
 		</section>
 
-		<!-- CONCEPT SECTION -->
 		<section id="concept" class="px-6 py-24 md:py-32 lg:py-48 max-w-4xl mx-auto text-center">
 			<span class="reveal-el font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-8 block">The Estate</span>
 			<h2 class="reveal-el font-serif text-3xl md:text-5xl lg:text-6xl font-light text-zinc-800 tracking-wide mb-12 md:mb-16 leading-tight">
@@ -71,11 +81,10 @@ import img16 from '../assets/gallery/16.jpeg';
 			</div>
 		</section>
 
-		<!-- FEATURES SECTION -->
 		<section id="architecture" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto">
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+			<div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
 				
-				<div class="reveal-el flex flex-col gap-4 md:gap-6 lg:px-8 order-1">
+				<div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-1">
 					<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Accommodations</span>
 					<h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
 					<p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The estate accommodates family and guests with uncompromising comfort. The main residence features four spacious bedrooms, while the guest house offers three. Crucially, every single bedroom in the estate is complemented by its own private ensuite bathroom.</p>
@@ -84,23 +93,22 @@ import img16 from '../assets/gallery/16.jpeg';
 					<Image src={imgSuite} alt="Private Suite Interior" class="w-full h-full object-cover" />
 				</div>
 
-				<div class="reveal-el flex flex-col gap-4 md:gap-6 lg:px-8 order-3 lg:order-4">
+				<div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-3 xl:order-4">
 					<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Wellness & Leisure</span>
 					<h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Private Spa & Firepit</h3>
 					<p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The second floor of the main house is dedicated to wellness, featuring a private spa with dual large soaking tubs and a custom sauna. Outside, an expansive wooden deck centers around a sunken firepit—the perfect setting for evening relaxation under the forest canopy.</p>
 				</div>
-				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl order-4 lg:order-3">
+				<div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl order-4 xl:order-3">
 					<Image src={imgFirepit} alt="Wellness and Deck Firepit" class="w-full h-full object-cover" />
 				</div>
 
 			</div>
 		</section>
 
-		<!-- FLOORPLAN SECTION -->
 		<section id="floorplan" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
-			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+			<div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 items-start">
 				
-				<div class="reveal-el flex flex-col gap-6 md:gap-8 lg:col-span-4 lg:sticky lg:top-40">
+				<div class="reveal-el flex flex-col gap-6 md:gap-8 xl:col-span-4 xl:sticky xl:top-40">
 					<div>
 						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
 						<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
@@ -111,12 +119,12 @@ import img16 from '../assets/gallery/16.jpeg';
 					</div>
 				</div>
 
-				<div class="lg:col-span-8 flex flex-col gap-12 md:gap-16 lg:gap-24">
+				<div class="xl:col-span-8 flex flex-col gap-12 md:gap-16 lg:gap-24">
 					<div class="reveal-el flex flex-col gap-6">
 						<div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
 							<Image src={imgFloorplan1} alt="First Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
 						</div>
-						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center lg:text-left">
+						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center xl:text-left">
 							First Floor: Living & Gathering Spaces
 						</span>
 					</div>
@@ -125,7 +133,7 @@ import img16 from '../assets/gallery/16.jpeg';
 						<div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
 							<Image src={imgFloorplan2} alt="Second Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
 						</div>
-						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center lg:text-left">
+						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center xl:text-left">
 							Second Floor: Private Suites & Spa
 						</span>
 					</div>
@@ -134,77 +142,59 @@ import img16 from '../assets/gallery/16.jpeg';
 			</div>
 		</section>
 
-		<!-- EXPANDED 16-IMAGE GALLERY -->
-		<section id="gallery" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
+		<section id="gallery" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100 relative">
 			
 			<div class="reveal-el mb-8 md:mb-12 lg:mb-20">
 				<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Gallery</span>
 			</div>
 
-			<!-- CSS Grid with items-stretch forces both sides to perfectly match heights on desktop -->
-			<div class="reveal-el grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12 items-stretch w-full">
+			<div class="reveal-el grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6 xl:gap-12 items-stretch w-full">
 				
-				<!-- Left Image: Dictates the height (3:2 ratio) -->
-				<div id="main-gallery-container" class="lg:col-span-7 w-full relative aspect-[4/3] lg:aspect-[3/2] bg-zinc-100 overflow-hidden rounded-xl shadow-sm">
-					<!-- absolute inset-0 anchors the image exactly to the container's calculated boundaries -->
-					<img id="main-gallery-image" src={img1.src} alt="Gallery Image" class="w-full h-full object-cover absolute inset-0 transition-opacity duration-500 ease-in-out opacity-100" loading="lazy" decoding="async"/>
+				<div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-100 overflow-hidden rounded-xl shadow-sm cursor-grab active:cursor-grabbing">
+					<img id="main-gallery-image" src={img1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none" loading="lazy" decoding="async"/>
 				</div>
 
-				<!-- Right Grid: Stretches to fill the exact height, using 4 rows (grid-rows-4) -->
-				<div class="lg:col-span-5 w-full grid grid-cols-4 grid-rows-4 gap-2 lg:gap-3">
-					<button class="gallery-thumb group active w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img1.src} aria-label="View Image 1">
-						<Image src={img1} width={300} alt="Thumbnail 1" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img2.src} aria-label="View Image 2">
-						<Image src={img2} width={300} alt="Thumbnail 2" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img3.src} aria-label="View Image 3">
-						<Image src={img3} width={300} alt="Thumbnail 3" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img4.src} aria-label="View Image 4">
-						<Image src={img4} width={300} alt="Thumbnail 4" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img5.src} aria-label="View Image 5">
-						<Image src={img5} width={300} alt="Thumbnail 5" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img6.src} aria-label="View Image 6">
-						<Image src={img6} width={300} alt="Thumbnail 6" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img7.src} aria-label="View Image 7">
-						<Image src={img7} width={300} alt="Thumbnail 7" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img8.src} aria-label="View Image 8">
-						<Image src={img8} width={300} alt="Thumbnail 8" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img9.src} aria-label="View Image 9">
-						<Image src={img9} width={300} alt="Thumbnail 9" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img10.src} aria-label="View Image 10">
-						<Image src={img10} width={300} alt="Thumbnail 10" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img11.src} aria-label="View Image 11">
-						<Image src={img11} width={300} alt="Thumbnail 11" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img12.src} aria-label="View Image 12">
-						<Image src={img12} width={300} alt="Thumbnail 12" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img13.src} aria-label="View Image 13">
-						<Image src={img13} width={300} alt="Thumbnail 13" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img14.src} aria-label="View Image 14">
-						<Image src={img14} width={300} alt="Thumbnail 14" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img15.src} aria-label="View Image 15">
-						<Image src={img15} width={300} alt="Thumbnail 15" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
-					<button class="gallery-thumb group w-full h-full bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0" data-src={img16.src} aria-label="View Image 16">
-						<Image src={img16} width={300} alt="Thumbnail 16" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
-					</button>
+				<div class="xl:hidden w-full relative mask-edges overflow-hidden">
+					<div id="mobile-thumb-scroll" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-[5vw] transition-transform duration-0">
+						
+						<div class="mobile-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
+							{galleryImages.map((img, index) => (
+								<button class={`gallery-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+									<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
+								</button>
+							))}
+						</div>
+
+						<div class="mobile-set middle-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
+							{galleryImages.map((img, index) => (
+								<button class={`gallery-thumb mobile-target group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+									<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
+								</button>
+							))}
+						</div>
+
+						<div class="mobile-set flex gap-2 md:gap-3 shrink-0">
+							{galleryImages.map((img, index) => (
+								<button class={`gallery-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+									<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
+								</button>
+							))}
+						</div>
+
+					</div>
 				</div>
+
+				<div class="hidden xl:grid xl:col-span-5 w-full grid-cols-4 grid-rows-4 gap-3 content-start">
+					{galleryImages.map((img, index) => (
+						<button class={`gallery-thumb group w-full h-full aspect-auto bg-zinc-100 rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+							<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
+						</button>
+					))}
+				</div>
+
 			</div>
 		</section>
 
-		<!-- RESTORED TEXT-ONLY AREA SECTION -->
 		<section id="area" class="px-6 py-16 md:py-24 lg:py-32 max-w-4xl mx-auto border-t border-zinc-100">
 			<div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
 				<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Area</span>
@@ -282,7 +272,6 @@ import img16 from '../assets/gallery/16.jpeg';
 		animation: scrollDrop 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
 	}
 
-	/* INVERTED CSS EFFECT: NO BLUR. Just a clean white wash over the selected image */
 	.gallery-thumb::after {
 		content: '';
 		position: absolute;
@@ -293,50 +282,150 @@ import img16 from '../assets/gallery/16.jpeg';
 		pointer-events: none;
 	}
 	.gallery-thumb:hover::after {
-		opacity: 0.15; /* Very light wash on hover */
+		opacity: 0.15; 
 	}
 	.gallery-thumb.active::after {
-		opacity: 0.65; /* Solid white wash on the active image */
+		opacity: 0.65; 
 	}
 	.gallery-thumb.active {
-		pointer-events: none; /* Prevents re-clicking the same image */
+		pointer-events: none; 
+	}
+
+	/* Beautiful Edge Fades */
+	.mask-edges {
+		-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+		mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+	}
+
+	/* Hides the scrollbar for the clean luxury look */
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
 	}
 </style>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
 		const mainImage = document.getElementById('main-gallery-image') as HTMLImageElement;
+		const mainContainer = document.getElementById('main-gallery-container');
 		const thumbnails = document.querySelectorAll('.gallery-thumb');
+		const mobileScroll = document.getElementById('mobile-thumb-scroll');
 
-		if (!mainImage || thumbnails.length === 0) return;
+		if (!mainImage || !mainContainer || thumbnails.length === 0) return;
 
 		let isTransitioning = false;
+		let currentIndex = 0;
+		const totalImages = 16; 
 
+		// Initialize Infinite Scroll Engine
+		function initInfiniteScroll() {
+			if (!mobileScroll || window.innerWidth >= 1280) return;
+			
+			const sets = mobileScroll.querySelectorAll('.mobile-set');
+			if (sets.length < 3) return;
+
+			// Jump to exactly the start of the middle set invisibly
+			const setWidth = sets[0].getBoundingClientRect().width;
+			mobileScroll.scrollLeft = setWidth;
+
+			// Handle the invisible teleportation loops
+			mobileScroll.addEventListener('scroll', () => {
+				const currentScroll = mobileScroll.scrollLeft;
+				
+				// Teleport forward if dragging too far left
+				if (currentScroll < setWidth * 0.1) {
+					mobileScroll.style.scrollSnapType = 'none';
+					mobileScroll.scrollLeft += setWidth;
+					setTimeout(() => { mobileScroll.style.scrollSnapType = 'x mandatory'; }, 50);
+				} 
+				// Teleport backward if dragging too far right
+				else if (currentScroll > setWidth * 2.1) {
+					mobileScroll.style.scrollSnapType = 'none';
+					mobileScroll.scrollLeft -= setWidth;
+					setTimeout(() => { mobileScroll.style.scrollSnapType = 'x mandatory'; }, 50);
+				}
+			}, { passive: true });
+		}
+
+		// Fire infinite init slightly delayed to ensure DOM painted
+		setTimeout(initInfiniteScroll, 100);
+		window.addEventListener('resize', initInfiniteScroll);
+
+		// Core update function
+		function updateGallery(index: number) {
+			if (isTransitioning || index === currentIndex) return;
+			isTransitioning = true;
+			currentIndex = index;
+
+			// Grab the src from the very first thumbnail with this index
+			const targetThumb = document.querySelector(`.gallery-thumb[data-index="${currentIndex}"]`);
+			const newSrc = targetThumb?.getAttribute('data-src');
+			if (!newSrc) return;
+
+			// Crossfade Main Image
+			mainImage.style.opacity = '0';
+
+			mainImage.addEventListener('transitionend', function handler() {
+				mainImage.removeEventListener('transitionend', handler);
+
+				mainImage.src = newSrc;
+
+				// Update active white filter across ALL duplicates
+				thumbnails.forEach(t => t.classList.remove('active'));
+				const matchingThumbs = document.querySelectorAll(`.gallery-thumb[data-index="${currentIndex}"]`);
+				matchingThumbs.forEach(t => t.classList.add('active'));
+
+				// Auto-Center logic: Target ONLY the middle set to prevent jumping
+				if (window.innerWidth < 1280 && mobileScroll) {
+					const targetMiddleThumb = document.querySelector(`.mobile-target[data-index="${currentIndex}"]`);
+					if (targetMiddleThumb) {
+						targetMiddleThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+					}
+				}
+
+				mainImage.onload = () => {
+					mainImage.style.opacity = '1';
+					isTransitioning = false; 
+				};
+			}, { once: true });
+		}
+
+		// 1. Click Event for all 48 Thumbnails
 		thumbnails.forEach(thumb => {
 			thumb.addEventListener('click', () => {
-				if (isTransitioning || thumb.classList.contains('active')) return;
-				
-				const newSrc = thumb.getAttribute('data-src');
-				if (!newSrc) return;
-
-				isTransitioning = true;
-
-				mainImage.style.opacity = '0';
-
-				mainImage.addEventListener('transitionend', function handler() {
-					mainImage.removeEventListener('transitionend', handler);
-
-					mainImage.src = newSrc;
-
-					thumbnails.forEach(t => t.classList.remove('active'));
-					thumb.classList.add('active');
-
-					mainImage.onload = () => {
-						mainImage.style.opacity = '1';
-						isTransitioning = false; 
-					};
-				}, { once: true });
+				const indexAttr = thumb.getAttribute('data-index');
+				if (indexAttr !== null) {
+					updateGallery(parseInt(indexAttr, 10));
+				}
 			});
 		});
+
+		// 2. Touch/Swipe Logic for Main Image
+		let touchStartX = 0;
+		let touchEndX = 0;
+
+		mainContainer.addEventListener('touchstart', (e: TouchEvent) => {
+			touchStartX = e.changedTouches[0].screenX;
+		}, { passive: true });
+
+		mainContainer.addEventListener('touchend', (e: TouchEvent) => {
+			touchEndX = e.changedTouches[0].screenX;
+			handleSwipe();
+		}, { passive: true });
+
+		function handleSwipe() {
+			const threshold = 40; // Pixel distance to trigger a swipe
+			
+			if (touchStartX - touchEndX > threshold) {
+				// Swiped Left -> Load Next Image
+				updateGallery((currentIndex + 1) % totalImages);
+			} else if (touchEndX - touchStartX > threshold) {
+				// Swiped Right -> Load Previous Image
+				updateGallery((currentIndex - 1 + totalImages) % totalImages);
+			}
+		}
 	});
 </script>
