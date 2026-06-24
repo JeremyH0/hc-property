@@ -13,6 +13,10 @@ import imgFirepit from '../assets/gallery/firepit1.jpeg';
 import imgFloorplan1 from '../assets/gallery/floorplan1.jpeg';
 import imgFloorplan2 from '../assets/gallery/floorplan2.jpeg';
 
+// High Definition Floorplans
+import imgFloorplan1HD from '../assets/gallery/floorplan1hd.jpeg';
+import imgFloorplan2HD from '../assets/gallery/floorplan2hd.jpeg';
+
 // New 16-Image Gallery Imports
 import img1 from '../assets/gallery/1.jpeg';
 import img2 from '../assets/gallery/2.jpeg';
@@ -49,7 +53,7 @@ const galleryImages = [
     
     <main class="w-full tracking-normal leading-loose">
         
-        <section id="hero-section" class="relative w-full h-[35svh] min-h-[320px] md:h-[35svh] md:min-h-[400px] lg:h-[100svh] lg:min-h-[700px] flex flex-col overflow-hidden bg-zinc-950">
+        <section id="hero-section" class="relative w-full h-[35svh] min-h-[320px] md:h-[35svh] md:min-h-[400px] lg:h-[100svh] lg:min-h-[700px] flex flex-col overflow-hidden bg-stone-950">
             
             <div class="absolute inset-0 w-full h-full">
                 <Image 
@@ -61,7 +65,7 @@ const galleryImages = [
                     loading="eager" 
                     fetchpriority="high" 
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 md:from-zinc-950/60 lg:from-zinc-950/50 via-transparent to-black/30"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 md:from-stone-950/60 lg:from-stone-950/50 via-transparent to-black/30"></div>
             </div>
 
             <div class="relative z-10 flex flex-col items-start justify-end text-left px-6 md:px-12 w-full max-w-[100rem] mx-auto h-full pb-8 md:pb-12 lg:pb-32">
@@ -79,11 +83,11 @@ const galleryImages = [
         </section>
 
         <section id="concept" class="px-6 py-24 md:py-32 lg:py-48 max-w-4xl mx-auto text-center">
-            <span class="reveal-el font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-8 block">The Estate</span>
-            <h2 class="reveal-el font-serif text-3xl md:text-5xl lg:text-6xl font-light text-zinc-800 tracking-wide mb-12 md:mb-16 leading-tight">
+            <span class="reveal-el font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 mb-8 block">The Estate</span>
+            <h2 class="reveal-el font-serif text-3xl md:text-5xl lg:text-6xl font-light text-stone-800 tracking-wide mb-12 md:mb-16 leading-tight">
                 A sanctuary divided, <br class="hidden md:block"/> yet perfectly unified.
             </h2>
-            <div class="reveal-el font-sans text-zinc-500 font-light leading-loose flex flex-col gap-6 md:gap-8 text-left md:text-center text-sm md:text-base lg:text-lg max-w-3xl mx-auto">
+            <div class="reveal-el font-sans text-stone-500 font-light leading-loose flex flex-col gap-6 md:gap-8 text-left md:text-center text-sm md:text-base lg:text-lg max-w-3xl mx-auto">
                 <p>Set within a deeply forested enclave of Karuizawa, this expansive residence is ingeniously designed as two distinct structures—a main house and a guest house—connected seamlessly by an elegant hallway.</p>
                 <p>This intelligent layout allows the property to function flawlessly as a single, grand estate for large gatherings, or it can be secured to provide absolute privacy and independence for both hosts and guests.</p>
             </div>
@@ -93,85 +97,93 @@ const galleryImages = [
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
                 
                 <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-1">
-                    <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Accommodations</span>
-                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
-                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The estate accommodates family and guests with uncompromising comfort. The main residence features four spacious bedrooms, while the guest house offers three. Crucially, every single bedroom in the estate is complemented by its own private ensuite bathroom.</p>
+                    <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400">Accommodations</span>
+                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-stone-800">Seven Private Suites</h3>
+                    <p class="font-sans text-sm md:text-base text-stone-500 font-light leading-loose">The estate accommodates family and guests with uncompromising comfort. The main residence features four spacious bedrooms, while the guest house offers three. Crucially, every single bedroom in the estate is complemented by its own private ensuite bathroom.</p>
                 </div>
-                <div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl order-2">
+                <div class="reveal-el w-full aspect-[4/3] bg-stone-50 overflow-hidden rounded-xl border border-stone-200 shadow-sm order-2">
                     <Image src={imgSuite} alt="Private Suite Interior" class="w-full h-full object-cover" />
                 </div>
 
                 <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-3 xl:order-4">
-                    <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Wellness & Leisure</span>
-                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Private Spa & Firepit</h3>
-                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The second floor of the main house is dedicated to wellness, featuring a private spa with dual large soaking tubs and a custom sauna. Outside, an expansive wooden deck centers around a sunken firepit—the perfect setting for evening relaxation under the forest canopy.</p>
+                    <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400">Wellness & Leisure</span>
+                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-stone-800">Private Spa & Firepit</h3>
+                    <p class="font-sans text-sm md:text-base text-stone-500 font-light leading-loose">The second floor of the main house is dedicated to wellness, featuring a private spa with dual large soaking tubs and a custom sauna. Outside, an expansive wooden deck centers around a sunken firepit—the perfect setting for evening relaxation under the forest canopy.</p>
                 </div>
-                <div class="reveal-el w-full aspect-[4/3] bg-zinc-100 overflow-hidden rounded-xl order-4 xl:order-3">
+                <div class="reveal-el w-full aspect-[4/3] bg-stone-50 overflow-hidden rounded-xl border border-stone-200 shadow-sm order-4 xl:order-3">
                     <Image src={imgFirepit} alt="Wellness and Deck Firepit" class="w-full h-full object-cover" />
                 </div>
 
             </div>
         </section>
 
-        <section id="floorplan" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
-            <div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 relative">
+        <section id="floorplan" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-stone-200">
+            <div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 relative items-start">
                 
-                <div class="xl:col-span-4 relative">
-                    <div class="xl:sticky xl:top-32 transition-all duration-300">
-                        <div class="reveal-el flex flex-col gap-6 md:gap-8">
-                            <div>
-                                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
-                                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
-                            </div>
-                            <div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
-                                <p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
-                                <p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
-                            </div>
+                <div class="xl:col-span-4 xl:sticky xl:top-32 transition-all duration-300">
+                    <div class="reveal-el flex flex-col gap-6 md:gap-8">
+                        <div>
+                            <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 mb-4 block">The Masterplan</span>
+                            <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-stone-800 tracking-wide">Structural Harmony.</h2>
+                        </div>
+                        <div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-stone-500 font-light leading-loose">
+                            <p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
+                            <p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="xl:col-span-8 flex flex-col gap-12 md:gap-16 lg:gap-24">
+                    
                     <div class="reveal-el flex flex-col gap-6">
-                        <div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
-                            <Image src={imgFloorplan1} alt="First Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
-                        </div>
-                        <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center xl:text-left">
+                        <button class="floorplan-trigger group w-full bg-stone-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-stone-200 shadow-sm relative overflow-hidden cursor-pointer" data-index="0" data-hd-src={imgFloorplan1HD.src} data-caption="First Floor: Living & Gathering Spaces">
+                            <Image src={imgFloorplan1} alt="First Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80 transition-transform duration-700 ease-out group-hover:scale-105" />
+                            
+                            <div class="absolute inset-0 bg-white/10 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
+                                <span class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-stone-800 border border-stone-800 px-6 py-3 rounded-full bg-white/90 shadow-sm">View Floorplan</span>
+                            </div>
+                        </button>
+                        <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 text-center xl:text-left">
                             First Floor: Living & Gathering Spaces
                         </span>
                     </div>
                     
                     <div class="reveal-el flex flex-col gap-6">
-                        <div class="w-full bg-zinc-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-zinc-100 shadow-sm">
-                            <Image src={imgFloorplan2} alt="Second Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80" />
-                        </div>
-                        <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 text-center xl:text-left">
+                        <button class="floorplan-trigger group w-full bg-stone-50 p-4 md:p-8 lg:p-12 rounded-xl flex items-center justify-center border border-stone-200 shadow-sm relative overflow-hidden cursor-pointer" data-index="1" data-hd-src={imgFloorplan2HD.src} data-caption="Second Floor: Private Suites & Spa">
+                            <Image src={imgFloorplan2} alt="Second Floor Plan" class="w-full h-auto object-contain mix-blend-multiply opacity-80 transition-transform duration-700 ease-out group-hover:scale-105" />
+                            
+                            <div class="absolute inset-0 bg-white/10 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
+                                <span class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-stone-800 border border-stone-800 px-6 py-3 rounded-full bg-white/90 shadow-sm">View Floorplan</span>
+                            </div>
+                        </button>
+                        <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 text-center xl:text-left">
                             Second Floor: Private Suites & Spa
                         </span>
                     </div>
+
                 </div>
 
             </div>
         </section>
 
-        <section id="gallery" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100 relative">
+        <section id="gallery" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-stone-200 relative">
             
             <div class="reveal-el mb-8 md:mb-12 lg:mb-20">
-                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Gallery</span>
+                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 mb-6 block">The Gallery</span>
             </div>
 
             <div class="reveal-el grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6 xl:gap-12 items-stretch w-full">
                 
-                <div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-100 overflow-hidden rounded-xl shadow-sm">
+                <div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-stone-50 overflow-hidden rounded-xl border border-stone-200 shadow-sm">
                     <img id="main-gallery-image" src={img1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none" loading="lazy" decoding="async"/>
                 </div>
 
-                <div class="xl:hidden w-full relative mask-edges overflow-hidden">
+                <div class="xl:hidden w-full relative carousel-blur overflow-hidden">
                     <div id="mobile-thumb-scroll" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-[5vw]">
                         
                         <div class="mobile-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
                             {galleryImages.map((img, index) => (
-                                <button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+                                <button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-stone-50 border border-stone-200 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
                                     <Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
                                 </button>
                             ))}
@@ -179,7 +191,7 @@ const galleryImages = [
 
                         <div class="mobile-set middle-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
                             {galleryImages.map((img, index) => (
-                                <button class={`gallery-thumb mobile-thumb mobile-target group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+                                <button class={`gallery-thumb mobile-thumb mobile-target group flex-none w-[28vw] md:w-[22vw] aspect-square bg-stone-50 border border-stone-200 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
                                     <Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
                                 </button>
                             ))}
@@ -187,7 +199,7 @@ const galleryImages = [
 
                         <div class="mobile-set flex gap-2 md:gap-3 shrink-0">
                             {galleryImages.map((img, index) => (
-                                <button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+                                <button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-stone-50 border border-stone-200 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
                                     <Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
                                 </button>
                             ))}
@@ -198,7 +210,7 @@ const galleryImages = [
 
                 <div class="hidden xl:grid xl:col-span-5 w-full grid-cols-4 grid-rows-4 gap-3 content-start">
                     {galleryImages.map((img, index) => (
-                        <button class={`gallery-thumb desktop-thumb group w-full h-full aspect-auto bg-zinc-100 rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+                        <button class={`gallery-thumb desktop-thumb group w-full h-full aspect-auto bg-stone-50 border border-stone-200 rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
                             <Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
                         </button>
                     ))}
@@ -207,62 +219,69 @@ const galleryImages = [
             </div>
         </section>
 
-        <section id="area" class="px-6 py-16 md:py-24 lg:py-32 max-w-4xl mx-auto border-t border-zinc-100">
+        <section id="area" class="px-6 py-16 md:py-24 lg:py-32 max-w-4xl mx-auto border-t border-stone-200">
             <div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
-                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">The Area</span>
-                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Karuizawa</h2>
+                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 mb-6 block">The Area</span>
+                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-stone-800 tracking-wide">Minamigaoka, Karuizawa</h2>
             </div>
 
-            <div class="flex flex-col border-t border-zinc-100">
+            <div class="flex flex-col border-t border-stone-200">
                 
-                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
-                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Address</div>
-                    <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose flex flex-col gap-1">
-                        <span>19-29 Seisatsuba, Oaza Nagakura, Karuizawa-machi, Kitasaku-gun, Nagano</span>
-                        <span class="text-xs md:text-sm text-zinc-500 font-light tracking-wide mt-1">長野県北佐久郡軽井沢町大字長倉字制札場１９－２９</span>
+                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-stone-200 gap-2 md:gap-8">
+                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 md:w-1/3 pt-1">Address</div>
+                    <div class="font-sans text-sm md:text-base lg:text-lg text-stone-800 font-light md:w-2/3 leading-loose flex flex-col gap-1">
+                        <span>19-29 Seisatsuba, Oaza Nagakura, Karuizawa-machi, Nagano</span>
+                        <span class="text-xs md:text-sm text-stone-500 font-light tracking-wide mt-1">長野県北佐久郡軽井沢町大字長倉字制札場１９－２９</span>
                     </div>
                 </div>
 
-                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
-                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Neighborhood</div>
-                    <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
-                        Situated within a deeply forested area of Karuizawa, offering profound tranquility, shade, and seclusion, while maintaining convenient access to the town's refined amenities.
+                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-stone-200 gap-2 md:gap-8">
+                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 md:w-1/3 pt-1">The Estate</div>
+                    <div class="font-sans text-sm md:text-base lg:text-lg text-stone-800 font-light md:w-2/3 leading-loose">
+                        An expansive luxury compound sitting on a sprawling 2,981.31 ㎡ (approx. 900 Tsubo) private forest plot[cite: 138, 142, 178].
+                    </div>
+                </div>
+
+                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-stone-200 gap-2 md:gap-8">
+                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 md:w-1/3 pt-1">Neighborhood</div>
+                    <div class="font-sans text-sm md:text-base lg:text-lg text-stone-800 font-light md:w-2/3 leading-loose">
+                        Located within the prestigious Minamigaoka Project area[cite: 124, 144]. This enclave offers profound tranquility and seclusion, sitting immediately adjacent to the lush greens of the Karuizawa Golf Club[cite: 117].
                     </div>
                 </div>
                 
-                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-100 gap-2 md:gap-8">
-                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 md:w-1/3 pt-1">Access</div>
-                    <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
-                        Conveniently accessible via the Hokuriku Shinkansen from central Tokyo.
+                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-stone-200 gap-2 md:gap-8">
+                    <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 md:w-1/3 pt-1">Access</div>
+                    <div class="font-sans text-sm md:text-base lg:text-lg text-stone-800 font-light md:w-2/3 leading-loose">
+                        Conveniently accessed via the National Route 18 Bypass, offering a seamless journey from the Hokuriku Shinkansen and central Tokyo[cite: 53].
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <section id="inquire" class="px-6 py-24 md:py-32 lg:py-48 max-w-3xl mx-auto border-t border-zinc-100">
+        <section id="inquire" class="px-6 py-24 md:py-32 lg:py-48 max-w-3xl mx-auto border-t border-stone-200">
             <div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
-                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-6 block">Private Viewing</span>
-                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide mb-8">Inquire about this property</h2>
+                <span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 mb-6 block">Private Viewing</span>
+                <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-stone-800 tracking-wide mb-8">Inquire about this property</h2>
             </div>
 
             <form class="flex flex-col gap-8 md:gap-12">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                     <div class="reveal-el flex flex-col gap-2 md:gap-3">
-                        <label for="name" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Name</label>
-                        <input type="text" id="name" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+                        <label for="name" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-stone-400">Name</label>
+                        <input type="text" id="name" class="w-full bg-transparent border-b border-stone-300 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-stone-800 transition-colors rounded-none" required />
                     </div>
                     <div class="reveal-el flex flex-col gap-2 md:gap-3">
-                        <label for="email" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Email</label>
-                        <input type="email" id="email" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+                        <label for="email" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-stone-400">Email</label>
+                        <input type="email" id="email" class="w-full bg-transparent border-b border-stone-300 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-stone-800 transition-colors rounded-none" required />
                     </div>
                 </div>
                 <div class="reveal-el flex flex-col gap-2 md:gap-3">
-                    <label for="message" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-zinc-400">Message</label>
-                    <textarea id="message" rows="4" class="w-full bg-transparent border-b border-zinc-200 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors resize-none rounded-none"></textarea>
+                    <label for="message" class="font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-stone-400">Message</label>
+                    <textarea id="message" rows="4" class="w-full bg-transparent border-b border-stone-300 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-stone-800 transition-colors resize-none rounded-none"></textarea>
                 </div>
-                <button type="submit" class="reveal-el self-center mt-4 md:mt-8 bg-zinc-800 text-white font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase px-10 md:px-12 py-4 md:py-5 hover:bg-zinc-700 transition-colors w-full md:w-auto cursor-pointer">
-					Submit Inquiry
+                <button type="submit" class="reveal-el self-center mt-4 md:mt-8 bg-stone-800 text-white font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase px-10 md:px-12 py-4 md:py-5 hover:bg-stone-700 transition-colors w-full md:w-auto cursor-pointer">
+                    Submit Inquiry
                 </button>
             </form>
         </section>
@@ -272,13 +291,35 @@ const galleryImages = [
     <div class="reveal-el">
         <Footer />
     </div>
+
+    <div id="lightbox" class="fixed inset-0 z-50 flex items-center justify-center bg-stone-950/95 opacity-0 pointer-events-none transition-opacity duration-500">
+        <button id="lightbox-close" class="absolute top-6 right-6 md:top-12 md:right-12 text-white font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase p-4 hover:text-stone-400 transition-colors cursor-pointer z-50">
+            Close &times;
+        </button>
+
+        <button id="lightbox-prev" class="absolute left-4 bottom-8 md:left-8 md:top-1/2 md:-translate-y-1/2 md:bottom-auto text-white font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase p-4 hover:text-stone-400 transition-colors cursor-pointer z-50">
+            &larr; Prev
+        </button>
+        <button id="lightbox-next" class="absolute right-4 bottom-8 md:right-8 md:top-1/2 md:-translate-y-1/2 md:bottom-auto text-white font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase p-4 hover:text-stone-400 transition-colors cursor-pointer z-50">
+            Next &rarr;
+        </button>
+
+        <div class="relative w-full h-full max-w-7xl max-h-[90vh] p-6 md:p-24 flex items-center justify-center">
+            <img id="lightbox-image" src="" alt="HD Floorplan" class="max-w-full max-h-[85vh] object-contain opacity-0 transition-opacity duration-300" />
+        </div>
+        
+        <div class="absolute bottom-24 md:bottom-12 left-1/2 -translate-x-1/2 text-stone-400 font-sans text-[10px] tracking-[0.2em] uppercase z-50 w-full text-center px-4">
+            <span id="lightbox-caption"></span>
+        </div>
+    </div>
+
 </Layout>
 
 <style is:global>
-    /* Safely secures mobile dimensions without disabling sticky logic */
     html, body {
         overflow-x: clip;
         width: 100%;
+        background-color: #F2EFE9;
     }
 </style>
 
@@ -311,10 +352,32 @@ const galleryImages = [
         pointer-events: none; 
     }
 
-    /* REDUCED MASK EFFECT: Beautiful, subtle 4% fade per your request */
-    .mask-edges {
-        -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
-        mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+    /* RE-ENGINEERED SMOOTH BLUR VIGNETTE */
+    .carousel-blur::before,
+    .carousel-blur::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        bottom: -10px;
+        width: 15vw; /* Much wider for a truly soft, natural falloff */
+        max-width: 80px;
+        pointer-events: none;
+        z-index: 10;
+        backdrop-filter: blur(4px); /* Softer physical blur to prevent Safari rendering a "box" */
+        -webkit-backdrop-filter: blur(4px);
+    }
+    .carousel-blur::before {
+        left: -1px;
+        background: linear-gradient(to right, rgba(242, 239, 233, 0.95) 0%, rgba(242, 239, 233, 0) 100%);
+        /* Perfect 0-100 gradient mask absolutely prevents the rectangular edge you saw */
+        -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
+        mask-image: linear-gradient(to right, black 0%, transparent 100%);
+    }
+    .carousel-blur::after {
+        right: -1px;
+        background: linear-gradient(to left, rgba(242, 239, 233, 0.95) 0%, rgba(242, 239, 233, 0) 100%);
+        -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%);
+        mask-image: linear-gradient(to left, black 0%, transparent 100%);
     }
 
     .scrollbar-hide::-webkit-scrollbar {
@@ -328,6 +391,102 @@ const galleryImages = [
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+
+        // ---------------------------------------------------------
+        // FLOORPLAN LIGHTBOX ENGINE
+        // ---------------------------------------------------------
+        const floorplanTriggers = document.querySelectorAll('.floorplan-trigger');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        if (lightbox && lightboxImage && floorplanTriggers.length > 0) {
+            
+            const floorplanData = Array.from(floorplanTriggers).map(t => ({
+                src: t.getAttribute('data-hd-src'),
+                caption: t.getAttribute('data-caption')
+            }));
+
+            let currentLbIndex = 0;
+            let isLbTransitioning = false;
+
+            function updateLightbox(index: number) {
+                if (isLbTransitioning) return;
+                isLbTransitioning = true;
+                currentLbIndex = index;
+                
+                lightboxImage.classList.remove('opacity-100');
+                lightboxImage.classList.add('opacity-0');
+                
+                setTimeout(() => {
+                    if (floorplanData[currentLbIndex].src) {
+                        lightboxImage.src = floorplanData[currentLbIndex].src!;
+                    }
+                    if (lightboxCaption) {
+                        lightboxCaption.textContent = floorplanData[currentLbIndex].caption;
+                    }
+                }, 300); 
+            }
+
+            lightboxImage.onload = () => {
+                if (lightbox.classList.contains('opacity-100')) {
+                    lightboxImage.classList.remove('opacity-0');
+                    lightboxImage.classList.add('opacity-100');
+                    isLbTransitioning = false;
+                }
+            };
+
+            floorplanTriggers.forEach((trigger, index) => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    currentLbIndex = index;
+                    
+                    const hdSrc = floorplanData[currentLbIndex].src;
+                    if (hdSrc) lightboxImage.src = hdSrc;
+                    
+                    if (lightboxCaption) {
+                        lightboxCaption.textContent = floorplanData[currentLbIndex].caption;
+                    }
+                    
+                    lightbox.classList.remove('pointer-events-none', 'opacity-0');
+                    lightbox.classList.add('opacity-100');
+                });
+            });
+
+            if (lightboxPrev && lightboxNext) {
+                lightboxPrev.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const newIndex = (currentLbIndex - 1 + floorplanData.length) % floorplanData.length;
+                    updateLightbox(newIndex);
+                });
+
+                lightboxNext.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const newIndex = (currentLbIndex + 1) % floorplanData.length;
+                    updateLightbox(newIndex);
+                });
+            }
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('opacity-100');
+                lightbox.classList.add('opacity-0', 'pointer-events-none');
+                lightboxImage.classList.remove('opacity-100');
+                lightboxImage.classList.add('opacity-0');
+                setTimeout(() => { lightboxImage.src = ''; }, 300);
+            };
+
+            if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('opacity-100')) closeLightbox();
+            });
+        }
+
 
         // ---------------------------------------------------------
         // GALLERY INTERACTIVE ENGINE
@@ -346,7 +505,6 @@ const galleryImages = [
         const desktopThumbs = document.querySelectorAll('.desktop-thumb');
         const imageList = Array.from(desktopThumbs).map(t => t.getAttribute('data-src'));
 
-        // --- SILENT BACKGROUND PRELOADER ---
         window.addEventListener('load', () => {
             setTimeout(() => {
                 imageList.forEach(src => {
@@ -356,18 +514,19 @@ const galleryImages = [
                     }
                 });
             }, 800);
-		});
+        });
 
-        // --- GLITCH-FREE INFINITE SCROLL TRACKING ---
+        let activeMobileThumb: Element | null = null;
+        
         function initInfiniteScroll() {
             if (!mobileScroll || window.innerWidth >= 1280) return;
             
-            const sets = mobileScroll.querySelectorAll('.mobile-set');
-            if (sets.length < 3) return;
+            const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
+            if (allMobileThumbs.length < 48) return;
 
-            const setWidth = sets[0].getBoundingClientRect().width;
-            
-            // Only force jump on initial setup to not disrupt user flow
+            activeMobileThumb = allMobileThumbs[16];
+            const setWidth = mobileScroll.scrollWidth / 3;
+
             if (mobileScroll.scrollLeft === 0) {
                 mobileScroll.scrollLeft = setWidth;
             }
@@ -400,7 +559,6 @@ const galleryImages = [
         window.addEventListener('resize', initInfiniteScroll);
 
 
-        // --- CORE GALLERY UPDATE FUNCTION ---
         function updateGallery(clickedThumbElement: Element) {
             if (!clickedThumbElement || isTransitioning || clickedThumbElement.classList.contains('active')) return;
             
@@ -420,11 +578,8 @@ const galleryImages = [
                 const matchingThumbs = document.querySelectorAll(`.gallery-thumb[data-index="${realIndex}"]`);
                 matchingThumbs.forEach(t => t.classList.add('active'));
 
-                if (window.innerWidth < 1280 && mobileScroll) {
-                    const targetMiddleThumb = document.querySelector(`.mobile-target[data-index="${realIndex}"]`);
-                    if (targetMiddleThumb) {
-                        targetMiddleThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                    }
+                if (window.innerWidth < 1280 && mobileScroll && activeMobileThumb) {
+                    activeMobileThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 }
 
                 mainImage.onload = () => {
@@ -435,15 +590,19 @@ const galleryImages = [
         }
 
 
-        // 1. Click Event for all Thumbnails
         thumbnails.forEach(thumb => {
             thumb.addEventListener('click', () => {
+                if (thumb.classList.contains('mobile-thumb') || thumb.classList.contains('mobile-target')) {
+                    activeMobileThumb = thumb; 
+                } else {
+                    const realIndex = thumb.getAttribute('data-index');
+                    activeMobileThumb = document.querySelector(`.mobile-target[data-index="${realIndex}"]`);
+                }
                 updateGallery(thumb);
             });
         });
 
 
-        // 2. Touch/Swipe Logic for Main Image
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -456,22 +615,23 @@ const galleryImages = [
             handleSwipe();
         }, { passive: true });
 
-        // THE FLAWLESS SWIPE: Decoupled entirely from physical array layout
         function handleSwipe() {
-            if (window.innerWidth >= 1280) return; 
+            if (window.innerWidth >= 1280 || !activeMobileThumb) return; 
             
-            const threshold = 30; // Very responsive light swipe detection
+            const threshold = 40; 
+            const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
+            const currentIndexInArray = allMobileThumbs.indexOf(activeMobileThumb as Element);
             
             if (touchStartX - touchEndX > threshold) {
-                // Swiped Left -> Mathematical Next
-                const nextIndex = (currentIndex + 1) % totalImages;
-                const targetThumb = document.querySelector(`.mobile-target[data-index="${nextIndex}"]`);
-                if (targetThumb) updateGallery(targetThumb);
+                if (currentIndexInArray < allMobileThumbs.length - 1) {
+                    activeMobileThumb = allMobileThumbs[currentIndexInArray + 1];
+                    updateGallery(activeMobileThumb);
+                }
             } else if (touchEndX - touchStartX > threshold) {
-                // Swiped Right -> Mathematical Previous
-                const prevIndex = (currentIndex - 1 + totalImages) % totalImages;
-                const targetThumb = document.querySelector(`.mobile-target[data-index="${prevIndex}"]`);
-                if (targetThumb) updateGallery(targetThumb);
+                if (currentIndexInArray > 0) {
+                    activeMobileThumb = allMobileThumbs[currentIndexInArray - 1];
+                    updateGallery(activeMobileThumb);
+                }
             }
         }
     });
