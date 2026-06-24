@@ -5,8 +5,9 @@ import Footer from '../components/Footer.astro';
 
 import { Image } from 'astro:assets';
 
-// Section Images
-import imgHero from '../assets/gallery/hero.jpeg';
+// Updated Hero Image Import
+import imgHeroHQ from '../assets/gallery/hero-hq.jpeg';
+
 import imgLiving from '../assets/gallery/living.jpeg';
 import imgSuite from '../assets/gallery/suite.jpeg';
 import imgFirepit from '../assets/gallery/firepit1.jpeg'; 
@@ -47,12 +48,20 @@ const galleryImages = [
 <Layout title="Seren Collective MAPLE | Karuizawa">
 	<Navigation />
 	
-	<main class="w-full tracking-normal leading-loose overflow-x-hidden">
+	<main class="w-full tracking-normal leading-loose">
 		
 		<section id="hero-section" class="relative w-full h-[35svh] min-h-[320px] md:h-[35svh] md:min-h-[400px] lg:h-[100svh] lg:min-h-[700px] flex flex-col overflow-hidden bg-zinc-950">
 			
 			<div class="absolute inset-0 w-full h-full">
-				<Image src={imgHero} alt="Exterior view of Seren Collective Maple" class="w-full h-full object-cover opacity-90" loading="eager" fetchpriority="high" />
+				<Image 
+					src={imgHeroHQ} 
+					alt="Exterior view of Seren Collective Maple" 
+					widths={[768, 1280, 1920, 2560]}
+					sizes="100vw"
+					class="w-full h-full object-cover opacity-90" 
+					loading="eager" 
+					fetchpriority="high" 
+				/>
 				<div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 md:from-zinc-950/60 lg:from-zinc-950/50 via-transparent to-black/30"></div>
 			</div>
 
@@ -106,16 +115,20 @@ const galleryImages = [
 		</section>
 
 		<section id="floorplan" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto border-t border-zinc-100">
-			<div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 items-start">
+			<div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 relative">
 				
-				<div class="reveal-el flex flex-col gap-6 md:gap-8 xl:col-span-4 xl:sticky xl:top-40">
-					<div>
-						<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
-						<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
-					</div>
-					<div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
-						<p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
-						<p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
+				<div class="xl:col-span-4 relative">
+					<div class="xl:sticky xl:top-32 xl:pt-4">
+						<div class="reveal-el flex flex-col gap-6 md:gap-8">
+							<div>
+								<span class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-zinc-400 mb-4 block">The Masterplan</span>
+								<h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
+							</div>
+							<div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
+								<p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
+								<p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -150,16 +163,16 @@ const galleryImages = [
 
 			<div class="reveal-el grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6 xl:gap-12 items-stretch w-full">
 				
-				<div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-100 overflow-hidden rounded-xl shadow-sm cursor-grab active:cursor-grabbing">
+				<div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-100 overflow-hidden rounded-xl shadow-sm">
 					<img id="main-gallery-image" src={img1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none" loading="lazy" decoding="async"/>
 				</div>
 
 				<div class="xl:hidden w-full relative mask-edges overflow-hidden">
-					<div id="mobile-thumb-scroll" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-[5vw] transition-transform duration-0">
+					<div id="mobile-thumb-scroll" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-[5vw]">
 						
 						<div class="mobile-set flex gap-2 md:gap-3 pr-2 md:pr-3 shrink-0">
 							{galleryImages.map((img, index) => (
-								<button class={`gallery-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+								<button class={`gallery-thumb mobile-thumb group flex-none w-[28vw] md:w-[22vw] aspect-square bg-zinc-100 rounded-lg md:rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 snap-center ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
 									<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
 								</button>
 							))}
@@ -186,7 +199,7 @@ const galleryImages = [
 
 				<div class="hidden xl:grid xl:col-span-5 w-full grid-cols-4 grid-rows-4 gap-3 content-start">
 					{galleryImages.map((img, index) => (
-						<button class={`gallery-thumb group w-full h-full aspect-auto bg-zinc-100 rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+						<button class={`gallery-thumb desktop-thumb group w-full h-full aspect-auto bg-zinc-100 rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
 							<Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
 						</button>
 					))}
@@ -262,6 +275,13 @@ const galleryImages = [
 	</div>
 </Layout>
 
+<style is:global>
+	html, body {
+		overflow-x: hidden;
+		width: 100%;
+	}
+</style>
+
 <style>
 	@keyframes scrollDrop {
 		0% { transform: translateY(-100%); opacity: 0; }
@@ -291,13 +311,11 @@ const galleryImages = [
 		pointer-events: none; 
 	}
 
-	/* Beautiful Edge Fades */
 	.mask-edges {
 		-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 		mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 	}
 
-	/* Hides the scrollbar for the clean luxury look */
 	.scrollbar-hide::-webkit-scrollbar {
 		display: none;
 	}
@@ -320,52 +338,82 @@ const galleryImages = [
 		let currentIndex = 0;
 		const totalImages = 16; 
 
-		// Initialize Infinite Scroll Engine
+		const desktopThumbs = document.querySelectorAll('.desktop-thumb');
+		const imageList = Array.from(desktopThumbs).map(t => t.getAttribute('data-src'));
+
+		// --- SILENT BACKGROUND PRELOADER ---
+		window.addEventListener('load', () => {
+			setTimeout(() => {
+				imageList.forEach(src => {
+					if (src) {
+						const img = new Image();
+						img.src = src;
+					}
+				});
+			}, 800);
+		});
+
+		// --- GLITCH-FREE INFINITE SCROLL TRACKING ---
+		let activeMobileThumb = null;
+		
 		function initInfiniteScroll() {
 			if (!mobileScroll || window.innerWidth >= 1280) return;
 			
-			const sets = mobileScroll.querySelectorAll('.mobile-set');
-			if (sets.length < 3) return;
+			const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
+			if (allMobileThumbs.length < 48) return;
 
-			// Jump to exactly the start of the middle set invisibly
-			const setWidth = sets[0].getBoundingClientRect().width;
+			activeMobileThumb = allMobileThumbs[16];
+			const setWidth = mobileScroll.scrollWidth / 3;
+
 			mobileScroll.scrollLeft = setWidth;
 
-			// Handle the invisible teleportation loops
+			let scrollTimeout;
 			mobileScroll.addEventListener('scroll', () => {
-				const currentScroll = mobileScroll.scrollLeft;
-				
-				// Teleport forward if dragging too far left
-				if (currentScroll < setWidth * 0.1) {
-					mobileScroll.style.scrollSnapType = 'none';
-					mobileScroll.scrollLeft += setWidth;
-					setTimeout(() => { mobileScroll.style.scrollSnapType = 'x mandatory'; }, 50);
-				} 
-				// Teleport backward if dragging too far right
-				else if (currentScroll > setWidth * 2.1) {
-					mobileScroll.style.scrollSnapType = 'none';
-					mobileScroll.scrollLeft -= setWidth;
-					setTimeout(() => { mobileScroll.style.scrollSnapType = 'x mandatory'; }, 50);
-				}
+				clearTimeout(scrollTimeout);
+				scrollTimeout = setTimeout(() => {
+					const currentScroll = mobileScroll.scrollLeft;
+					
+					if (currentScroll < setWidth * 0.5) {
+						mobileScroll.style.scrollSnapType = 'none';
+						mobileScroll.style.scrollBehavior = 'auto'; 
+						mobileScroll.scrollLeft += setWidth;
+						shiftActiveThumb(16); 
+						void mobileScroll.offsetWidth; 
+						mobileScroll.style.scrollSnapType = 'x mandatory';
+					} 
+					else if (currentScroll > setWidth * 1.5) {
+						mobileScroll.style.scrollSnapType = 'none';
+						mobileScroll.style.scrollBehavior = 'auto';
+						mobileScroll.scrollLeft -= setWidth;
+						shiftActiveThumb(-16); 
+						void mobileScroll.offsetWidth; 
+						mobileScroll.style.scrollSnapType = 'x mandatory';
+					}
+				}, 200); 
 			}, { passive: true });
 		}
 
-		// Fire infinite init slightly delayed to ensure DOM painted
+		function shiftActiveThumb(offset) {
+			const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
+			const currentIndexInArray = allMobileThumbs.indexOf(activeMobileThumb);
+			const newIndex = currentIndexInArray + offset;
+			if (newIndex >= 0 && newIndex < allMobileThumbs.length) {
+				activeMobileThumb = allMobileThumbs[newIndex];
+			}
+		}
+
 		setTimeout(initInfiniteScroll, 100);
 		window.addEventListener('resize', initInfiniteScroll);
 
-		// Core update function
-		function updateGallery(index: number) {
-			if (isTransitioning || index === currentIndex) return;
+
+		// --- CORE GALLERY UPDATE FUNCTION ---
+		function updateGallery(clickedThumbElement) {
+			if (!clickedThumbElement || isTransitioning || clickedThumbElement.classList.contains('active')) return;
+			
 			isTransitioning = true;
-			currentIndex = index;
+			const newSrc = clickedThumbElement.getAttribute('data-src');
+			const realIndex = clickedThumbElement.getAttribute('data-index');
 
-			// Grab the src from the very first thumbnail with this index
-			const targetThumb = document.querySelector(`.gallery-thumb[data-index="${currentIndex}"]`);
-			const newSrc = targetThumb?.getAttribute('data-src');
-			if (!newSrc) return;
-
-			// Crossfade Main Image
 			mainImage.style.opacity = '0';
 
 			mainImage.addEventListener('transitionend', function handler() {
@@ -373,17 +421,12 @@ const galleryImages = [
 
 				mainImage.src = newSrc;
 
-				// Update active white filter across ALL duplicates
 				thumbnails.forEach(t => t.classList.remove('active'));
-				const matchingThumbs = document.querySelectorAll(`.gallery-thumb[data-index="${currentIndex}"]`);
+				const matchingThumbs = document.querySelectorAll(`.gallery-thumb[data-index="${realIndex}"]`);
 				matchingThumbs.forEach(t => t.classList.add('active'));
 
-				// Auto-Center logic: Target ONLY the middle set to prevent jumping
-				if (window.innerWidth < 1280 && mobileScroll) {
-					const targetMiddleThumb = document.querySelector(`.mobile-target[data-index="${currentIndex}"]`);
-					if (targetMiddleThumb) {
-						targetMiddleThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-					}
+				if (window.innerWidth < 1280 && mobileScroll && activeMobileThumb) {
+					activeMobileThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 				}
 
 				mainImage.onload = () => {
@@ -393,15 +436,17 @@ const galleryImages = [
 			}, { once: true });
 		}
 
-		// 1. Click Event for all 48 Thumbnails
+
+		// 1. Click Event for all Thumbnails
 		thumbnails.forEach(thumb => {
 			thumb.addEventListener('click', () => {
-				const indexAttr = thumb.getAttribute('data-index');
-				if (indexAttr !== null) {
-					updateGallery(parseInt(indexAttr, 10));
+				if (thumb.classList.contains('mobile-thumb')) {
+					activeMobileThumb = thumb; 
 				}
+				updateGallery(thumb);
 			});
 		});
+
 
 		// 2. Touch/Swipe Logic for Main Image
 		let touchStartX = 0;
@@ -417,14 +462,20 @@ const galleryImages = [
 		}, { passive: true });
 
 		function handleSwipe() {
-			const threshold = 40; // Pixel distance to trigger a swipe
+			if (window.innerWidth >= 1280 || !activeMobileThumb) return; 
+			
+			const threshold = 40; 
 			
 			if (touchStartX - touchEndX > threshold) {
-				// Swiped Left -> Load Next Image
-				updateGallery((currentIndex + 1) % totalImages);
+				if (activeMobileThumb.nextElementSibling) {
+					activeMobileThumb = activeMobileThumb.nextElementSibling;
+					updateGallery(activeMobileThumb);
+				}
 			} else if (touchEndX - touchStartX > threshold) {
-				// Swiped Right -> Load Previous Image
-				updateGallery((currentIndex - 1 + totalImages) % totalImages);
+				if (activeMobileThumb.previousElementSibling) {
+					activeMobileThumb = activeMobileThumb.previousElementSibling;
+					updateGallery(activeMobileThumb);
+				}
 			}
 		}
 	});
