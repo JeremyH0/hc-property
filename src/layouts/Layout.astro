@@ -2,8 +2,8 @@
 import '../styles/global.css';
 
 interface Props {
-	title: string;
-	description?: string;
+    title: string;
+    description?: string;
 }
 
 const { title, description = "Luxury Property Real Estate" } = Astro.props;
@@ -11,146 +11,146 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-		
-		<title>{title}</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+        
+        <title>{title}</title>
 
-		<style is:global>
-			html.lenis, html.lenis body { height: auto; }
-			.lenis.lenis-smooth { scroll-behavior: auto !important; }
-			.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-			.lenis.lenis-stopped { overflow: hidden; }
+        <style is:global>
+            html.lenis, html.lenis body { height: auto; }
+            .lenis.lenis-smooth { scroll-behavior: auto !important; }
+            .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+            .lenis.lenis-stopped { overflow: hidden; }
 
-			.reveal-el {
-				opacity: 0;
-				transform: translate3d(0, 40px, 0);
-				transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-				will-change: opacity, transform;
-				backface-visibility: hidden;
-				perspective: 1000px;
-			}
-			.hero-reveal {
-				opacity: 0;
-				transform: translate3d(0, 30px, 0);
-				transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
-				will-change: opacity, transform;
-				backface-visibility: hidden;
-				perspective: 1000px;
-			}
-			.is-revealed {
-				opacity: 1 !important;
-				transform: translate3d(0, 0, 0) !important;
-			}
-		</style>
-	</head>
-	<body class="bg-white text-zinc-800 font-sans antialiased selection:bg-zinc-200 selection:text-zinc-900 lg:cursor-none">
-		
-		<!-- CHANGED: bg-white is now bg-zinc-50 to match the footer -->
-		<div id="preloader" class="fixed inset-0 z-[10000] bg-zinc-50 flex items-center justify-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
-			<div id="preloader-text" class="font-sans text-xs md:text-sm font-medium tracking-[0.4em] uppercase text-zinc-800 transition-all duration-700 ease-out translate-y-0 opacity-100">
-				HC Property
-			</div>
-		</div>
+            .reveal-el {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+                transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+                will-change: opacity, transform;
+                backface-visibility: hidden;
+                perspective: 1000px;
+            }
+            .hero-reveal {
+                opacity: 0;
+                transform: translate3d(0, 30px, 0);
+                transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+                will-change: opacity, transform;
+                backface-visibility: hidden;
+                perspective: 1000px;
+            }
+            .is-revealed {
+                opacity: 1 !important;
+                transform: translate3d(0, 0, 0) !important;
+            }
+        </style>
+    </head>
+    <body class="bg-[#F2EFE9] text-stone-800 font-sans antialiased selection:bg-stone-200 selection:text-stone-900 lg:cursor-none">
+        
+        <!-- SOFT LINEN PRELOADER -->
+        <div id="preloader" class="fixed inset-0 z-[10000] bg-[#EBE7E0] flex items-center justify-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
+            <div id="preloader-text" class="font-sans text-xs md:text-sm font-medium tracking-[0.4em] uppercase text-stone-800 transition-all duration-700 ease-out translate-y-0 opacity-100">
+                HC Property
+            </div>
+        </div>
 
-		<div id="custom-cursor" class="hidden lg:block fixed top-0 left-0 w-12 h-12 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference will-change-transform" style="transform: translate3d(0px, 0px, 0px) translate(-50%, -50%) scale(0.25);"></div>
+        <div id="custom-cursor" class="hidden lg:block fixed top-0 left-0 w-12 h-12 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference will-change-transform" style="transform: translate3d(0px, 0px, 0px) translate(-50%, -50%) scale(0.25);"></div>
 
-		<slot />
+        <slot />
 
-		<script is:inline src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+        <script is:inline src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
-		<script is:inline>
-			document.addEventListener('DOMContentLoaded', () => {
-				
-				// --- LENIS CONFIGURATION ---
-				const lenis = new window.Lenis({ 
-					lerp: 0.08,
-					wheelMultiplier: 1.0, 
-					smoothWheel: true,
-					syncTouch: false 
-				});
-				lenis.stop();
-				window.lenis = lenis; 
+        <script is:inline>
+            document.addEventListener('DOMContentLoaded', () => {
+                
+                // --- LENIS CONFIGURATION ---
+                const lenis = new window.Lenis({ 
+                    lerp: 0.08,
+                    wheelMultiplier: 1.0, 
+                    smoothWheel: true,
+                    syncTouch: false 
+                });
+                lenis.stop();
+                window.lenis = lenis; 
 
-				function raf(time) { 
-					lenis.raf(time); 
-					requestAnimationFrame(raf); 
-				}
-				requestAnimationFrame(raf);
+                function raf(time) { 
+                    lenis.raf(time); 
+                    requestAnimationFrame(raf); 
+                }
+                requestAnimationFrame(raf);
 
-				// --- SAFE PRELOADER TIMING ---
-				const preloader = document.getElementById('preloader');
-				const preloaderText = document.getElementById('preloader-text');
+                // --- SAFE PRELOADER TIMING ---
+                const preloader = document.getElementById('preloader');
+                const preloaderText = document.getElementById('preloader-text');
 
-				setTimeout(() => {
-					if (preloaderText) { preloaderText.style.opacity = '0'; preloaderText.style.transform = 'translate3d(0, -15px, 0)'; }
-				}, 1000);
+                setTimeout(() => {
+                    if (preloaderText) { preloaderText.style.opacity = '0'; preloaderText.style.transform = 'translate3d(0, -15px, 0)'; }
+                }, 1000);
 
-				setTimeout(() => {
-					if (preloader) preloader.style.transform = 'translate3d(0, -100%, 0)';
-					const heroElements = document.querySelectorAll('.hero-reveal');
-					heroElements.forEach((el, index) => {
-						setTimeout(() => { el.classList.add('is-revealed'); }, index * 150);
-					});
-				}, 1600);
+                setTimeout(() => {
+                    if (preloader) preloader.style.transform = 'translate3d(0, -100%, 0)';
+                    const heroElements = document.querySelectorAll('.hero-reveal');
+                    heroElements.forEach((el, index) => {
+                        setTimeout(() => { el.classList.add('is-revealed'); }, index * 150);
+                    });
+                }, 1600);
 
-				setTimeout(() => {
-					lenis.start();
-					if (preloader) preloader.remove();
-				}, 2800);
+                setTimeout(() => {
+                    lenis.start();
+                    if (preloader) preloader.remove();
+                }, 2800);
 
-				// --- GPU ACCELERATED SCROLL REVEAL ---
-				const revealObserver = new IntersectionObserver((entries, observer) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							requestAnimationFrame(() => { entry.target.classList.add('is-revealed'); });
-							observer.unobserve(entry.target);
-						} else if (!entry.target.classList.contains('is-revealed')) {
-							if (entry.boundingClientRect.top > window.innerHeight / 2) {
-								entry.target.style.transform = 'translate3d(0, 40px, 0)';
-							} else {
-								entry.target.style.transform = 'translate3d(0, -40px, 0)';
-							}
-						}
-					});
-				}, { rootMargin: '0px 0px -5% 0px', threshold: 0 });
-				document.querySelectorAll('.reveal-el').forEach(el => { revealObserver.observe(el); });
+                // --- GPU ACCELERATED SCROLL REVEAL ---
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            requestAnimationFrame(() => { entry.target.classList.add('is-revealed'); });
+                            observer.unobserve(entry.target);
+                        } else if (!entry.target.classList.contains('is-revealed')) {
+                            if (entry.boundingClientRect.top > window.innerHeight / 2) {
+                                entry.target.style.transform = 'translate3d(0, 40px, 0)';
+                            } else {
+                                entry.target.style.transform = 'translate3d(0, -40px, 0)';
+                            }
+                        }
+                    });
+                }, { rootMargin: '0px 0px -5% 0px', threshold: 0 });
+                document.querySelectorAll('.reveal-el').forEach(el => { revealObserver.observe(el); });
 
-				// --- CUSTOM CURSOR ---
-				const cursor = document.getElementById('custom-cursor');
-				if (window.matchMedia("(pointer: fine)").matches && cursor) {
-					let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
-					let cursorX = mouseX; let cursorY = mouseY;
-					let currentScale = 0.25; let targetScale = 0.25;
-					
-					window.addEventListener('mousemove', (e) => { 
-						mouseX = e.clientX; 
-						mouseY = e.clientY; 
-					}, { passive: true });
+                // --- CUSTOM CURSOR ---
+                const cursor = document.getElementById('custom-cursor');
+                if (window.matchMedia("(pointer: fine)").matches && cursor) {
+                    let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
+                    let cursorX = mouseX; let cursorY = mouseY;
+                    let currentScale = 0.25; let targetScale = 0.25;
+                    
+                    window.addEventListener('mousemove', (e) => { 
+                        mouseX = e.clientX; 
+                        mouseY = e.clientY; 
+                    }, { passive: true });
 
-					function updateCursor() {
-						currentScale += (targetScale - currentScale) * 0.15;
-						cursorX += (mouseX - cursorX) * 0.4; cursorY += (mouseY - cursorY) * 0.4;
-						if (cursor) cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%) scale(${currentScale})`;
-						requestAnimationFrame(updateCursor);
-					}
-					requestAnimationFrame(updateCursor);
+                    function updateCursor() {
+                        currentScale += (targetScale - currentScale) * 0.15;
+                        cursorX += (mouseX - cursorX) * 0.4; cursorY += (mouseY - cursorY) * 0.4;
+                        if (cursor) cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%) scale(${currentScale})`;
+                        requestAnimationFrame(updateCursor);
+                    }
+                    requestAnimationFrame(updateCursor);
 
-					const interactables = document.querySelectorAll('a, button, input, textarea, #menu-toggle');
-					interactables.forEach(el => {
-						el.addEventListener('mouseenter', () => { targetScale = 1; });
-						el.addEventListener('mouseleave', () => { targetScale = 0.25; });
-					});
-				}
-			});
-		</script>
-	</body>
+                    const interactables = document.querySelectorAll('a, button, input, textarea, #menu-toggle');
+                    interactables.forEach(el => {
+                        el.addEventListener('mouseenter', () => { targetScale = 1; });
+                        el.addEventListener('mouseleave', () => { targetScale = 0.25; });
+                    });
+                }
+            });
+        </script>
+    </body>
 </html>

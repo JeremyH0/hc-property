@@ -238,21 +238,21 @@ const galleryImages = [
                 <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-stone-200 gap-2 md:gap-8">
                     <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 md:w-1/3 pt-1">The Estate</div>
                     <div class="font-sans text-sm md:text-base lg:text-lg text-stone-800 font-light md:w-2/3 leading-loose">
-                        An expansive luxury compound sitting on a sprawling 2,981.31 ㎡ (approx. 900 Tsubo) private forest plot[cite: 138, 142, 178].
+                        An expansive luxury compound sitting on a sprawling 2,981.31 ㎡ (approx. 900 Tsubo) private forest plot.
                     </div>
                 </div>
 
                 <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-stone-200 gap-2 md:gap-8">
                     <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 md:w-1/3 pt-1">Neighborhood</div>
                     <div class="font-sans text-sm md:text-base lg:text-lg text-stone-800 font-light md:w-2/3 leading-loose">
-                        Located within the prestigious Minamigaoka Project area[cite: 124, 144]. This enclave offers profound tranquility and seclusion, sitting immediately adjacent to the lush greens of the Karuizawa Golf Club[cite: 117].
+                        Located within the prestigious Minamigaoka Project area. This enclave offers profound tranquility and seclusion, sitting immediately adjacent to the lush greens of the Karuizawa Golf Club.
                     </div>
                 </div>
                 
                 <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-stone-200 gap-2 md:gap-8">
                     <div class="font-sans text-xs font-medium tracking-[0.2em] uppercase text-stone-400 md:w-1/3 pt-1">Access</div>
                     <div class="font-sans text-sm md:text-base lg:text-lg text-stone-800 font-light md:w-2/3 leading-loose">
-                        Conveniently accessed via the National Route 18 Bypass, offering a seamless journey from the Hokuriku Shinkansen and central Tokyo[cite: 53].
+                        Conveniently accessed via the National Route 18 Bypass, offering a seamless journey from the Hokuriku Shinkansen and central Tokyo.
                     </div>
                 </div>
 
@@ -293,6 +293,7 @@ const galleryImages = [
     </div>
 
     <div id="lightbox" class="fixed inset-0 z-50 flex items-center justify-center bg-stone-950/95 opacity-0 pointer-events-none transition-opacity duration-500">
+        
         <button id="lightbox-close" class="absolute top-6 right-6 md:top-12 md:right-12 text-white font-sans text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase p-4 hover:text-stone-400 transition-colors cursor-pointer z-50">
             Close &times;
         </button>
@@ -304,11 +305,11 @@ const galleryImages = [
             Next &rarr;
         </button>
 
-        <div class="relative w-full h-full max-w-7xl max-h-[90vh] p-6 md:p-24 flex items-center justify-center">
-            <img id="lightbox-image" src="" alt="HD Floorplan" class="max-w-full max-h-[85vh] object-contain opacity-0 transition-opacity duration-300" />
+        <div class="relative w-full h-full max-w-7xl max-h-[90vh] p-6 md:p-24 flex items-center justify-center overflow-hidden">
+            <img id="lightbox-image" src="" alt="HD Floorplan" class="max-w-full max-h-[85vh] object-contain opacity-0 transition-opacity duration-300 select-none" draggable="false" />
         </div>
         
-        <div class="absolute bottom-24 md:bottom-12 left-1/2 -translate-x-1/2 text-stone-400 font-sans text-[10px] tracking-[0.2em] uppercase z-50 w-full text-center px-4">
+        <div class="absolute bottom-24 md:bottom-12 left-1/2 -translate-x-1/2 text-stone-400 font-sans text-[10px] tracking-[0.2em] uppercase z-50 w-full text-center px-4 pointer-events-none">
             <span id="lightbox-caption"></span>
         </div>
     </div>
@@ -352,24 +353,22 @@ const galleryImages = [
         pointer-events: none; 
     }
 
-    /* RE-ENGINEERED SMOOTH BLUR VIGNETTE */
     .carousel-blur::before,
     .carousel-blur::after {
         content: '';
         position: absolute;
         top: -10px;
         bottom: -10px;
-        width: 15vw; /* Much wider for a truly soft, natural falloff */
+        width: 15vw; 
         max-width: 80px;
         pointer-events: none;
         z-index: 10;
-        backdrop-filter: blur(4px); /* Softer physical blur to prevent Safari rendering a "box" */
+        backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
     }
     .carousel-blur::before {
         left: -1px;
         background: linear-gradient(to right, rgba(242, 239, 233, 0.95) 0%, rgba(242, 239, 233, 0) 100%);
-        /* Perfect 0-100 gradient mask absolutely prevents the rectangular edge you saw */
         -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
         mask-image: linear-gradient(to right, black 0%, transparent 100%);
     }
@@ -393,7 +392,7 @@ const galleryImages = [
     document.addEventListener('DOMContentLoaded', () => {
 
         // ---------------------------------------------------------
-        // FLOORPLAN LIGHTBOX ENGINE
+        // FLOORPLAN LIGHTBOX ENGINE WITH COMPACT ZOOM & PAN
         // ---------------------------------------------------------
         const floorplanTriggers = document.querySelectorAll('.floorplan-trigger');
         const lightbox = document.getElementById('lightbox');
@@ -413,6 +412,51 @@ const galleryImages = [
             let currentLbIndex = 0;
             let isLbTransitioning = false;
 
+            // Compact state variables
+            let scale = 1, panX = 0, panY = 0, isPanning = false, startX = 0, startY = 0;
+
+            const updateTransform = (smooth = false) => {
+                lightboxImage.style.transition = smooth ? 'opacity 0.3s ease, transform 0.3s ease-out' : 'opacity 0.3s ease';
+                lightboxImage.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+                // Use the lightweight, native CSS cursor icons instead of a heavy JS loop
+                lightboxImage.style.cursor = scale > 1 ? (isPanning ? 'grabbing' : 'grab') : 'default';
+            };
+
+            // SCROLL LOCK & ZOOM
+            lightbox.addEventListener('wheel', (e) => {
+                if (!lightbox.classList.contains('opacity-100')) return;
+                
+                e.preventDefault(); // Lock the background page from scrolling
+                
+                scale += e.deltaY < 0 ? 0.15 : -0.15;
+                scale = Math.max(1, Math.min(scale, 4));
+                
+                if (scale === 1) { panX = 0; panY = 0; }
+                
+                updateTransform();
+            }, { passive: false });
+
+            // NATIVE PANNING
+            lightboxImage.addEventListener('mousedown', (e) => {
+                if (scale === 1) return;
+                e.preventDefault(); 
+                isPanning = true;
+                startX = e.clientX - panX;
+                startY = e.clientY - panY;
+                updateTransform();
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isPanning) return;
+                panX = e.clientX - startX;
+                panY = e.clientY - startY;
+                updateTransform();
+            });
+
+            window.addEventListener('mouseup', () => { isPanning = false; updateTransform(); });
+            window.addEventListener('mouseleave', () => { isPanning = false; updateTransform(); });
+
+            // NAVIGATION
             function updateLightbox(index: number) {
                 if (isLbTransitioning) return;
                 isLbTransitioning = true;
@@ -422,6 +466,7 @@ const galleryImages = [
                 lightboxImage.classList.add('opacity-0');
                 
                 setTimeout(() => {
+                    scale = 1; panX = 0; panY = 0; updateTransform(true); // Reset view
                     if (floorplanData[currentLbIndex].src) {
                         lightboxImage.src = floorplanData[currentLbIndex].src!;
                     }
@@ -444,6 +489,8 @@ const galleryImages = [
                     e.preventDefault();
                     currentLbIndex = index;
                     
+                    scale = 1; panX = 0; panY = 0; updateTransform(true);
+                    
                     const hdSrc = floorplanData[currentLbIndex].src;
                     if (hdSrc) lightboxImage.src = hdSrc;
                     
@@ -453,20 +500,22 @@ const galleryImages = [
                     
                     lightbox.classList.remove('pointer-events-none', 'opacity-0');
                     lightbox.classList.add('opacity-100');
+
+                    // Global scroll lock (works with standard scroll and Lenis)
+                    document.body.style.overflow = 'hidden';
+                    if (window['lenis']) window['lenis'].stop();
                 });
             });
 
             if (lightboxPrev && lightboxNext) {
                 lightboxPrev.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const newIndex = (currentLbIndex - 1 + floorplanData.length) % floorplanData.length;
-                    updateLightbox(newIndex);
+                    updateLightbox((currentLbIndex - 1 + floorplanData.length) % floorplanData.length);
                 });
 
                 lightboxNext.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const newIndex = (currentLbIndex + 1) % floorplanData.length;
-                    updateLightbox(newIndex);
+                    updateLightbox((currentLbIndex + 1) % floorplanData.length);
                 });
             }
 
@@ -475,7 +524,15 @@ const galleryImages = [
                 lightbox.classList.add('opacity-0', 'pointer-events-none');
                 lightboxImage.classList.remove('opacity-100');
                 lightboxImage.classList.add('opacity-0');
-                setTimeout(() => { lightboxImage.src = ''; }, 300);
+                
+                setTimeout(() => { 
+                    lightboxImage.src = ''; 
+                    scale = 1; panX = 0; panY = 0; updateTransform(true);
+                    
+                    // Release scroll lock
+                    document.body.style.overflow = '';
+                    if (window['lenis']) window['lenis'].start();
+                }, 300);
             };
 
             if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
