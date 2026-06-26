@@ -123,7 +123,7 @@
   
   let isOpen = false;
 
-  // --- 1. PIXEL-PERFECT SCROLL LOGIC ---
+  // --- 1. PIXEL-PERFECT SCROLL & STATE LOGIC ---
   function updateHeaderState() {
     const hero = document.getElementById('hero-section');
     const headerHeight = header ? header.offsetHeight : 80;
@@ -136,7 +136,10 @@
       isPastHero = window.scrollY > 50;
     }
 
-    if (isPastHero) {
+    // NEW LOGIC: Make text dark if scrolled past hero OR if the mobile menu is currently open
+    const forceDark = isPastHero || isOpen;
+
+    if (forceDark) {
       logo?.classList.remove('text-white');
       logo?.classList.add('text-stone-800');
 
@@ -148,10 +151,9 @@
         link.classList.add('text-stone-500', 'hover:text-stone-800');
       });
 
-      if (!isOpen) {
-        line1?.classList.remove('bg-white'); line1?.classList.add('bg-stone-800');
-        line2?.classList.remove('bg-white'); line2?.classList.add('bg-stone-800');
-      }
+      line1?.classList.remove('bg-white'); line1?.classList.add('bg-stone-800');
+      line2?.classList.remove('bg-white'); line2?.classList.add('bg-stone-800');
+      
     } else {
       logo?.classList.add('text-white');
       logo?.classList.remove('text-stone-800');
@@ -164,10 +166,8 @@
         link.classList.remove('text-stone-500', 'hover:text-stone-800');
       });
 
-      if (!isOpen) {
-        line1?.classList.add('bg-white'); line1?.classList.remove('bg-stone-800');
-        line2?.classList.add('bg-white'); line2?.classList.remove('bg-stone-800');
-      }
+      line1?.classList.add('bg-white'); line1?.classList.remove('bg-stone-800');
+      line2?.classList.add('bg-white'); line2?.classList.remove('bg-stone-800');
     }
   }
 
@@ -193,10 +193,8 @@
     toggle?.setAttribute('aria-expanded', 'true');
     menu?.setAttribute('aria-hidden', 'false');
     
-    line1?.classList.remove('bg-white'); line1?.classList.add('bg-stone-800');
-    line2?.classList.remove('bg-white'); line2?.classList.add('bg-stone-800');
-    
     lockScroll();
+    updateHeaderState(); // Force UI update immediately
   }
 
   function closeMenu() {
@@ -207,8 +205,8 @@
     toggle?.setAttribute('aria-expanded', 'false');
     menu?.setAttribute('aria-hidden', 'true');
     
-    updateHeaderState();
     unlockScroll();
+    updateHeaderState(); // Re-evaluate based on scroll position immediately
   }
 
   if (toggle) {
