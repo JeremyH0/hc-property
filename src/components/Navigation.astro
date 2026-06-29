@@ -2,24 +2,30 @@
 // Navigation.astro - Minimalist Transparent Header with Smart Lang Logic
 ---
 
+<!-- ========================================== -->
+<!-- DESKTOP HEADER                             -->
+<!-- ========================================== -->
 <header id="main-header" class="w-full fixed top-0 left-0 z-50 transition-all duration-300 bg-transparent border-none">
   <div class="max-w-[100rem] mx-auto px-6 md:px-12 h-20 md:h-24 flex items-center justify-between">
     
-    <a href="#" id="header-logo" class="font-sans text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-white transition-colors duration-300 hover:opacity-70 relative z-50">
-      HC Property
+    <!-- Logo -->
+    <a href="#" id="header-logo" class="font-sans text-xs md:text-sm font-semibold tracking-widest uppercase text-white transition-colors duration-300 hover:opacity-70 relative z-50">
+      Hirafu Capital GK
     </a>
 
     <div class="flex items-center gap-6 xl:gap-10">
       
+      <!-- Desktop Links -->
       <nav class="hidden xl:flex items-center gap-10 xl:gap-12" id="desktop-nav">
-        <a href="#concept"      class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Concept</a>
-        <a href="#floorplan"    class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Masterplan</a>
-        <a href="#gallery"      class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Gallery</a>
-        <a href="#area"         class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Area</a>
-        <a href="#inquire"      class="nav-link font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90 hover:text-white transition-colors duration-300">Inquire</a>
+        <a href="#concept"      class="nav-link font-sans text-xs font-medium tracking-widest uppercase text-white/90 hover:text-white transition-colors duration-300">Concept</a>
+        <a href="#floorplan"    class="nav-link font-sans text-xs font-medium tracking-widest uppercase text-white/90 hover:text-white transition-colors duration-300">Masterplan</a>
+        <a href="#gallery"      class="nav-link font-sans text-xs font-medium tracking-widest uppercase text-white/90 hover:text-white transition-colors duration-300">Gallery</a>
+        <a href="#area"         class="nav-link font-sans text-xs font-medium tracking-widest uppercase text-white/90 hover:text-white transition-colors duration-300">Area</a>
+        <a href="#inquire"      class="nav-link font-sans text-xs font-medium tracking-widest uppercase text-white/90 hover:text-white transition-colors duration-300">Inquire</a>
       </nav>
 
-      <div id="lang-menu" class="hidden xl:block relative group z-50 font-sans text-[10px] md:text-xs tracking-[0.2em] transition-colors duration-300 text-white">
+      <!-- Language Dropdown -->
+      <div id="lang-menu" class="hidden xl:block relative group z-50 font-sans text-[10px] md:text-xs tracking-widest transition-colors duration-300 text-white">
         <button class="flex items-center gap-1.5 hover:opacity-70 transition-opacity focus:outline-none uppercase py-4" aria-haspopup="true">
           <span id="current-lang-display">EN</span>
           <svg class="w-3 h-3 opacity-50 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,14 +34,15 @@
         </button>
         
         <div class="absolute right-0 top-full w-32 pt-2 opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-300">
-          <div class="w-full py-2 bg-[#F2EFE9]/95 backdrop-blur-md border border-stone-200/50 shadow-sm flex flex-col text-left rounded-lg">
-            <a href="/" class="block px-5 py-3 text-[10px] tracking-[0.2em] uppercase text-stone-500 hover:text-stone-800 transition-colors">English</a>
-            <a href="#" class="block px-5 py-3 text-[10px] tracking-[0.2em] uppercase text-stone-400 hover:text-stone-800 transition-colors">日本語</a>
-            <a href="#" class="block px-5 py-3 text-[10px] tracking-[0.2em] uppercase text-stone-400 hover:text-stone-800 transition-colors">中文</a>
+          <div class="w-full py-2 bg-[#F4F4F5]/95 backdrop-blur-md border border-zinc-200/50 shadow-sm flex flex-col text-left rounded-lg">
+            <a href="/" class="block px-5 py-3 text-[10px] tracking-widest uppercase text-zinc-500 hover:text-zinc-800 transition-colors">English</a>
+            <a href="#" class="block px-5 py-3 text-[10px] tracking-widest uppercase text-zinc-400 hover:text-zinc-800 transition-colors">日本語</a>
+            <a href="#" class="block px-5 py-3 text-[10px] tracking-widest uppercase text-zinc-400 hover:text-zinc-800 transition-colors">中文</a>
           </div>
         </div>
       </div>
 
+      <!-- Hamburger Toggle -->
       <button id="menu-toggle" class="xl:hidden relative z-50 w-8 h-10 flex flex-col justify-center items-end gap-[7px] focus:outline-none cursor-pointer md:pl-4" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
         <span id="line-1" class="block w-6 h-px bg-white transition-colors duration-300"></span>
         <span id="line-2" class="block w-4 h-px bg-white transition-colors duration-300"></span>
@@ -45,26 +52,32 @@
   </div>
 </header>
 
-<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true" class="fixed inset-0 z-40 bg-[#F2EFE9] flex flex-col items-center justify-center">
+<!-- ========================================== -->
+<!-- FULLSCREEN MOBILE MENU                     -->
+<!-- ========================================== -->
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true" class="fixed inset-0 z-40 bg-[#F4F4F5] flex flex-col items-center justify-center">
   <nav class="flex flex-col items-center gap-8">
     <a href="#concept"      class="mobile-link" style="--i:1">Concept</a>
     <a href="#floorplan"    class="mobile-link" style="--i:2">Masterplan</a>
     <a href="#gallery"      class="mobile-link" style="--i:3">Gallery</a>
     <a href="#area"         class="mobile-link" style="--i:4">Area</a>
-    <div class="w-8 h-px bg-stone-300 my-1" aria-hidden="true"></div>
+    <div class="w-8 h-px bg-zinc-300 my-1" aria-hidden="true"></div>
     <a href="#inquire"      class="mobile-link-cta" style="--i:5">Inquire</a>
     
     <div class="flex items-center gap-6 mt-6 mobile-lang" style="--i:6">
-      <a href="/" class="font-sans text-xs font-medium tracking-[0.2em] text-stone-800 hover:text-stone-500 transition-colors">EN</a>
-      <a href="#" class="font-sans text-xs font-light tracking-[0.2em] text-stone-400 hover:text-stone-800 transition-colors">JP</a>
-      <a href="#" class="font-sans text-xs font-light tracking-[0.2em] text-stone-400 hover:text-stone-800 transition-colors">ZH</a>
+      <a href="/" class="font-sans text-xs font-medium tracking-widest text-zinc-800 hover:text-zinc-500 transition-colors">EN</a>
+      <a href="#" class="font-sans text-xs font-light tracking-widest text-zinc-400 hover:text-zinc-800 transition-colors">JP</a>
+      <a href="#" class="font-sans text-xs font-light tracking-widest text-zinc-400 hover:text-zinc-800 transition-colors">ZH</a>
     </div>
   </nav>
-  <span class="absolute bottom-10 font-sans text-xs tracking-[0.2em] uppercase text-stone-400">
+  <span class="absolute bottom-10 font-sans text-xs tracking-widest uppercase text-zinc-400">
     Karuizawa &middot; Nagano &middot; Japan
   </span>
 </div>
 
+<!-- ========================================== -->
+<!-- STYLES                                     -->
+<!-- ========================================== -->
 <style>
   #line-1, #line-2 {
     transform-origin: center;
@@ -94,18 +107,26 @@
 
   .mobile-link {
     font-family: var(--font-serif); font-size: clamp(2.25rem, 9vw, 3.75rem);
-    font-weight: 300; letter-spacing: 0.015em; line-height: 1; color: #292524; text-decoration: none;
+    font-weight: 300; letter-spacing: 0.015em; line-height: 1; 
+    color: #27272a; /* zinc-800 */
+    text-decoration: none;
   }
-  .mobile-link:hover { color: #a8a29e; }
+  .mobile-link:hover { color: #a1a1aa; /* zinc-400 */ }
 
   .mobile-link-cta {
     font-family: var(--font-sans); font-size: 0.65rem; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase; color: #292524; text-decoration: none;
-    border-bottom: 1px solid #292524; padding-bottom: 3px;
+    letter-spacing: 0.1em; text-transform: uppercase; 
+    color: #27272a; /* zinc-800 */
+    text-decoration: none;
+    border-bottom: 1px solid #27272a; 
+    padding-bottom: 3px;
   }
-  .mobile-link-cta:hover { color: #78716c; border-color: #78716c; }
+  .mobile-link-cta:hover { color: #71717a; border-color: #71717a; /* zinc-500 */ }
 </style>
 
+<!-- ========================================== -->
+<!-- SCRIPTS                                    -->
+<!-- ========================================== -->
 <script>
   const toggle       = document.getElementById('menu-toggle');
   const menu         = document.getElementById('mobile-menu');
@@ -136,44 +157,46 @@
       isPastHero = window.scrollY > 50;
     }
 
-    // NEW LOGIC: Make text dark if scrolled past hero OR if the mobile menu is currently open
+    // Force dark text if scrolled past hero OR if the mobile menu is currently open
     const forceDark = isPastHero || isOpen;
 
     if (forceDark) {
       logo?.classList.remove('text-white');
-      logo?.classList.add('text-stone-800');
+      logo?.classList.add('text-zinc-800');
 
       langMenu?.classList.remove('text-white');
-      langMenu?.classList.add('text-stone-800');
+      langMenu?.classList.add('text-zinc-800');
 
       navLinks.forEach(link => {
         link.classList.remove('text-white/90', 'hover:text-white');
-        link.classList.add('text-stone-500', 'hover:text-stone-800');
+        link.classList.add('text-zinc-500', 'hover:text-zinc-800');
       });
 
-      line1?.classList.remove('bg-white'); line1?.classList.add('bg-stone-800');
-      line2?.classList.remove('bg-white'); line2?.classList.add('bg-stone-800');
+      line1?.classList.remove('bg-white'); line1?.classList.add('bg-zinc-800');
+      line2?.classList.remove('bg-white'); line2?.classList.add('bg-zinc-800');
       
     } else {
       logo?.classList.add('text-white');
-      logo?.classList.remove('text-stone-800');
+      logo?.classList.remove('text-zinc-800');
 
       langMenu?.classList.add('text-white');
-      langMenu?.classList.remove('text-stone-800');
+      langMenu?.classList.remove('text-zinc-800');
 
       navLinks.forEach(link => {
         link.classList.add('text-white/90', 'hover:text-white');
-        link.classList.remove('text-stone-500', 'hover:text-stone-800');
+        link.classList.remove('text-zinc-500', 'hover:text-zinc-800');
       });
 
-      line1?.classList.add('bg-white'); line1?.classList.remove('bg-stone-800');
-      line2?.classList.add('bg-white'); line2?.classList.remove('bg-stone-800');
+      line1?.classList.add('bg-white'); line1?.classList.remove('bg-zinc-800');
+      line2?.classList.add('bg-white'); line2?.classList.remove('bg-zinc-800');
     }
   }
 
   window.addEventListener('scroll', updateHeaderState, { passive: true });
   window.addEventListener('resize', updateHeaderState, { passive: true });
-  updateHeaderState(); 
+  
+  // Wait a fraction of a second to ensure DOM is fully painted before first check
+  setTimeout(updateHeaderState, 50);
 
   // --- 2. MENU TOGGLE & SCROLL ROUTING ---
   function lockScroll() {
@@ -194,7 +217,7 @@
     menu?.setAttribute('aria-hidden', 'false');
     
     lockScroll();
-    updateHeaderState(); // Force UI update immediately
+    updateHeaderState(); 
   }
 
   function closeMenu() {
@@ -206,7 +229,7 @@
     menu?.setAttribute('aria-hidden', 'true');
     
     unlockScroll();
-    updateHeaderState(); // Re-evaluate based on scroll position immediately
+    updateHeaderState(); 
   }
 
   if (toggle) {

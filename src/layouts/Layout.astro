@@ -25,11 +25,13 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
         <title>{title}</title>
 
         <style is:global>
+            /* Lenis Core Setup */
             html.lenis, html.lenis body { height: auto; }
             .lenis.lenis-smooth { scroll-behavior: auto !important; }
             .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
             .lenis.lenis-stopped { overflow: hidden; }
 
+            /* Hardware-Accelerated Reveal States */
             .reveal-el {
                 opacity: 0;
                 transform: translate3d(0, 40px, 0);
@@ -52,12 +54,12 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
             }
         </style>
     </head>
-    <body class="bg-[#F2EFE9] text-stone-800 font-sans antialiased selection:bg-stone-200 selection:text-stone-900 lg:cursor-none">
+    
+    <body class="bg-[#F4F4F5] text-zinc-800 font-sans antialiased selection:bg-zinc-200 selection:text-zinc-900 lg:cursor-none">
         
-        <!-- SOFT LINEN PRELOADER -->
-        <div id="preloader" class="fixed inset-0 z-[10000] bg-[#EBE7E0] flex items-center justify-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
-            <div id="preloader-text" class="font-sans text-xs md:text-sm font-medium tracking-[0.4em] uppercase text-stone-800 transition-all duration-700 ease-out translate-y-0 opacity-100">
-                HC Property
+        <div id="preloader" class="fixed inset-0 z-[10000] bg-[#E4E4E7] flex items-center justify-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
+            <div id="preloader-text" class="font-sans text-xs md:text-sm font-medium tracking-[0.4em] uppercase text-zinc-800 transition-all duration-700 ease-out translate-y-0 opacity-100">
+                HIRAFU CAPITAL GK
             </div>
         </div>
 
@@ -70,14 +72,14 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
         <script is:inline>
             document.addEventListener('DOMContentLoaded', () => {
                 
-                // --- LENIS CONFIGURATION ---
+                // --- 1. LENIS CONFIGURATION ---
                 const lenis = new window.Lenis({ 
                     lerp: 0.08,
                     wheelMultiplier: 1.0, 
                     smoothWheel: true,
                     syncTouch: false 
                 });
-                lenis.stop();
+                lenis.stop(); // Pause scroll during preloader
                 window.lenis = lenis; 
 
                 function raf(time) { 
@@ -86,14 +88,19 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
                 }
                 requestAnimationFrame(raf);
 
-                // --- SAFE PRELOADER TIMING ---
+                // --- 2. PRELOADER TIMING ---
                 const preloader = document.getElementById('preloader');
                 const preloaderText = document.getElementById('preloader-text');
 
+                // Fade out text
                 setTimeout(() => {
-                    if (preloaderText) { preloaderText.style.opacity = '0'; preloaderText.style.transform = 'translate3d(0, -15px, 0)'; }
+                    if (preloaderText) { 
+                        preloaderText.style.opacity = '0'; 
+                        preloaderText.style.transform = 'translate3d(0, -15px, 0)'; 
+                    }
                 }, 1000);
 
+                // Slide up curtain & trigger hero reveals
                 setTimeout(() => {
                     if (preloader) preloader.style.transform = 'translate3d(0, -100%, 0)';
                     const heroElements = document.querySelectorAll('.hero-reveal');
@@ -102,29 +109,28 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
                     });
                 }, 1600);
 
+                // Unlock scroll and destroy preloader element
                 setTimeout(() => {
                     lenis.start();
                     if (preloader) preloader.remove();
                 }, 2800);
 
-                // --- GPU ACCELERATED SCROLL REVEAL ---
+                // --- 3. HIGH-PERFORMANCE SCROLL REVEAL ---
+                // Optimized to only add the class. Removed heavy bounding box checks.
                 const revealObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            requestAnimationFrame(() => { entry.target.classList.add('is-revealed'); });
-                            observer.unobserve(entry.target);
-                        } else if (!entry.target.classList.contains('is-revealed')) {
-                            if (entry.boundingClientRect.top > window.innerHeight / 2) {
-                                entry.target.style.transform = 'translate3d(0, 40px, 0)';
-                            } else {
-                                entry.target.style.transform = 'translate3d(0, -40px, 0)';
-                            }
+                            requestAnimationFrame(() => { 
+                                entry.target.classList.add('is-revealed'); 
+                            });
+                            observer.unobserve(entry.target); // Stop tracking once revealed
                         }
                     });
                 }, { rootMargin: '0px 0px -5% 0px', threshold: 0 });
+                
                 document.querySelectorAll('.reveal-el').forEach(el => { revealObserver.observe(el); });
 
-                // --- CUSTOM CURSOR ---
+                // --- 4. CUSTOM CURSOR ---
                 const cursor = document.getElementById('custom-cursor');
                 if (window.matchMedia("(pointer: fine)").matches && cursor) {
                     let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
@@ -139,12 +145,17 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
                     function updateCursor() {
                         currentScale += (targetScale - currentScale) * 0.15;
                         cursorX += (mouseX - cursorX) * 0.4; cursorY += (mouseY - cursorY) * 0.4;
-                        if (cursor) cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%) scale(${currentScale})`;
+                        
+                        // Use toFixed to prevent layout thrashing from overly long decimal strings
+                        if (cursor) {
+                            cursor.style.transform = `translate3d(${cursorX.toFixed(2)}px, ${cursorY.toFixed(2)}px, 0) translate(-50%, -50%) scale(${currentScale.toFixed(3)})`;
+                        }
                         requestAnimationFrame(updateCursor);
                     }
                     requestAnimationFrame(updateCursor);
 
-                    const interactables = document.querySelectorAll('a, button, input, textarea, #menu-toggle');
+                    // Added specific targets for our new UI elements (.floorplan-trigger, .gallery-thumb)
+                    const interactables = document.querySelectorAll('a, button, input, textarea, .floorplan-trigger, .gallery-thumb, #menu-toggle');
                     interactables.forEach(el => {
                         el.addEventListener('mouseenter', () => { targetScale = 1; });
                         el.addEventListener('mouseleave', () => { targetScale = 0.25; });
