@@ -1,0 +1,286 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+    images: ImageMetadata[];
+}
+
+const { images } = Astro.props;
+// Generate a unique ID to safely scope JS if multiple carousels are on the page
+const carouselId = Math.random().toString(36).substring(7);
+---
+
+<smooth-carousel class="block relative w-full group select-none" data-carousel-id={carouselId}>
+    <!-- Main Carousel Container -->
+    <div class="carousel-main relative w-full aspect-[4/3] xl:aspect-[3/2] rounded-xl overflow-hidden bg-zinc-50 border border-zinc-200 shadow-sm cursor-pointer lg:cursor-default">
+        
+        {images.map((img, index) => (
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out" data-index={index} style={{ opacity: index === 0 ? '1' : '0', zIndex: index === 0 ? '10' : '0' }}>
+                <Image src={img} alt={`Slide ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
+            </div>
+        ))}
+
+        <!-- Subtle Gradient Overlay for Dots/Buttons -->
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-transparent to-zinc-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
+
+        <!-- Navigation Buttons (Hidden on mobile to encourage swiping, visible on desktop hover) -->
+        <button class="prev-btn absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-zinc-900/40 backdrop-blur-md hidden md:flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-900/80 hover:scale-105 opacity-0 group-hover:opacity-100 cursor-pointer" aria-label="Previous image">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+
+        <button class="next-btn absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-zinc-900/40 backdrop-blur-md hidden md:flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-900/80 hover:scale-105 opacity-0 group-hover:opacity-100 cursor-pointer" aria-label="Next image">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+        
+        <!-- Dot Indicators -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2 pointer-events-auto">
+            {images.map((_, index) => (
+                <button class={`dot-btn w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${index === 0 ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'}`} data-index={index} aria-label={`Go to slide ${index + 1}`}></button>
+            ))}
+        </div>
+    </div>
+
+    <!-- Identical Floorplan Lightbox Overlay (Scoped) -->
+    <div class="carousel-lightbox fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/95 opacity-0 pointer-events-none transition-opacity duration-500 cursor-none touch-none">
+        <button class="lightbox-close absolute top-6 right-6 md:top-12 md:right-12 text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase p-4 hover:text-zinc-400 transition-colors cursor-pointer z-50">
+            Close
+        </button>
+        <div class="relative w-full h-full max-w-7xl max-h-[85vh] p-6 md:p-12 lg:p-24 flex items-center justify-center overflow-hidden pb-32 md:pb-32">
+            <img class="lightbox-image max-w-full max-h-full object-contain opacity-0 transition-opacity duration-300 select-none cursor-none touch-none" src="" alt="HD View" draggable="false" />
+        </div>
+        
+        <div class="absolute bottom-8 md:bottom-12 left-0 w-full px-6 md:px-12 flex items-center justify-between z-50 pointer-events-none">
+            <button class="lightbox-prev pointer-events-auto text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase py-4 pr-4 hover:text-zinc-400 transition-colors cursor-pointer">
+                Prev
+            </button>
+            <button class="lightbox-next pointer-events-auto text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase py-4 pl-4 hover:text-zinc-400 transition-colors cursor-pointer">
+                Next
+            </button>
+        </div>
+    </div>
+</smooth-carousel>
+
+<script>
+    class SmoothCarousel extends HTMLElement {
+        connectedCallback() {
+            // Container & Controls
+            const mainContainer = this.querySelector('.carousel-main');
+            const slides = Array.from(this.querySelectorAll('.carousel-slide')) as HTMLElement[];
+            const dots = Array.from(this.querySelectorAll('.dot-btn')) as HTMLButtonElement[];
+            const prevBtn = this.querySelector('.prev-btn');
+            const nextBtn = this.querySelector('.next-btn');
+
+            // Lightbox Elements
+            const lightbox = this.querySelector('.carousel-lightbox');
+            const lightboxImage = this.querySelector('.lightbox-image') as HTMLImageElement;
+            const lightboxClose = this.querySelector('.lightbox-close');
+            const lightboxPrev = this.querySelector('.lightbox-prev');
+            const lightboxNext = this.querySelector('.lightbox-next');
+
+            if (!mainContainer || slides.length === 0) return;
+
+            let currentIndex = 0;
+            let isAnimating = false;
+            const totalSlides = slides.length;
+
+            // Extract native image sources for the lightbox
+            const imageUrls = slides.map(slide => {
+                const img = slide.querySelector('img');
+                return img ? img.src : '';
+            });
+
+            // --- CAROUSEL LOGIC ---
+            const goToSlide = (index: number) => {
+                if (isAnimating || index === currentIndex) return;
+                isAnimating = true;
+
+                // Fade out current
+                slides[currentIndex].style.opacity = '0';
+                slides[currentIndex].style.zIndex = '0';
+                dots[currentIndex].classList.remove('bg-white', 'scale-125');
+                dots[currentIndex].classList.add('bg-white/50');
+
+                // Update index
+                currentIndex = index;
+
+                // Fade in new
+                slides[currentIndex].style.opacity = '1';
+                slides[currentIndex].style.zIndex = '10';
+                dots[currentIndex].classList.add('bg-white', 'scale-125');
+                dots[currentIndex].classList.remove('bg-white/50');
+
+                // Synchronize lightbox image if it's currently open
+                if (lightbox && lightbox.classList.contains('opacity-100')) {
+                    updateLightboxImage(true);
+                }
+
+                setTimeout(() => { isAnimating = false; }, 700);
+            };
+
+            const nextSlide = () => goToSlide((currentIndex + 1) % totalSlides);
+            const prevSlide = () => goToSlide((currentIndex - 1 + totalSlides) % totalSlides);
+
+            nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+            prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', (e) => { e.stopPropagation(); goToSlide(idx); });
+            });
+
+            // --- MOBILE SWIPE LOGIC ---
+            let touchStartX = 0;
+            let touchEndX = 0;
+            mainContainer.addEventListener('touchstart', (e: TouchEvent) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            mainContainer.addEventListener('touchend', (e: TouchEvent) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const threshold = 40;
+                
+                if (e.touches.length > 0) return; // Ignore if user is multi-touching
+
+                if (touchStartX - touchEndX > threshold) {
+                    nextSlide();
+                } else if (touchEndX - touchStartX > threshold) {
+                    prevSlide();
+                }
+            }, { passive: true });
+
+            // --- FLOORPLAN-STYLE LIGHTBOX LOGIC ---
+            let scale = 1, panX = 0, panY = 0, isPanning = false, startX = 0, startY = 0;
+            let lastTapTime = 0, initialPinchDistance: number | null = null, initialScale = 1;
+
+            const updateTransform = (smooth = false) => {
+                if (!lightboxImage) return;
+                lightboxImage.style.transition = smooth ? 'opacity 0.3s ease, transform 0.3s ease-out' : 'opacity 0.3s ease';
+                lightboxImage.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+                lightboxImage.style.cursor = scale > 1 ? (isPanning ? 'grabbing' : 'grab') : 'default';
+            };
+
+            const getDistance = (touches: TouchList) => {
+                return Math.hypot(
+                    touches[0].clientX - touches[1].clientX,
+                    touches[0].clientY - touches[1].clientY
+                );
+            };
+
+            const updateLightboxImage = (smooth = false) => {
+                if (!lightboxImage) return;
+                lightboxImage.classList.remove('opacity-100');
+                lightboxImage.classList.add('opacity-0');
+                
+                setTimeout(() => {
+                    scale = 1; panX = 0; panY = 0; updateTransform(true);
+                    lightboxImage.src = imageUrls[currentIndex];
+                }, 300);
+            };
+
+            if (lightboxImage) {
+                lightboxImage.onload = () => {
+                    if (lightbox && lightbox.classList.contains('opacity-100')) {
+                        lightboxImage.classList.remove('opacity-0');
+                        lightboxImage.classList.add('opacity-100');
+                    }
+                };
+
+                // Pinch and Pan Events
+                lightboxImage.addEventListener('touchstart', (e) => {
+                    if (e.touches.length === 1) {
+                        const currentTime = new Date().getTime();
+                        const tapLength = currentTime - lastTapTime;
+                        if (tapLength < 300 && tapLength > 0) {
+                            e.preventDefault();
+                            if (scale > 1) { scale = 1; panX = 0; panY = 0; }
+                            else { scale = 2.5; }
+                            updateTransform(true);
+                        } else {
+                            if (scale > 1) {
+                                isPanning = true;
+                                startX = e.touches[0].clientX - panX;
+                                startY = e.touches[0].clientY - panY;
+                            }
+                        }
+                        lastTapTime = currentTime;
+                    } else if (e.touches.length === 2) {
+                        e.preventDefault();
+                        isPanning = false;
+                        initialPinchDistance = getDistance(e.touches);
+                        initialScale = scale;
+                    }
+                }, { passive: false });
+
+                lightboxImage.addEventListener('touchmove', (e) => {
+                    if (e.touches.length === 1 && isPanning) {
+                        e.preventDefault();
+                        panX = e.touches[0].clientX - startX;
+                        panY = e.touches[0].clientY - startY;
+                        updateTransform();
+                    } else if (e.touches.length === 2 && initialPinchDistance) {
+                        e.preventDefault();
+                        const currentDistance = getDistance(e.touches);
+                        const pinchRatio = currentDistance / initialPinchDistance;
+                        scale = Math.max(1, Math.min(initialScale * pinchRatio, 4));
+                        if (scale === 1) { panX = 0; panY = 0; }
+                        updateTransform();
+                    }
+                }, { passive: false });
+
+                lightboxImage.addEventListener('touchend', () => {
+                    isPanning = false;
+                    initialPinchDistance = null;
+                });
+            }
+
+            // Open/Close Triggers
+            const openLightbox = () => {
+                if (window.innerWidth >= 1024) return; // Disable on desktop
+                
+                scale = 1; panX = 0; panY = 0; updateTransform(true);
+                if (lightboxImage) lightboxImage.src = imageUrls[currentIndex];
+
+                lightbox?.classList.remove('pointer-events-none', 'opacity-0');
+                lightbox?.classList.add('opacity-100');
+                document.body.style.overflow = 'hidden';
+                if (window['lenis']) window['lenis'].stop();
+            };
+
+            const closeLightbox = () => {
+                lightbox?.classList.remove('opacity-100');
+                lightbox?.classList.add('opacity-0', 'pointer-events-none');
+                
+                if (lightboxImage) {
+                    lightboxImage.classList.remove('opacity-100');
+                    lightboxImage.classList.add('opacity-0');
+                }
+
+                setTimeout(() => {
+                    if (lightboxImage) lightboxImage.src = '';
+                    scale = 1; panX = 0; panY = 0; updateTransform(true);
+                    document.body.style.overflow = '';
+                    if (window['lenis']) window['lenis'].start();
+                }, 300);
+            };
+
+            // Main Container Tap to Open
+            mainContainer.addEventListener('click', (e) => {
+                if ((e.target as HTMLElement).tagName !== 'BUTTON') {
+                    openLightbox();
+                }
+            });
+
+            // Lightbox Nav
+            lightboxClose?.addEventListener('click', closeLightbox);
+            lightboxPrev?.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+            lightboxNext?.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+            lightbox?.addEventListener('click', (e) => {
+                if (e.target === lightbox && scale === 1) closeLightbox();
+            });
+        }
+    }
+    customElements.define('smooth-carousel', SmoothCarousel);
+</script>

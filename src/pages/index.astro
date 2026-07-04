@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
-
+import Carousel3D from '../components/Carousel3D.astro';
 import { Image } from 'astro:assets';
 
 // ==========================================
@@ -13,9 +13,46 @@ import { Image } from 'astro:assets';
 import imgHeroHQ from '../assets/gallery/hero-hq.jpg';
 
 // Concept Section (Crossfades)
-import imgSuite from '../assets/gallery/suite.jpeg';
-import imgSuite2 from '../assets/gallery/suite2.jpeg';
-import imgFirepit from '../assets/gallery/firepit1.jpeg'; 
+import imgDrawing from '../assets/gallery/drawing.jpeg';
+
+// ==========================================
+// NEW IMPORTS FOR BLOCK 1
+// ==========================================
+import img1_7 from '../assets/gallery/1.7.jpeg';
+import img1_4 from '../assets/gallery/1.4.jpeg';
+import img1_2 from '../assets/gallery/1.2.jpeg';
+
+// ==========================================
+// Indoor Living Carousel Images Block 2
+// ==========================================
+import img2_1 from '../assets/gallery/2.1.jpeg';
+import img2_4 from '../assets/gallery/2.4.jpeg';
+import img2_16 from '../assets/gallery/2.16.jpeg';
+import img2_15 from '../assets/gallery/2.15.jpeg';
+
+// ==========================================
+// ACCOMMODATIONS IMPORTS (Block 3)
+// ==========================================
+import img3_18 from '../assets/gallery/3.18.jpeg';
+import img3_10 from '../assets/gallery/3.10.jpeg';
+import img3_15 from '../assets/gallery/3.15.jpeg';
+import img3_5 from '../assets/gallery/3.5.jpeg';
+
+// ==========================================
+// WELLNESS IMPORTS (Block 4)
+// ==========================================
+import img4_1 from '../assets/gallery/4.1.jpeg';
+import img4_2 from '../assets/gallery/4.2.jpeg';
+import img4_3 from '../assets/gallery/4.3.jpeg';
+import img4_4 from '../assets/gallery/4.4.jpeg';
+
+// ==========================================
+// GROUNDS & FIREPIT IMPORTS (Block 5)
+// ==========================================
+import img5_20 from '../assets/gallery/5.20.jpeg';
+import img5_16 from '../assets/gallery/5.16.jpeg';
+import img5_17 from '../assets/gallery/5.17.jpeg';
+import img5_13 from '../assets/gallery/5.13.jpeg';
 
 // Floorplans
 import imgFloorplan1 from '../assets/gallery/floorplan1.jpeg';
@@ -23,34 +60,36 @@ import imgFloorplan2 from '../assets/gallery/floorplan2.jpeg';
 import imgFloorplan1HD from '../assets/gallery/floorplan1hd.jpeg';
 import imgFloorplan2HD from '../assets/gallery/floorplan2hd.jpeg';
 
-// 16-Image Gallery
-import img1 from '../assets/gallery/1.jpeg';
-import img2 from '../assets/gallery/2.jpeg';
-import img3 from '../assets/gallery/3.jpeg';
-import img4 from '../assets/gallery/4.jpeg';
-import img5 from '../assets/gallery/5.jpeg';
-import img6 from '../assets/gallery/6.jpeg';
-import img7 from '../assets/gallery/7.jpeg';
-import img8 from '../assets/gallery/8.jpeg';
-import img9 from '../assets/gallery/9.jpeg';
-import img10 from '../assets/gallery/10.jpeg';
-import img11 from '../assets/gallery/11.jpeg';
-import img12 from '../assets/gallery/12.jpeg';
-import img13 from '../assets/gallery/13.jpeg';
-import img14 from '../assets/gallery/14.jpeg';
-import img15 from '../assets/gallery/15.jpeg';
-import img16 from '../assets/gallery/16.jpeg';
+// ==========================================
+// 16-Image Gallery (Renamed)
+// ==========================================
+import img0_1 from '../assets/gallery/0.1.jpeg';
+import img0_2 from '../assets/gallery/0.2.jpeg';
+import img0_3 from '../assets/gallery/0.3.jpeg';
+import img0_4 from '../assets/gallery/0.4.jpeg';
+import img0_5 from '../assets/gallery/0.5.jpeg';
+import img0_6 from '../assets/gallery/0.6.jpeg';
+import img0_7 from '../assets/gallery/0.7.jpeg';
+import img0_8 from '../assets/gallery/0.8.jpeg';
+import img0_9 from '../assets/gallery/0.9.jpeg';
+import img0_10 from '../assets/gallery/0.10.jpeg';
+import img0_11 from '../assets/gallery/0.11.jpeg';
+import img0_12 from '../assets/gallery/0.12.jpeg';
+import img0_13 from '../assets/gallery/0.13.jpeg';
+import img0_14 from '../assets/gallery/0.14.jpeg';
+import img0_15 from '../assets/gallery/0.15.jpeg';
+import img0_16 from '../assets/gallery/0.16.jpeg';
 
 // Array for mapping the gallery grid/carousel
 const galleryImages = [
-    { src: img1, label: "Image 1" }, { src: img2, label: "Image 2" },
-    { src: img3, label: "Image 3" }, { src: img4, label: "Image 4" },
-    { src: img5, label: "Image 5" }, { src: img6, label: "Image 6" },
-    { src: img7, label: "Image 7" }, { src: img8, label: "Image 8" },
-    { src: img9, label: "Image 9" }, { src: img10, label: "Image 10" },
-    { src: img11, label: "Image 11" }, { src: img12, label: "Image 12" },
-    { src: img13, label: "Image 13" }, { src: img14, label: "Image 14" },
-    { src: img15, label: "Image 15" }, { src: img16, label: "Image 16" }
+    { src: img0_1, label: "Image 1" }, { src: img0_2, label: "Image 2" },
+    { src: img0_3, label: "Image 3" }, { src: img0_4, label: "Image 4" },
+    { src: img0_5, label: "Image 5" }, { src: img0_6, label: "Image 6" },
+    { src: img0_7, label: "Image 7" }, { src: img0_8, label: "Image 8" },
+    { src: img0_9, label: "Image 9" }, { src: img0_10, label: "Image 10" },
+    { src: img0_11, label: "Image 11" }, { src: img0_12, label: "Image 12" },
+    { src: img0_13, label: "Image 13" }, { src: img0_14, label: "Image 14" },
+    { src: img0_15, label: "Image 15" }, { src: img0_16, label: "Image 16" }
 ];
 ---
 
@@ -67,7 +106,7 @@ const galleryImages = [
             <div class="absolute inset-0 w-full h-full">
                 <Image 
                     src={imgHeroHQ} 
-                    alt="Exterior view of Seren Collective Maple" 
+                    alt="Exterior view of the Karuizawa estate at dusk, showcasing the main residence and guest house surrounded by forest." 
                     widths={[768, 1280, 1920, 2560]}
                     sizes="100vw"
                     class="w-full h-full object-cover opacity-90" 
@@ -80,7 +119,7 @@ const galleryImages = [
 
             <div class="relative z-10 flex flex-col items-start justify-end text-left px-6 md:px-12 w-full max-w-[100rem] mx-auto h-full pb-8 md:pb-12 lg:pb-32">
                 <h1 class="hero-reveal font-sans text-2xl md:text-3xl lg:text-5xl font-light tracking-[0.15em] text-white drop-shadow-sm flex items-center">
-                    Karuizawa <span class="mx-3 md:mx-4 font-extralight text-white/50 text-xl md:text-2xl lg:text-4xl">|</span> 軽井沢
+                    Karuizawa <span class="mx-3 md:mx-4 font-extralight text-white/50 text-xl md:text-2xl lg:text-4xl">|</span> 
                 </h1>
             </div>
 
@@ -92,10 +131,10 @@ const galleryImages = [
             </div>
         </section>
 
-        <!-- ========================================== -->
+       <!-- ========================================== -->
         <!-- CONCEPT SECTION                            -->
         <!-- ========================================== -->
-        <section id="concept" class="px-6 py-24 md:py-32 lg:py-48 max-w-4xl mx-auto text-center">
+        <section id="concept" class="px-6 py-24 md:py-32 lg:py-40 max-w-4xl mx-auto text-center">
             <span class="reveal-el font-sans text-xs font-medium tracking-widest uppercase text-zinc-400 mb-8 block">The Estate</span>
             <h2 class="reveal-el font-serif text-3xl md:text-5xl lg:text-6xl font-light text-zinc-800 tracking-wide mb-12 md:mb-16 leading-tight">
                 A sanctuary divided, <br class="hidden md:block"/> yet perfectly unified.
@@ -106,43 +145,93 @@ const galleryImages = [
             </div>
         </section>
 
+      <!-- ========================================== -->
+        <!-- LIFESTYLE & AMENITIES                      -->
         <!-- ========================================== -->
-        <!-- ARCHITECTURE & AMENITIES                   -->
-        <!-- ========================================== -->
-        <section id="architecture" class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto">
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-                
-                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-1">
-                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Accommodations</span>
-                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
-                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The estate accommodates family and guests with uncompromising comfort. The main residence features four spacious bedrooms, while the guest house offers three. Crucially, every single bedroom in the estate is complemented by its own private ensuite bathroom.</p>
+        <section id="architecture" class="flex flex-col w-full">
+            
+            <!-- 1. Scale & Motor Court (Now has background) -->
+            <div class="w-full bg-[#E8E5DF] xl:bg-transparent">
+                <div class="px-6 md:px-12 py-20 md:py-28 xl:py-32 max-w-[100rem] mx-auto w-full">
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                        <div class="reveal-el w-full order-1 xl:order-1">
+                            <Carousel3D images={[img1_7, img1_4, img1_2]} />
+                        </div>
+                        <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
+                            <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">The First Impression</span>
+                            <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">An Estate of Grand Scale</h3>
+                            <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The experience begins the moment you pass through the private gates into a secluded forest clearing. Here, the impressive footprint of the estate is immediately felt, designed to seamlessly host extended family and friends. This grand introduction is complemented by a thoughtfully arranged five-vehicle motor court, offering effortless convenience without compromising the property's profound seclusion.</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- Suite Crossfade Container -->
-                <div class="reveal-el w-full aspect-[4/3] bg-zinc-50 overflow-hidden rounded-xl border border-zinc-200 order-2 relative scroll-crossfade">
-                    <Image src={imgSuite} alt="Private Suite Interior Day" class="w-full h-full object-cover absolute inset-0 z-0" />
-                    <!-- Hardware accelerated via transform-gpu and will-change-opacity -->
-                    <Image src={imgSuite2} alt="Private Suite Interior Night" class="w-full h-full object-cover absolute inset-0 z-10 crossfade-target opacity-0 pointer-events-none transition-none will-change-opacity transform-gpu" />
-                </div>
-
-                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-3 xl:order-4">
-                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Wellness & Leisure</span>
-                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Private Spa & Firepit</h3>
-                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The second floor of the main house is dedicated to wellness, featuring a private spa with dual large soaking tubs and a custom sauna. Outside, a generous wooden deck centers around a sunken firepit—the perfect setting for evening relaxation under the forest canopy.</p>
-                </div>
-                
-                <!-- Single Firepit Container -->
-                <div class="reveal-el w-full aspect-[4/3] bg-zinc-50 overflow-hidden rounded-xl border border-zinc-200 order-4 xl:order-3">
-                    <Image src={imgFirepit} alt="Wellness and Deck Firepit" class="w-full h-full object-cover" />
-                </div>
-
             </div>
+            
+            <!-- 2. Indoor Living (Transparent) -->
+            <div class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto w-full">
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                    <div class="reveal-el w-full order-1 xl:order-2">
+                        <Carousel3D images={[img2_1, img2_4, img2_16, img2_15]} />
+                    </div>
+                    <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
+                        <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Indoor Living</span>
+                        <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Heart of the Home</h3>
+                        <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">At the core of the residence, the great room offers a masterful blend of striking architecture and lived-in warmth. Expansive windows draw the tranquil Karuizawa forest inward, creating a serene environment that shifts beautifully with the changing seasons. It is a space designed for genuine connection—inviting effortless gatherings, long evenings of shared stories, and slow, quiet mornings bathed in natural light alongside a premium culinary space complete with high-quality branded appliances.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3. Accommodations (Now has background) -->
+            <div class="w-full bg-[#E8E5DF] xl:bg-transparent">
+                <div class="px-6 md:px-12 py-20 md:py-28 xl:py-32 max-w-[100rem] mx-auto w-full">
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                        <div class="reveal-el w-full order-1 xl:order-1">
+                            <Carousel3D images={[img3_18, img3_10, img3_15, img3_5]} />
+                        </div>
+                        <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
+                            <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Accommodations</span>
+                            <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
+                            <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">When the evening draws to a close, the estate offers restful comfort across seven beautifully appointed bedrooms. Each suite is designed as a personal retreat, complete with its own private ensuite bathroom and styled with soft, tactile finishes. This intelligent layout provides every guest with a quiet space to recharge while remaining connected to the home's welcoming energy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Wellness Retreat (Spa) (Transparent) -->
+            <div class="px-6 md:px-12 py-16 md:py-24 lg:py-32 max-w-[100rem] mx-auto w-full">
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                    <div class="reveal-el w-full order-1 xl:order-2">
+                        <Carousel3D images={[img4_1, img4_2, img4_3, img4_4]} />
+                    </div>
+                    <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
+                        <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Wellness</span>
+                        <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Private Spa & Sauna</h3>
+                        <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">A resort-grade wellness experience in the absolute privacy of your own home. The dedicated indoor spa features large dual soaking tubs and a custom-crafted cedar sauna. Bathed in natural forest light during the day, it transforms into a tranquil, deeply restorative escape by night.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Landscape & Firepit (Now has background) -->
+            <div class="w-full bg-[#E8E5DF] xl:bg-transparent">
+                <div class="px-6 md:px-12 py-20 md:py-28 xl:py-32 max-w-[100rem] mx-auto w-full">
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                        <div class="reveal-el w-full order-1 xl:order-1">
+                            <Carousel3D images={[img5_20, img5_16, img5_17, img5_13]} />
+                        </div>
+                        <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
+                            <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">The Grounds</span>
+                            <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Sunken Forest Firepit</h3>
+                            <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">As twilight descends over the Minamigaoka estate, the grounds reveal their most enchanting space. An expansive, meticulously curated wooden deck gives way to a sunken stone firepit, anchoring the sprawling private plot. Here, absolute seclusion meets the raw beauty of Karuizawa. Gather around the warmth of the fire on crisp, star-filled evenings a deeply immersive outdoor experience where the quiet rustle of the ancient trees is your only soundtrack.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </section>
 
         <!-- ========================================== -->
         <!-- FLOORPLAN SECTION                          -->
         <!-- ========================================== -->
-        <section id="floorplan" class="px-6 md:px-12 py-24 md:py-32 lg:py-40 max-w-[100rem] mx-auto border-t border-zinc-200">
+        <section id="floorplan" class="px-6 md:px-12 py-24 md:py-32 lg:py-48 max-w-[100rem] mx-auto border-t border-zinc-200">
             <div class="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-24 relative items-start">
                 
                 <div class="xl:col-span-4 xl:sticky xl:top-32 transition-all duration-300">
@@ -152,7 +241,7 @@ const galleryImages = [
                             <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Structural Harmony.</h2>
                         </div>
                         <div class="flex flex-col gap-4 md:gap-6 font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
-                            <p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and a sweeping outdoor terrace.</p>
+                            <p>The first floor establishes the estate's dual-wing concept. A central gallery bridges the main residence and the guest house, wrapping around a landscaped garden and expansive outdoor terrace.</p>
                             <p>The second floor is dedicated entirely to privacy and wellness. It houses the seven ensuite bedrooms, alongside the main house's dedicated spa and sauna retreat.</p>
                         </div>
                     </div>
@@ -186,8 +275,44 @@ const galleryImages = [
                         </span>
                     </div>
 
+                    <div class="reveal-el">
+                        <p class="font-sans text-xs text-zinc-400 font-light italic leading-loose text-center xl:text-left">
+                            * For indicative purposes only, unless the furniture layout reflects the actual as-built condition.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- ARCHITECT & DESIGN                         -->
+        <!-- ========================================== -->
+        <section id="sasazawa" class="px-6 py-24 md:py-32 lg:py-40 max-w-[100rem] mx-auto border-t border-zinc-200 overflow-hidden">
+            <div class="reveal-el max-w-5xl mx-auto w-full flex flex-col gap-10 md:gap-16">
+                
+                <!-- Text Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-16 items-start">
+                    <div class="md:col-span-5 flex flex-col items-start gap-3">
+                        <span class="font-sans text-[10px] font-semibold tracking-widest uppercase text-zinc-400">Architecture & Construction</span>
+                        <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Sasazawa</h3>
+                    </div>
+                    <div class="md:col-span-7 flex flex-col items-start gap-6">
+                        <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">
+                            Brought to life by the award-winning team at <a href="https://www.sasazawa.jp/villa/" target="_blank" rel="noopener noreferrer" class="text-zinc-800 border-b border-zinc-300 hover:border-zinc-800 transition-colors pb-0.5">Sasazawa Construction</a>, the estate reflects decades of mastery in luxury villa design. Every detail is meticulously drafted to harmonize with Karuizawa's distinct seasons, blending modern elegance with the raw, lived-in warmth of a true home.
+                        </p>
+                    </div>
                 </div>
 
+                <!-- Borderless Architectural Drawing -->
+                <div class="w-full overflow-hidden">
+                    <Image 
+                        src={imgDrawing} 
+                        alt="Architectural drawing of the Sasazawa design" 
+                        class="w-full h-auto object-cover scale-[1.01]"
+                    />
+                </div>
+                
             </div>
         </section>
 
@@ -203,13 +328,13 @@ const galleryImages = [
             <div class="reveal-el grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6 xl:gap-12 items-stretch w-full">
                 
                 <!-- Main Featured Image -->
-                <div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-50 overflow-hidden rounded-xl border border-zinc-200">
-                    <img id="main-gallery-image" src={img1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none" loading="lazy" decoding="async"/>
+                <div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-50 overflow-hidden rounded-xl border border-zinc-200 cursor-pointer">
+                    <img id="main-gallery-image" src={img0_1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none cursor-pointer md:cursor-default" loading="lazy" decoding="async"/>
                     
                     <!-- Mobile Swipe Indicator -->
                     <div id="swipe-indicator" class="xl:hidden absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none transition-opacity duration-500">
                         <span class="inline-block bg-zinc-900/60 backdrop-blur-sm text-white px-4 py-2 rounded-full font-sans text-[9px] font-medium tracking-widest uppercase">
-                            ← Swipe →
+                              Swipe 
                         </span>
                     </div>
                 </div>
@@ -226,9 +351,9 @@ const galleryImages = [
                 </div>
 
                 <!-- Desktop Grid -->
-                <div class="hidden xl:grid xl:col-span-5 w-full grid-cols-4 grid-rows-4 gap-3 content-start">
+                <div class="hidden xl:grid xl:col-span-5 w-full grid-cols-4 gap-3 content-start">
                     {galleryImages.map((img, index) => (
-                        <button class={`gallery-thumb desktop-thumb group w-full h-full aspect-auto bg-zinc-50 border border-zinc-200 rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
+                        <button class={`gallery-thumb desktop-thumb group w-full aspect-square bg-zinc-50 border border-zinc-200 rounded-xl overflow-hidden relative cursor-pointer focus:outline-none ring-0 ${index === 0 ? 'active' : ''}`} data-index={index} data-src={img.src.src} aria-label={`View ${img.label}`}>
                             <Image src={img.src} width={300} alt={`Thumbnail ${index + 1}`} class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 pointer-events-none" />
                         </button>
                     ))}
@@ -242,7 +367,7 @@ const galleryImages = [
         <!-- ========================================== -->
         <section id="area" class="px-6 py-24 md:py-32 lg:py-48 max-w-4xl mx-auto border-t border-zinc-200">
             <div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
-                <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400 mb-6 block">The Area</span>
+                <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400 mb-6 block">Info</span>
                 <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide">Minamigaoka, Karuizawa</h2>
             </div>
 
@@ -253,7 +378,7 @@ const galleryImages = [
                     <div class="flex flex-col gap-6 md:w-2/3">
                         <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light leading-loose flex flex-col gap-1">
                             <span>19-29 Seisatsuba, Oaza Nagakura, Karuizawa-machi, Nagano</span>
-                            <span class="text-xs md:text-sm text-zinc-500 font-light tracking-wide mt-1">長野県北佐久郡軽井沢町大字長倉字制札場１９－２９</span>
+                            <span class="text-xs md:text-sm text-zinc-500 font-light tracking-wide mt-1"> </span>
                         </div>
                         
                         <a href="https://maps.app.goo.gl/4fDoEjxtN8prwHbq5" target="_blank" rel="noopener noreferrer" class="group block w-full h-48 md:h-64 bg-zinc-200 rounded-lg overflow-hidden relative border border-zinc-200 mt-2 focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-4 transition-all">
@@ -272,7 +397,7 @@ const galleryImages = [
                             
                             <div class="absolute inset-0 bg-zinc-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none">
                                 <span class="bg-white/95 backdrop-blur-sm text-zinc-800 font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase px-6 py-3 rounded-full border border-zinc-200/50 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                    Open in Maps →
+                                    Open in Maps
                                 </span>
                             </div>
                         </a>
@@ -282,14 +407,14 @@ const galleryImages = [
                 <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-200 gap-2 md:gap-8">
                     <div class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400 md:w-1/3 pt-1">The Estate</div>
                     <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
-                        A magnificent luxury compound sitting on a sprawling 2,981.31 ㎡ (approx. 900 Tsubo) private forest plot.
+                        A magnificent luxury compound sitting on a sprawling 2,981.31 m² (approx. 900 Tsubo) private forest plot.
                     </div>
                 </div>
 
                 <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-200 gap-2 md:gap-8">
                     <div class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400 md:w-1/3 pt-1">Neighborhood</div>
                     <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose">
-                        Located within the prestigious Minamigaoka Project area. This enclave offers profound tranquility and seclusion, sitting immediately adjacent to the lush greens of the Karuizawa Golf Club.
+                        Located within the prestigious Minamigaoka area. This enclave offers profound tranquility and seclusion, sitting immediately adjacent to the lush greens of the Karuizawa Golf Club.
                     </div>
                 </div>
                 
@@ -306,38 +431,54 @@ const galleryImages = [
         <!-- ========================================== -->
         <!-- CONTACT & INQUIRY                          -->
         <!-- ========================================== -->
-        <section id="inquire" class="px-6 py-24 md:py-32 lg:py-48 max-w-3xl mx-auto border-t border-zinc-200">
+        <section id="inquire" class="px-6 py-24 md:py-32 lg:py-48 max-w-3xl mx-auto border-t border-zinc-200 min-h-[600px] flex flex-col justify-center">
+            
             <div class="reveal-el text-center mb-12 md:mb-16 lg:mb-24">
                 <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400 mb-6 block">Private Viewing</span>
                 <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-zinc-800 tracking-wide mb-8">Inquire about this property</h2>
             </div>
 
-            <form class="flex flex-col gap-8 md:gap-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                    <div class="reveal-el flex flex-col gap-2 md:gap-3">
-                        <label for="name" class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">Name</label>
-                        <input type="text" id="name" class="w-full bg-transparent border-b border-zinc-300 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+            <!-- Form Container -->
+            <div id="form-container" class="w-full transition-opacity duration-500 opacity-100">
+                <form id="inquiry-form" class="flex flex-col gap-8 md:gap-12 w-full">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        <div class="reveal-el flex flex-col gap-2 md:gap-3">
+                            <label for="name" class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">Name</label>
+                            <input type="text" id="name" name="name" class="w-full bg-transparent border-b border-zinc-300 py-2 font-sans text-base md:text-lg font-light text-zinc-800 focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+                        </div>
+                        <div class="reveal-el flex flex-col gap-2 md:gap-3">
+                            <label for="email" class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">Email</label>
+                            <input type="email" id="email" name="email" class="w-full bg-transparent border-b border-zinc-300 py-2 font-sans text-base md:text-lg font-light text-zinc-800 focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+                        </div>
                     </div>
                     <div class="reveal-el flex flex-col gap-2 md:gap-3">
-                        <label for="email" class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">Email</label>
-                        <input type="email" id="email" class="w-full bg-transparent border-b border-zinc-300 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
+                        <label for="message" class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full bg-transparent border-b border-zinc-300 py-2 font-sans text-base md:text-lg font-light text-zinc-800 focus:outline-none focus:border-zinc-800 transition-colors resize-none rounded-none" required></textarea>
                     </div>
+                    <button type="submit" id="submit-btn" class="reveal-el self-center mt-4 md:mt-8 bg-zinc-800 text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase px-10 md:px-12 py-4 md:py-5 hover:bg-zinc-700 transition-all duration-300 w-full md:w-auto cursor-pointer disabled:opacity-50 disabled:cursor-wait">
+                        <span id="submit-text">Submit Inquiry</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="success-message" class="hidden opacity-0 flex-col items-center justify-center text-center gap-6 py-8 transition-opacity duration-700 w-full">
+                <div class="w-16 h-16 rounded-full border border-zinc-200 flex items-center justify-center mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-zinc-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 13l4 4L19 7" />
+                    </svg>
                 </div>
-                <div class="reveal-el flex flex-col gap-2 md:gap-3">
-                    <label for="message" class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">Message</label>
-                    <textarea id="message" rows="4" class="w-full bg-transparent border-b border-zinc-300 py-2 font-sans text-base md:text-lg font-light focus:outline-none focus:border-zinc-800 transition-colors resize-none rounded-none"></textarea>
-                </div>
-                <button type="submit" class="reveal-el self-center mt-4 md:mt-8 bg-zinc-800 text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase px-10 md:px-12 py-4 md:py-5 hover:bg-zinc-700 transition-colors w-full md:w-auto cursor-pointer">
-                    Submit Inquiry
-                </button>
-            </form>
+                <h3 class="font-serif text-2xl md:text-3xl font-light text-zinc-800">Thank you for your interest.</h3>
+                <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose max-w-md mx-auto">
+                    We have received your inquiry and will be in touch shortly to arrange a private viewing or answer any questions you may have.
+                </p>
+            </div>
+
         </section>
 
     </main>
-    
-    <div class="reveal-el">
-        <Footer />
-    </div>
+
+    <Footer />
 
     <!-- ========================================== -->
     <!-- LIGHTBOX OVERLAY                           -->
@@ -345,7 +486,7 @@ const galleryImages = [
     <div id="lightbox" class="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/95 opacity-0 pointer-events-none transition-opacity duration-500 cursor-none touch-none">
         
         <button id="lightbox-close" class="absolute top-6 right-6 md:top-12 md:right-12 text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase p-4 hover:text-zinc-400 transition-colors cursor-pointer z-50">
-            Close ×
+            Close 
         </button>
 
         <div class="relative w-full h-full max-w-7xl max-h-[85vh] p-6 md:p-12 lg:p-24 flex items-center justify-center overflow-hidden pb-32 md:pb-32">
@@ -354,10 +495,10 @@ const galleryImages = [
         
         <div class="absolute bottom-8 md:bottom-12 left-0 w-full px-6 md:px-12 flex items-center justify-between z-50 pointer-events-none">
             <button id="lightbox-prev" class="pointer-events-auto text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase py-4 pr-4 hover:text-zinc-400 transition-colors cursor-pointer">
-                ← Prev
+                  Prev
             </button>
             <button id="lightbox-next" class="pointer-events-auto text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase py-4 pl-4 hover:text-zinc-400 transition-colors cursor-pointer">
-                Next →
+                Next 
             </button>
         </div>
 
@@ -424,12 +565,14 @@ const galleryImages = [
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
     }
+
     .carousel-blur::before {
         left: -1px;
         background: linear-gradient(to right, rgba(244, 244, 245, 0.95) 0%, rgba(244, 244, 245, 0) 100%);
         -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
         mask-image: linear-gradient(to right, black 0%, transparent 100%);
     }
+
     .carousel-blur::after {
         right: -1px;
         background: linear-gradient(to left, rgba(244, 244, 245, 0.95) 0%, rgba(244, 244, 245, 0) 100%);
@@ -496,6 +639,7 @@ const galleryImages = [
             
             updateCrossfades(); // Init on load
         }
+
 
         // ---------------------------------------------------------
         // 2. FLOORPLAN LIGHTBOX ENGINE
@@ -574,7 +718,6 @@ const galleryImages = [
                 if (e.touches.length === 1) {
                     const currentTime = new Date().getTime();
                     const tapLength = currentTime - lastTapTime;
-
                     if (tapLength < 300 && tapLength > 0) {
                         e.preventDefault(); 
                         if (scale > 1) { scale = 1; panX = 0; panY = 0; } 
@@ -657,10 +800,13 @@ const galleryImages = [
                     if (lightboxCaption) {
                         lightboxCaption.textContent = floorplanData[currentLbIndex].caption;
                     }
+
+                    // Reset navigation buttons for floorplans
+                    if (lightboxPrev) lightboxPrev.style.display = '';
+                    if (lightboxNext) lightboxNext.style.display = '';
                     
                     lightbox.classList.remove('pointer-events-none', 'opacity-0');
                     lightbox.classList.add('opacity-100');
-
                     document.body.style.overflow = 'hidden';
                     if (window['lenis']) window['lenis'].stop();
                 });
@@ -671,7 +817,6 @@ const galleryImages = [
                     e.stopPropagation();
                     updateLightbox((currentLbIndex - 1 + floorplanData.length) % floorplanData.length);
                 });
-
                 lightboxNext.addEventListener('click', (e) => {
                     e.stopPropagation();
                     updateLightbox((currentLbIndex + 1) % floorplanData.length);
@@ -688,16 +833,48 @@ const galleryImages = [
                     lightboxImage.src = ''; 
                     scale = 1; panX = 0; panY = 0; updateTransform(true);
                     
+                    // Reset navigation buttons in case they were hidden by the mobile gallery
+                    if (lightboxPrev) lightboxPrev.style.display = '';
+                    if (lightboxNext) lightboxNext.style.display = '';
+
                     document.body.style.overflow = '';
                     if (window['lenis']) window['lenis'].start();
                 }, 300);
             };
 
             if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-            
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox && scale === 1) closeLightbox();
+
+            // Listen for custom event from the gallery to open images (MOBILE ONLY)
+            window.addEventListener('open-gallery-lightbox', (e: any) => {
+                // If the screen is tablet or desktop (768px or wider), do nothing.
+                if (window.innerWidth >= 768) return;
+
+                scale = 1; panX = 0; panY = 0; updateTransform(true);
+                lightboxImage.src = e.detail.src;
+                
+                // Hide caption and Next/Prev buttons for single gallery view
+                if (lightboxCaption) lightboxCaption.textContent = '';
+                if (lightboxPrev) lightboxPrev.style.display = 'none';
+                if (lightboxNext) lightboxNext.style.display = 'none';
+                
+                lightbox.classList.remove('pointer-events-none', 'opacity-0');
+                lightbox.classList.add('opacity-100');
+                document.body.style.overflow = 'hidden';
+                if (window['lenis']) window['lenis'].stop();
             });
+            
+            // Smart click-outside-to-close logic
+            lightbox.addEventListener('click', (e) => {
+                // 1. If zoomed in, allow panning without closing
+                if (scale > 1) return;
+                
+                // 2. If clicking the actual image or the nav buttons, do nothing
+                if (e.target === lightboxImage || e.target === lightboxPrev || e.target === lightboxNext) return;
+                
+                // 3. Otherwise, tap background to close
+                closeLightbox();
+            });
+
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && lightbox.classList.contains('opacity-100')) closeLightbox();
             });
@@ -716,7 +893,6 @@ const galleryImages = [
 
         let isTransitioning = false;
         let currentIndex = 0;
-
         const desktopThumbs = document.querySelectorAll('.desktop-thumb');
         const imageList = Array.from(desktopThumbs).map(t => t.getAttribute('data-src'));
 
@@ -765,9 +941,9 @@ const galleryImages = [
                     isTransitioning = false; 
                 };
 
-                if(mainImage.complete) {
-                     mainImage.style.opacity = '1';
-                     isTransitioning = false; 
+                if(mainImage.complete) { 
+                    mainImage.style.opacity = '1'; 
+                    isTransitioning = false; 
                 }
 
             }, 300); 
@@ -797,6 +973,25 @@ const galleryImages = [
             handleSwipe();
         }, { passive: true });
 
+        // Add tap/click-to-fullscreen for the main gallery image
+        mainContainer.addEventListener('click', () => {
+            // Ignore clicks if we are currently animating a fade
+            if (isTransitioning) return;
+            
+            // Ignore clicks if the user just swiped (prevents accidental opening)
+            if (Math.abs(touchStartX - touchEndX) > 10) {
+                touchStartX = 0; touchEndX = 0; // reset
+                return; 
+            }
+
+            // Trigger the lightbox using the custom event
+            if (mainImage.src) {
+                window.dispatchEvent(new CustomEvent('open-gallery-lightbox', { 
+                    detail: { src: mainImage.src } 
+                }));
+            }
+        });
+
         function handleSwipe() {
             if (window.innerWidth >= 1280 || !activeMobileThumb) return; 
             
@@ -814,5 +1009,50 @@ const galleryImages = [
                 updateGallery(activeMobileThumb);
             }
         }
-    });
+
+    // ---------------------------------------------------------
+        // 4. INQUIRY FORM HANDLER (UI STATE)
+        // ---------------------------------------------------------
+        const inquiryForm = document.getElementById('inquiry-form');
+        const formContainer = document.getElementById('form-container');
+        const successMessage = document.getElementById('success-message');
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+
+        if (inquiryForm && formContainer && successMessage && submitBtn && submitText) {
+            inquiryForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent page reload
+
+                // 1. Update UI to "Sending" state
+                submitBtn.disabled = true;
+                submitText.textContent = 'Sending...';
+
+                // 2. Simulate a network request delay (e.g., 1.5 seconds)
+                // Once you have a backend, you will replace this setTimeout with your actual fetch/axios call.
+                setTimeout(() => {
+                    
+                    // 3. Fade out the form container
+                    formContainer.classList.remove('opacity-100');
+                    formContainer.classList.add('opacity-0');
+
+                    // 4. Wait for the fade-out to finish, then swap visibility and fade in the success message
+                    setTimeout(() => {
+                        formContainer.classList.add('hidden');
+                        
+                        successMessage.classList.remove('hidden');
+                        successMessage.classList.add('flex');
+                        
+                        // Force a tiny delay so the browser registers the display change before fading in
+                        setTimeout(() => {
+                            successMessage.classList.remove('opacity-0');
+                            successMessage.classList.add('opacity-100');
+                        }, 50);
+
+                    }, 500); // This 500ms matches the transition-opacity duration on the form container
+
+                }, 1500);
+            });
+        }
+
+        });
 </script>
