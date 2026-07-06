@@ -343,8 +343,8 @@ const galleryImages = [
             <div class="reveal-el grid grid-cols-1 xl:grid-cols-12 gap-4 md:gap-6 xl:gap-12 items-stretch w-full">
                 
                 <!-- Main Featured Image -->
-                <div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-50 overflow-hidden rounded-xl border border-zinc-200 cursor-pointer">
-                    <img id="main-gallery-image" src={img0_1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none cursor-pointer md:cursor-pointer" loading="lazy" decoding="async"/>
+                <button id="main-gallery-container" class="group xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-50 overflow-hidden rounded-xl border border-zinc-200 cursor-pointer p-0 text-left focus:outline-none">
+                    <img id="main-gallery-image" src={img0_1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-all duration-300 ease-in-out opacity-100 select-none group-hover:scale-[1.02]" loading="lazy" decoding="async"/>
                     
                     <!-- Mobile Swipe Indicator -->
                     <div id="swipe-indicator" class="xl:hidden absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none transition-opacity duration-500">
@@ -352,7 +352,7 @@ const galleryImages = [
                               Swipe 
                         </span>
                     </div>
-                </div>
+                </button>
 
                 <!-- Mobile Thumbnail Track -->
                 <div class="xl:hidden w-full relative carousel-blur overflow-hidden">
@@ -798,15 +798,20 @@ const galleryImages = [
                     const currentTime = new Date().getTime();
                     const tapLength = currentTime - lastTapTime;
                     if (tapLength < 300 && tapLength > 0) {
+                        // Double tap to zoom
                         e.preventDefault(); 
                         if (scale > 1) { scale = 1; panX = 0; panY = 0; } 
                         else { scale = 2.5; }
                         updateTransform(true);
                     } else {
+                        // Single touch down
                         if (scale > 1) {
                             isPanning = true;
                             startX = e.touches[0].clientX - panX;
                             startY = e.touches[0].clientY - panY;
+                        } else {
+                            // Touch start for swiping
+                            startX = e.touches[0].clientX;
                         }
                     }
                     lastTapTime = currentTime;
@@ -834,9 +839,24 @@ const galleryImages = [
                 }
             }, { passive: false });
 
-            lightboxImage.addEventListener('touchend', () => {
+            lightboxImage.addEventListener('touchend', (e) => {
                 isPanning = false;
                 initialPinchDistance = null;
+
+                // Fullscreen Swipe Logic
+                if (scale === 1 && e.changedTouches.length === 1) {
+                    const endX = e.changedTouches[0].clientX;
+                    const diffX = startX - endX;
+                    const swipeThreshold = 50;
+
+                    if (diffX > swipeThreshold && currentLightboxData.length > 1) {
+                        // Swiped Left -> Next Image
+                        updateLightbox((currentLbIndex + 1) % currentLightboxData.length);
+                    } else if (diffX < -swipeThreshold && currentLightboxData.length > 1) {
+                        // Swiped Right -> Prev Image
+                        updateLightbox((currentLbIndex - 1 + currentLightboxData.length) % currentLightboxData.length);
+                    }
+                }
             });
 
             function updateLightbox(index: number) {
@@ -1134,7 +1154,7 @@ const galleryImages = [
             }
         }
 
-        // --- NEW IN STEP 2: Listen for Lightbox changes to sync the background gallery ---
+        // Listen for Lightbox changes to sync the background gallery
         window.addEventListener('lightbox-image-changed', (e: any) => {
             if (e.detail.source === gallerySourceId) {
                 const targetIndex = e.detail.index;
