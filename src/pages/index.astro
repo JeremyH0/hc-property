@@ -91,8 +91,7 @@ const galleryImages = [
     { src: img0_15, label: "Image 15" }, { src: img0_16, label: "Image 16" }
 ];
 ---
-
-<Layout title="Karuizawa | HIrafu Capital GK">
+<Layout title="Karuizawa | Hirafu Capital GK">
     <Navigation />
     
     <main class="w-full tracking-normal leading-loose">
@@ -118,7 +117,7 @@ const galleryImages = [
 
             <div class="relative z-10 flex flex-col items-start justify-end text-left px-6 md:px-12 w-full max-w-[100rem] mx-auto h-full pb-8 md:pb-12 lg:pb-32">
                 <h1 class="hero-reveal font-sans text-2xl md:text-3xl lg:text-5xl font-light tracking-[0.15em] text-white drop-shadow-sm flex items-center">
-                    Karuizawa<span class="mx-3 md:mx-4 font-extralight text-white text-xl md:text-2xl lg:text-4xl">|</span> 
+                    Karuizawa<span class="mx-3 md:mx-4 font-extralight text-white text-xl md:text-2xl lg:text-4xl">|</span><span class="tracking-[0.1em]">軽井沢</span> 
                 </h1>
             </div>
 
@@ -149,88 +148,87 @@ const galleryImages = [
         <!-- ========================================== -->
         <section id="architecture" class="flex flex-col w-full">
             
-        <!-- 1. Scale & Motor Court -->
-        <div class="w-full py-16 md:py-24 lg:py-32">
-          <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-            <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
-            <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">The Arrival</span>
-            <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Where the Journey Begins</h3>
-            <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The experience begins as private gates open to a hidden forest sanctuary. The estate's sheer magnitude immediately unfolds, designed to welcome family and friends with effortless grace. A thoughtfully integrated motor court provides ample parking for five cars, seamlessly blending everyday convenience with profound seclusion.</p>
-            </div>
-            <div class="reveal-el w-full order-1 xl:order-2">
-             <Carousel3D images={[img1_7, img1_4, img1_2]} />
-           </div>
-          </div>
-        </div>
-        
-        <!-- Subtle Mobile Separator -->
-        <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
-
-        <!-- 2. Indoor Living -->
-        <div class="w-full py-16 md:py-24 lg:py-32">
-            <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-                <div class="reveal-el w-full order-1 xl:order-1">
-                    <Carousel3D images={[img2_1, img2_4, img2_16, img2_15]} />
-                </div>
-                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
-                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Indoor Living</span>
-                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Dual Living Spaces</h3>
-                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">Reflecting the estate's dual-wing design, both the main and guest houses feature their own expansive living rooms and premium, fully equipped kitchens. These central spaces offer a masterful blend of striking architecture and lived-in warmth, where expansive windows draw the tranquil forest inward. Whether hosting a grand gathering in the main residence or enjoying a quiet morning coffee in the guest house, the interiors invite effortless connection and absolute comfort.</p>
+            <!-- 1. Scale & Motor Court -->
+            <div class="w-full py-16 md:py-24 lg:py-32">
+                <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                    <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
+                        <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">The Arrival</span>
+                        <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Where the Journey Begins</h3>
+                        <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The experience begins as private gates open to a hidden forest sanctuary. The estate's sheer magnitude immediately unfolds, designed to welcome family and friends with effortless grace. A thoughtfully integrated motor court provides ample parking for five cars, seamlessly blending everyday convenience with profound seclusion.</p>
+                    </div>
+                    <div class="reveal-el w-full order-1 xl:order-2">
+                        <Carousel3D images={[img1_7, img1_4, img1_2]} />
+                    </div>
                 </div>
             </div>
-        </div>
+            
+            <!-- Subtle Mobile Separator -->
+            <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
 
-        <!-- Subtle Mobile Separator -->
-        <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
-
-        <!-- 3. Accommodations -->
-        <div class="w-full py-16 md:py-24 lg:py-32">
-            <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
-                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Accommodations</span>
-                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
-                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">When evening falls, the estate offers restful comfort across seven beautifully appointed ensuite bedrooms. The intelligent layout features four sanctuary suites in the main residence and three in the guest house, allowing for seamless shared living or absolute, independent privacy. Each room is designed as a tranquil retreat with soft, tactile finishes to help you recharge.</p>
-                </div>
-                <div class="reveal-el w-full order-1 xl:order-2">
-                    <Carousel3D images={[img3_18, img3_10, img3_15, img3_5]} />
-                </div>
-            </div>
-        </div>
-
-        <!-- Subtle Mobile Separator -->
-        <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
-
-        <!-- 4. Wellness Retreat (Spa) -->
-        <div class="w-full py-16 md:py-24 lg:py-32">
-            <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-                <div class="reveal-el w-full order-1 xl:order-1">
-                    <Carousel3D images={[img4_1, img4_2, img4_3, img4_4]} />
-                </div>
-                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
-                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Wellness</span>
-                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Private Spa & Sauna</h3>
-                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">Discover a resort-grade wellness experience in the absolute privacy of your own home. The dedicated indoor spa features large dual soaking tubs and a custom-crafted cedar sauna. Bathed in natural forest light, it provides a deeply restorative escape day or night.</p>
+            <!-- 2. Indoor Living -->
+            <div class="w-full py-16 md:py-24 lg:py-32">
+                <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                    <div class="reveal-el w-full order-1 xl:order-1">
+                        <Carousel3D images={[img2_1, img2_4, img2_16, img2_15]} />
+                    </div>
+                    <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
+                        <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Indoor Living</span>
+                        <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Dual Living Spaces</h3>
+                        <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">Reflecting the estate's dual-wing design, both the main and guest houses feature their own expansive living rooms and premium, fully equipped kitchens. These central spaces offer a masterful blend of striking architecture and lived-in warmth, where expansive windows draw the tranquil forest inward. Whether hosting a grand gathering in the main residence or enjoying a quiet morning coffee in the guest house, the interiors invite effortless connection and absolute comfort.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Subtle Mobile Separator -->
-        <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
+            <!-- Subtle Mobile Separator -->
+            <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
 
-        <!-- 5. Landscape & Firepit -->
-        <div class="w-full py-16 md:py-24 lg:py-32">
-            <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
-                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">The Grounds</span>
-                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Sunken Forest Firepit</h3>
-                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">As twilight descends, the grounds reveal their most enchanting space. An expansive wooden deck gives way to a sunken stone firepit, anchoring the sprawling private plot. Gather around the warmth of the fire on crisp, star-filled evenings—a deeply immersive experience where the rustle of ancient trees is your only soundtrack.</p>
-                </div>
-                <div class="reveal-el w-full order-1 xl:order-2">
-                    <Carousel3D images={[img5_20, img5_16, img5_17, img5_13]} />
+            <!-- 3. Accommodations -->
+            <div class="w-full py-16 md:py-24 lg:py-32">
+                <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                    <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
+                        <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Accommodations</span>
+                        <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
+                        <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">When evening falls, the estate offers restful comfort across seven beautifully appointed ensuite bedrooms. The intelligent layout features four sanctuary suites in the main residence and three in the guest house, allowing for seamless shared living or absolute, independent privacy. Each room is designed as a tranquil retreat with soft, tactile finishes to help you recharge.</p>
+                    </div>
+                    <div class="reveal-el w-full order-1 xl:order-2">
+                        <Carousel3D images={[img3_18, img3_10, img3_15, img3_5]} />
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <!-- Subtle Mobile Separator -->
+            <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
+
+            <!-- 4. Wellness Retreat (Spa) -->
+            <div class="w-full py-16 md:py-24 lg:py-32">
+                <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                    <div class="reveal-el w-full order-1 xl:order-1">
+                        <Carousel3D images={[img4_1, img4_2, img4_3, img4_4]} />
+                    </div>
+                    <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
+                        <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Wellness</span>
+                        <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Private Spa & Sauna</h3>
+                        <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">Discover a resort-grade wellness experience in the absolute privacy of your own home. The dedicated indoor spa features large dual soaking tubs and a custom-crafted cedar sauna. Bathed in natural forest light, it provides a deeply restorative escape day or night.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subtle Mobile Separator -->
+            <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
+
+            <!-- 5. Landscape & Firepit -->
+            <div class="w-full py-16 md:py-24 lg:py-32">
+                <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                    <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
+                        <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">The Grounds</span>
+                        <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Sunken Forest Firepit</h3>
+                        <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">As twilight descends, the grounds reveal their most enchanting space. An expansive wooden deck gives way to a sunken stone firepit, anchoring the sprawling private plot. Gather around the warmth of the fire on crisp, star-filled evenings a deeply immersive experience where the rustle of ancient trees is your only soundtrack.</p>
+                    </div>
+                    <div class="reveal-el w-full order-1 xl:order-2">
+                        <Carousel3D images={[img5_20, img5_16, img5_17, img5_13]} />
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ========================================== -->
@@ -426,7 +424,7 @@ const galleryImages = [
                         <div class="flex flex-wrap items-baseline gap-x-6 gap-y-2">
                             <div class="flex items-baseline gap-2">
                                 <span class="font-serif text-2xl md:text-3xl text-zinc-800">2,981.31</span>
-                                <span class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">m²</span>
+                                <span class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">m&sup2;</span>
                             </div>
                             <div class="hidden sm:block w-px h-5 bg-zinc-200"></div>
                             <div class="flex items-baseline gap-2">
@@ -445,7 +443,7 @@ const galleryImages = [
                         <div class="flex flex-wrap items-baseline gap-x-6 gap-y-2">
                             <div class="flex items-baseline gap-2">
                                 <span class="font-serif text-2xl md:text-3xl text-zinc-800">[Insert Size]</span>
-                                <span class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">m²</span>
+                                <span class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">m&sup2;</span>
                             </div>
                             <div class="hidden sm:block w-px h-5 bg-zinc-200"></div>
                             <div class="flex items-baseline gap-2">
@@ -579,9 +577,7 @@ const galleryImages = [
         <div id="lightbox-caption-container" class="absolute bottom-20 md:bottom-12 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex justify-center w-auto max-w-[85vw] md:max-w-[40vw]">
             <span id="lightbox-caption" class="inline-block bg-zinc-900/80 backdrop-blur-md text-white px-5 py-2.5 rounded-full font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase border border-zinc-800/50 whitespace-nowrap overflow-hidden text-ellipsis"></span>
         </div>
-
     </div>
-
 </Layout>
 
 <!-- ========================================== -->
@@ -671,53 +667,9 @@ const galleryImages = [
 <!-- ========================================== -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-
-        // ---------------------------------------------------------
-        // 1. HIGH-PERFORMANCE SCROLL CROSSFADE ENGINE
-        // ---------------------------------------------------------
         
-        // Cache DOM elements up front so we don't query the DOM during scroll
-        const crossfadeElements = Array.from(document.querySelectorAll('.scroll-crossfade')).map(container => ({
-            container,
-            target: container.querySelector('.crossfade-target') as HTMLElement
-        })).filter(item => item.target !== null); // Ensure target exists
-
-        if (crossfadeElements.length > 0) {
-            let ticking = false;
-
-            const updateCrossfades = () => {
-                const wh = window.innerHeight;
-                
-                // Optimized loop
-                for (let i = 0; i < crossfadeElements.length; i++) {
-                    const { container, target } = crossfadeElements[i];
-                    const rect = container.getBoundingClientRect();
-                    
-                    // Process only if visible
-                    if (rect.top < wh && rect.bottom > 0) {
-                        let progress = (wh - rect.top) / (wh + rect.height);
-                        let opacity = (progress - 0.35) * (1 / 0.30);
-                        
-                        // Apply opacity with strict decimal limits for faster rendering
-                        target.style.opacity = Math.max(0, Math.min(1, opacity)).toFixed(3);
-                    }
-                }
-                ticking = false;
-            };
-
-            // Bind to scroll event with a requestAnimationFrame lock
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateCrossfades);
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            updateCrossfades(); // Init on load
-        }
-
         // ---------------------------------------------------------
-        // 2. UNIFIED LIGHTBOX ENGINE (Floorplans, Gallery, Carousels)
+        // 1. UNIFIED LIGHTBOX ENGINE (Floorplans, Gallery, Carousels)
         // ---------------------------------------------------------
         const floorplanTriggers = document.querySelectorAll('.floorplan-trigger');
         const lightbox = document.getElementById('lightbox');
@@ -742,6 +694,7 @@ const galleryImages = [
 
             let scale = 1, panX = 0, panY = 0, isPanning = false, startX = 0, startY = 0;
             let lastTapTime = 0, initialPinchDistance: number | null = null, initialScale = 1;
+            let isDoubleTap = false; // Prevents swipe trigger after double tap zoom out
 
             const updateTransform = (smooth = false) => {
                 lightboxImage.style.transition = smooth ? 'opacity 0.3s ease, transform 0.3s ease-out' : 'opacity 0.3s ease';
@@ -797,13 +750,17 @@ const galleryImages = [
                 if (e.touches.length === 1) {
                     const currentTime = new Date().getTime();
                     const tapLength = currentTime - lastTapTime;
+                    
                     if (tapLength < 300 && tapLength > 0) {
                         // Double tap to zoom
-                        e.preventDefault(); 
+                        e.preventDefault();
+                        isDoubleTap = true;
+                        
                         if (scale > 1) { scale = 1; panX = 0; panY = 0; } 
                         else { scale = 2.5; }
                         updateTransform(true);
                     } else {
+                        isDoubleTap = false;
                         // Single touch down
                         if (scale > 1) {
                             isPanning = true;
@@ -843,8 +800,8 @@ const galleryImages = [
                 isPanning = false;
                 initialPinchDistance = null;
 
-                // Fullscreen Swipe Logic
-                if (scale === 1 && e.changedTouches.length === 1) {
+                // Fullscreen Swipe Logic (Adding !isDoubleTap check here!)
+                if (scale === 1 && e.changedTouches.length === 1 && !isDoubleTap) {
                     const endX = e.changedTouches[0].clientX;
                     const diffX = startX - endX;
                     const swipeThreshold = 50;
@@ -967,7 +924,6 @@ const galleryImages = [
                     if (lightboxPrev) lightboxPrev.style.display = '';
                     if (lightboxNext) lightboxNext.style.display = '';
                     if (lightboxCaptionContainer) lightboxCaptionContainer.style.display = 'flex';
-
                     document.body.style.overflow = '';
                     if (window['lenis']) window['lenis'].start();
                 }, 300);
@@ -1019,9 +975,8 @@ const galleryImages = [
             });
         }
 
-
         // ---------------------------------------------------------
-        // 3. MAIN GALLERY INTERACTIVE ENGINE
+        // 2. MAIN GALLERY INTERACTIVE ENGINE
         // ---------------------------------------------------------
         const mainImage = document.getElementById('main-gallery-image') as HTMLImageElement;
         const mainContainer = document.getElementById('main-gallery-container');
@@ -1034,6 +989,7 @@ const galleryImages = [
 
         let isTransitioning = false;
         let currentIndex = 0;
+
         const desktopThumbs = document.querySelectorAll('.desktop-thumb');
         const imageList = Array.from(desktopThumbs).map(t => t.getAttribute('data-src'));
 
@@ -1086,6 +1042,7 @@ const galleryImages = [
                     mainImage.style.opacity = '1'; 
                     isTransitioning = false; 
                 }
+
             }, 300); 
         }
 
@@ -1107,7 +1064,7 @@ const galleryImages = [
         mainContainer.addEventListener('touchstart', (e: TouchEvent) => {
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
-
+        
         mainContainer.addEventListener('touchend', (e: TouchEvent) => {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
@@ -1137,8 +1094,7 @@ const galleryImages = [
         });
 
         function handleSwipe() {
-            if (window.innerWidth >= 1280 || !activeMobileThumb) return; 
-            
+            if (window.innerWidth >= 1280 || !activeMobileThumb) return;             
             const threshold = 40; 
             const allMobileThumbs = Array.from(document.querySelectorAll('.mobile-thumb'));
             const currentIndexInArray = allMobileThumbs.indexOf(activeMobileThumb as Element);
@@ -1166,9 +1122,8 @@ const galleryImages = [
             }
         });
 
-
     // ---------------------------------------------------------
-        // 4. INQUIRY FORM HANDLER (UI STATE)
+        // 3. INQUIRY FORM HANDLER (UI STATE)
         // ---------------------------------------------------------
         const inquiryForm = document.getElementById('inquiry-form');
         const formContainer = document.getElementById('form-container');
@@ -1204,11 +1159,10 @@ const galleryImages = [
                             successMessage.classList.remove('opacity-0');
                             successMessage.classList.add('opacity-100');
                         }, 50);
-
                     }, 500); // This 500ms matches the transition-opacity duration on the form container
                 }, 1500);
             });
         }
-
-        });
+        
+    });
 </script>

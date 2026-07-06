@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { images } = Astro.props;
+
 // Generate a unique ID to safely scope JS and identify the carousel
 const carouselId = Math.random().toString(36).substring(7);
 ---
@@ -16,19 +17,18 @@ const carouselId = Math.random().toString(36).substring(7);
     <div class="carousel-main relative w-full aspect-[4/3] xl:aspect-[3/2] rounded-xl overflow-hidden bg-zinc-50 border border-zinc-200 shadow-sm cursor-pointer">
         
         {images.map((img, index) => (
-            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out" data-index={index} style={{ opacity: index === 0 ? '1' : '0', zIndex: index === 0 ? '10' : '0' }}>
+            <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-300 ease-in-out" data-index={index} style={{ opacity: index === 0 ? '1' : '0', zIndex: index === 0 ? '10' : '0' }}>
                 <Image src={img} alt={`Slide ${index + 1}`} class="w-full h-full object-cover pointer-events-none" />
             </div>
         ))}
 
-        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-transparent to-zinc-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-transparent to-zinc-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none"></div>
 
         <button class="prev-btn absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-zinc-900/40 backdrop-blur-md hidden md:flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-900/80 hover:scale-105 opacity-0 group-hover:opacity-100 cursor-pointer" aria-label="Previous image">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
             </svg>
         </button>
-
         <button class="next-btn absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-zinc-900/40 backdrop-blur-md hidden md:flex items-center justify-center text-white transition-all duration-300 hover:bg-zinc-900/80 hover:scale-105 opacity-0 group-hover:opacity-100 cursor-pointer" aria-label="Next image">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
@@ -69,8 +69,8 @@ const carouselId = Math.random().toString(36).substring(7);
             // Added a "forceSync" parameter to bypass animation locks when controlled by the lightbox
             const goToSlide = (index: number, forceSync = false) => {
                 if (!forceSync && (isAnimating || index === currentIndex)) return;
-                if (forceSync && index === currentIndex) return; 
-                
+                if (forceSync && index === currentIndex) return;
+
                 isAnimating = true;
 
                 slides[currentIndex].style.opacity = '0';
@@ -85,8 +85,8 @@ const carouselId = Math.random().toString(36).substring(7);
                 dots[currentIndex].classList.add('bg-white', 'scale-125');
                 dots[currentIndex].classList.remove('bg-white/50');
 
-                // Instant sync if controlled by lightbox, otherwise standard 700ms fade
-                setTimeout(() => { isAnimating = false; }, forceSync ? 50 : 700);
+                // Instant sync if controlled by lightbox, otherwise standard 300ms fade to match gallery
+                setTimeout(() => { isAnimating = false; }, forceSync ? 50 : 300);
             };
 
             const nextSlide = () => goToSlide((currentIndex + 1) % totalSlides);
@@ -94,12 +94,14 @@ const carouselId = Math.random().toString(36).substring(7);
 
             nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
             prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+
             dots.forEach((dot, idx) => {
                 dot.addEventListener('click', (e) => { e.stopPropagation(); goToSlide(idx); });
             });
 
             let touchStartX = 0;
             let touchEndX = 0;
+
             mainContainer.addEventListener('touchstart', (e: TouchEvent) => {
                 touchStartX = e.changedTouches[0].screenX;
             }, { passive: true });
@@ -107,6 +109,7 @@ const carouselId = Math.random().toString(36).substring(7);
             mainContainer.addEventListener('touchend', (e: TouchEvent) => {
                 touchEndX = e.changedTouches[0].screenX;
                 const threshold = 40;
+
                 if (e.touches.length > 0) return; 
 
                 if (touchStartX - touchEndX > threshold) {
@@ -120,7 +123,7 @@ const carouselId = Math.random().toString(36).substring(7);
             mainContainer.addEventListener('click', (e) => {
                 if ((e.target as HTMLElement).tagName !== 'BUTTON' && Math.abs(touchStartX - touchEndX) < 10) {
                     window.dispatchEvent(new CustomEvent('open-carousel-lightbox', {
-                        detail: { 
+                        detail: {
                             images: imageUrls,
                             currentIndex: currentIndex,
                             source: carouselId // Identity attached here!
@@ -138,5 +141,6 @@ const carouselId = Math.random().toString(36).substring(7);
             });
         }
     }
+
     customElements.define('smooth-carousel', SmoothCarousel);
 </script>
