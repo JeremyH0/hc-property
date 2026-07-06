@@ -8,7 +8,6 @@ import { Image } from 'astro:assets';
 // ==========================================
 // IMAGE IMPORTS
 // ==========================================
-
 // Hero
 import imgHeroHQ from '../assets/gallery/hero-hq.jpg';
 
@@ -61,7 +60,7 @@ import imgFloorplan1HD from '../assets/gallery/floorplan1hd.jpeg';
 import imgFloorplan2HD from '../assets/gallery/floorplan2hd.jpeg';
 
 // ==========================================
-// 16-Image Gallery (Renamed)
+// 16-Image Gallery
 // ==========================================
 import img0_1 from '../assets/gallery/0.1.jpeg';
 import img0_2 from '../assets/gallery/0.2.jpeg';
@@ -119,7 +118,7 @@ const galleryImages = [
 
             <div class="relative z-10 flex flex-col items-start justify-end text-left px-6 md:px-12 w-full max-w-[100rem] mx-auto h-full pb-8 md:pb-12 lg:pb-32">
                 <h1 class="hero-reveal font-sans text-2xl md:text-3xl lg:text-5xl font-light tracking-[0.15em] text-white drop-shadow-sm flex items-center">
-                    Karuizawa<span class="mx-3 md:mx-4 font-extralight text-white text-xl md:text-2xl lg:text-4xl">|</span> 軽井沢
+                    Karuizawa<span class="mx-3 md:mx-4 font-extralight text-white text-xl md:text-2xl lg:text-4xl">|</span> 
                 </h1>
             </div>
 
@@ -144,6 +143,7 @@ const galleryImages = [
                 <p>This intelligent layout allows the property to function flawlessly as a single, grand estate for large gatherings, or it can be secured to provide absolute privacy and independence for both hosts and guests.</p>
             </div>
         </section>
+
         <!-- ========================================== -->
         <!-- LIFESTYLE & AMENITIES                      -->
         <!-- ========================================== -->
@@ -158,78 +158,78 @@ const galleryImages = [
             <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">The experience begins as private gates open to a hidden forest sanctuary. The estate's sheer magnitude immediately unfolds, designed to welcome family and friends with effortless grace. A thoughtfully integrated motor court provides ample parking for five cars, seamlessly blending everyday convenience with profound seclusion.</p>
             </div>
             <div class="reveal-el w-full order-1 xl:order-2">
-            <Carousel3D images={[img1_7, img1_4, img1_2]} />
+             <Carousel3D images={[img1_7, img1_4, img1_2]} />
            </div>
           </div>
         </div>
+        
+        <!-- Subtle Mobile Separator -->
+        <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
 
-            <!-- Subtle Mobile Separator -->
-<div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
+        <!-- 2. Indoor Living -->
+        <div class="w-full py-16 md:py-24 lg:py-32">
+            <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                <div class="reveal-el w-full order-1 xl:order-1">
+                    <Carousel3D images={[img2_1, img2_4, img2_16, img2_15]} />
+                </div>
+                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
+                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Indoor Living</span>
+                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Dual Living Spaces</h3>
+                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">Reflecting the estate's dual-wing design, both the main and guest houses feature their own expansive living rooms and premium, fully equipped kitchens. These central spaces offer a masterful blend of striking architecture and lived-in warmth, where expansive windows draw the tranquil forest inward. Whether hosting a grand gathering in the main residence or enjoying a quiet morning coffee in the guest house, the interiors invite effortless connection and absolute comfort.</p>
+                </div>
+            </div>
+        </div>
 
-<!-- 2. Indoor Living -->
-<div class="w-full py-16 md:py-24 lg:py-32">
-    <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-        <div class="reveal-el w-full order-1 xl:order-1">
-            <Carousel3D images={[img2_1, img2_4, img2_16, img2_15]} />
-        </div>
-        <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
-            <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Indoor Living</span>
-            <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Dual Living Spaces</h3>
-            <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">Reflecting the estate's dual-wing design, both the main and guest houses feature their own expansive living rooms and premium, fully equipped kitchens. These central spaces offer a masterful blend of striking architecture and lived-in warmth, where expansive windows draw the tranquil forest inward. Whether hosting a grand gathering in the main residence or enjoying a quiet morning coffee in the guest house, the interiors invite effortless connection and absolute comfort.</p>
-        </div>
-    </div>
-</div>
+        <!-- Subtle Mobile Separator -->
+        <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
 
-<!-- Subtle Mobile Separator -->
-<div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
+        <!-- 3. Accommodations -->
+        <div class="w-full py-16 md:py-24 lg:py-32">
+            <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
+                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Accommodations</span>
+                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
+                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">When evening falls, the estate offers restful comfort across seven beautifully appointed ensuite bedrooms. The intelligent layout features four sanctuary suites in the main residence and three in the guest house, allowing for seamless shared living or absolute, independent privacy. Each room is designed as a tranquil retreat with soft, tactile finishes to help you recharge.</p>
+                </div>
+                <div class="reveal-el w-full order-1 xl:order-2">
+                    <Carousel3D images={[img3_18, img3_10, img3_15, img3_5]} />
+                </div>
+            </div>
+        </div>
 
-<!-- 3. Accommodations -->
-<div class="w-full py-16 md:py-24 lg:py-32">
-    <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-        <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
-            <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Accommodations</span>
-            <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">Seven Private Suites</h3>
-            <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">When evening falls, the estate offers restful comfort across seven beautifully appointed ensuite bedrooms. The intelligent layout features four sanctuary suites in the main residence and three in the guest house, allowing for seamless shared living or absolute, independent privacy. Each room is designed as a tranquil retreat with soft, tactile finishes to help you recharge.</p>
-        </div>
-        <div class="reveal-el w-full order-1 xl:order-2">
-            <Carousel3D images={[img3_18, img3_10, img3_15, img3_5]} />
-        </div>
-    </div>
-</div>
+        <!-- Subtle Mobile Separator -->
+        <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
 
-<!-- Subtle Mobile Separator -->
-<div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
+        <!-- 4. Wellness Retreat (Spa) -->
+        <div class="w-full py-16 md:py-24 lg:py-32">
+            <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                <div class="reveal-el w-full order-1 xl:order-1">
+                    <Carousel3D images={[img4_1, img4_2, img4_3, img4_4]} />
+                </div>
+                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
+                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Wellness</span>
+                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Private Spa & Sauna</h3>
+                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">Discover a resort-grade wellness experience in the absolute privacy of your own home. The dedicated indoor spa features large dual soaking tubs and a custom-crafted cedar sauna. Bathed in natural forest light, it provides a deeply restorative escape day or night.</p>
+                </div>
+            </div>
+        </div>
 
-<!-- 4. Wellness Retreat (Spa) -->
-<div class="w-full py-16 md:py-24 lg:py-32">
-    <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-        <div class="reveal-el w-full order-1 xl:order-1">
-            <Carousel3D images={[img4_1, img4_2, img4_3, img4_4]} />
-        </div>
-        <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-2">
-            <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">Wellness</span>
-            <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Private Spa & Sauna</h3>
-            <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">Discover a resort-grade wellness experience in the absolute privacy of your own home. The dedicated indoor spa features large dual soaking tubs and a custom-crafted cedar sauna. Bathed in natural forest light, it provides a deeply restorative escape day or night.</p>
-        </div>
-    </div>
-</div>
+        <!-- Subtle Mobile Separator -->
+        <div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
 
-<!-- Subtle Mobile Separator -->
-<div class="xl:hidden w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent opacity-70"></div>
-
-<!-- 5. Landscape & Firepit -->
-<div class="w-full py-16 md:py-24 lg:py-32">
-    <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
-        <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
-            <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">The Grounds</span>
-            <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Sunken Forest Firepit</h3>
-            <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">As twilight descends, the grounds reveal their most enchanting space. An expansive wooden deck gives way to a sunken stone firepit, anchoring the sprawling private plot. Gather around the warmth of the fire on crisp, star-filled evenings—a deeply immersive experience where the rustle of ancient trees is your only soundtrack.</p>
+        <!-- 5. Landscape & Firepit -->
+        <div class="w-full py-16 md:py-24 lg:py-32">
+            <div class="px-6 md:px-12 max-w-[100rem] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-24 items-center">
+                <div class="reveal-el flex flex-col gap-4 md:gap-6 xl:px-8 order-2 xl:order-1">
+                    <span class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400">The Grounds</span>
+                    <h3 class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-zinc-800">The Sunken Forest Firepit</h3>
+                    <p class="font-sans text-sm md:text-base text-zinc-500 font-light leading-loose">As twilight descends, the grounds reveal their most enchanting space. An expansive wooden deck gives way to a sunken stone firepit, anchoring the sprawling private plot. Gather around the warmth of the fire on crisp, star-filled evenings—a deeply immersive experience where the rustle of ancient trees is your only soundtrack.</p>
+                </div>
+                <div class="reveal-el w-full order-1 xl:order-2">
+                    <Carousel3D images={[img5_20, img5_16, img5_17, img5_13]} />
+                </div>
+            </div>
         </div>
-        <div class="reveal-el w-full order-1 xl:order-2">
-            <Carousel3D images={[img5_20, img5_16, img5_17, img5_13]} />
-        </div>
-    </div>
-</div>
 
         </section>
 
@@ -295,13 +295,13 @@ const galleryImages = [
         <!-- ========================================== -->
         <section id="sasazawa" class="px-6 py-24 md:py-32 lg:py-40 max-w-[100rem] mx-auto border-t border-zinc-200 overflow-hidden">
             <div class="reveal-el max-w-6xl mx-auto w-full flex flex-col gap-12 md:gap-16">
-                                 
+                
                 <!-- Borderless Architectural Drawing (Top) -->
                 <div class="w-full overflow-hidden">
                     <Image 
-                         src={imgDrawing} 
-                         alt="Architectural drawing of the Sasazawa design" 
-                         class="w-full h-auto object-cover scale-[1.01]"
+                        src={imgDrawing} 
+                        alt="Architectural drawing of the Sasazawa design" 
+                        class="w-full h-auto object-cover scale-[1.01]"
                     />
                 </div>
 
@@ -327,7 +327,7 @@ const galleryImages = [
                     </div>
 
                 </div>
-                             
+                
             </div>
         </section>
 
@@ -344,7 +344,7 @@ const galleryImages = [
                 
                 <!-- Main Featured Image -->
                 <div id="main-gallery-container" class="xl:col-span-7 w-full relative aspect-[4/3] xl:aspect-[3/2] bg-zinc-50 overflow-hidden rounded-xl border border-zinc-200 cursor-pointer">
-                    <img id="main-gallery-image" src={img0_1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none cursor-pointer md:cursor-default" loading="lazy" decoding="async"/>
+                    <img id="main-gallery-image" src={img0_1.src} alt="Gallery Image" class="w-full h-full object-cover xl:absolute xl:inset-0 transition-opacity duration-300 ease-in-out opacity-100 select-none cursor-pointer md:cursor-pointer" loading="lazy" decoding="async"/>
                     
                     <!-- Mobile Swipe Indicator -->
                     <div id="swipe-indicator" class="xl:hidden absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none transition-opacity duration-500">
@@ -523,10 +523,12 @@ const galleryImages = [
                             <input type="email" id="email" name="email" class="w-full bg-transparent border-b border-zinc-300 py-2 font-sans text-base md:text-lg font-light text-zinc-800 focus:outline-none focus:border-zinc-800 transition-colors rounded-none" required />
                         </div>
                     </div>
+                    
                     <div class="reveal-el flex flex-col gap-2 md:gap-3">
                         <label for="message" class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">Message</label>
                         <textarea id="message" name="message" rows="4" class="w-full bg-transparent border-b border-zinc-300 py-2 font-sans text-base md:text-lg font-light text-zinc-800 focus:outline-none focus:border-zinc-800 transition-colors resize-none rounded-none" required></textarea>
                     </div>
+
                     <button type="submit" id="submit-btn" class="reveal-el self-center mt-4 md:mt-8 bg-zinc-800 text-white font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase px-10 md:px-12 py-4 md:py-5 hover:bg-zinc-700 transition-all duration-300 w-full md:w-auto cursor-pointer disabled:opacity-50 disabled:cursor-wait">
                         <span id="submit-text">Submit Inquiry</span>
                     </button>
@@ -562,7 +564,7 @@ const galleryImages = [
         </button>
 
         <div class="relative w-full h-full max-w-7xl max-h-[85vh] p-6 md:p-12 lg:p-24 flex items-center justify-center overflow-hidden pb-32 md:pb-32">
-            <img id="lightbox-image" src="" alt="HD Floorplan" class="max-w-full max-h-full object-contain opacity-0 transition-opacity duration-300 select-none cursor-none touch-none" draggable="false" />
+            <img id="lightbox-image" src="" alt="HD View" class="max-w-full max-h-full object-contain opacity-0 transition-opacity duration-300 select-none cursor-none touch-none" draggable="false" />
         </div>
         
         <div class="absolute bottom-8 md:bottom-12 left-0 w-full px-6 md:px-12 flex items-center justify-between z-50 pointer-events-none">
@@ -574,7 +576,7 @@ const galleryImages = [
             </button>
         </div>
 
-        <div class="absolute bottom-20 md:bottom-12 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex justify-center w-auto max-w-[85vw] md:max-w-[40vw]">
+        <div id="lightbox-caption-container" class="absolute bottom-20 md:bottom-12 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex justify-center w-auto max-w-[85vw] md:max-w-[40vw]">
             <span id="lightbox-caption" class="inline-block bg-zinc-900/80 backdrop-blur-md text-white px-5 py-2.5 rounded-full font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase border border-zinc-800/50 whitespace-nowrap overflow-hidden text-ellipsis"></span>
         </div>
 
@@ -600,6 +602,7 @@ const galleryImages = [
         50% { opacity: 1; }
         100% { transform: translateY(200%); opacity: 0; }
     }
+    
     .animate-scroll-drop {
         animation: scrollDrop 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
     }
@@ -613,12 +616,15 @@ const galleryImages = [
         transition: opacity 0.3s ease;
         pointer-events: none;
     }
+    
     .gallery-thumb:hover::after {
         opacity: 0.15; 
     }
+
     .gallery-thumb.active::after {
         opacity: 0.65; 
     }
+    
     .gallery-thumb.active {
         pointer-events: none; 
     }
@@ -637,14 +643,12 @@ const galleryImages = [
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
     }
-
     .carousel-blur::before {
         left: -1px;
         background: linear-gradient(to right, rgba(244, 244, 245, 0.95) 0%, rgba(244, 244, 245, 0) 100%);
         -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
         mask-image: linear-gradient(to right, black 0%, transparent 100%);
     }
-
     .carousel-blur::after {
         right: -1px;
         background: linear-gradient(to left, rgba(244, 244, 245, 0.95) 0%, rgba(244, 244, 245, 0) 100%);
@@ -698,9 +702,9 @@ const galleryImages = [
                         target.style.opacity = Math.max(0, Math.min(1, opacity)).toFixed(3);
                     }
                 }
-                ticking = false; 
+                ticking = false;
             };
-            
+
             // Bind to scroll event with a requestAnimationFrame lock
             window.addEventListener('scroll', () => {
                 if (!ticking) {
@@ -708,13 +712,12 @@ const galleryImages = [
                     ticking = true;
                 }
             }, { passive: true });
-            
+
             updateCrossfades(); // Init on load
         }
 
-
         // ---------------------------------------------------------
-        // 2. FLOORPLAN LIGHTBOX ENGINE
+        // 2. UNIFIED LIGHTBOX ENGINE (Floorplans, Gallery, Carousels)
         // ---------------------------------------------------------
         const floorplanTriggers = document.querySelectorAll('.floorplan-trigger');
         const lightbox = document.getElementById('lightbox');
@@ -723,16 +726,20 @@ const galleryImages = [
         const lightboxPrev = document.getElementById('lightbox-prev');
         const lightboxNext = document.getElementById('lightbox-next');
         const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxCaptionContainer = document.getElementById('lightbox-caption-container');
 
-        if (lightbox && lightboxImage && floorplanTriggers.length > 0) {
+        if (lightbox && lightboxImage) {
             
             const floorplanData = Array.from(floorplanTriggers).map(t => ({
                 src: t.getAttribute('data-hd-src'),
                 caption: t.getAttribute('data-caption')
             }));
 
+            let currentLightboxData: {src: string | null, caption: string | null}[] = [];
             let currentLbIndex = 0;
             let isLbTransitioning = false;
+            let currentLbSource: string | null = null; // Tracks who opened the lightbox
+
             let scale = 1, panX = 0, panY = 0, isPanning = false, startX = 0, startY = 0;
             let lastTapTime = 0, initialPinchDistance: number | null = null, initialScale = 1;
 
@@ -751,7 +758,7 @@ const galleryImages = [
 
             lightbox.addEventListener('wheel', (e) => {
                 if (!lightbox.classList.contains('opacity-100')) return;
-                e.preventDefault(); 
+                e.preventDefault();
                 
                 scale += e.deltaY < 0 ? 0.15 : -0.15;
                 scale = Math.max(1, Math.min(scale, 4));
@@ -833,20 +840,37 @@ const galleryImages = [
             });
 
             function updateLightbox(index: number) {
-                if (isLbTransitioning) return;
+                if (isLbTransitioning || currentLightboxData.length === 0) return;
                 isLbTransitioning = true;
                 currentLbIndex = index;
+
+                // Broadcast the change so background carousels/galleries can sync
+                if (currentLbSource) {
+                    window.dispatchEvent(new CustomEvent('lightbox-image-changed', {
+                        detail: {
+                            source: currentLbSource,
+                            index: currentLbIndex
+                        }
+                    }));
+                }
                 
                 lightboxImage.classList.remove('opacity-100');
                 lightboxImage.classList.add('opacity-0');
                 
                 setTimeout(() => {
-                    scale = 1; panX = 0; panY = 0; updateTransform(true); 
-                    if (floorplanData[currentLbIndex].src) {
-                        lightboxImage.src = floorplanData[currentLbIndex].src!;
-                    }
-                    if (lightboxCaption) {
-                        lightboxCaption.textContent = floorplanData[currentLbIndex].caption;
+                    scale = 1; panX = 0; panY = 0; updateTransform(true);
+                    
+                    const data = currentLightboxData[currentLbIndex];
+                    if (data.src) lightboxImage.src = data.src;
+                    
+                    if (lightboxCaption && lightboxCaptionContainer) {
+                        if (data.caption) {
+                            lightboxCaption.textContent = data.caption;
+                            lightboxCaptionContainer.style.display = 'flex';
+                        } else {
+                            lightboxCaption.textContent = '';
+                            lightboxCaptionContainer.style.display = 'none';
+                        }
                     }
                 }, 300); 
             }
@@ -859,39 +883,53 @@ const galleryImages = [
                 }
             };
 
-            floorplanTriggers.forEach((trigger, index) => {
-                trigger.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    currentLbIndex = index;
-                    
-                    scale = 1; panX = 0; panY = 0; updateTransform(true);
-                    
-                    const hdSrc = floorplanData[currentLbIndex].src;
-                    if (hdSrc) lightboxImage.src = hdSrc;
-                    
-                    if (lightboxCaption) {
-                        lightboxCaption.textContent = floorplanData[currentLbIndex].caption;
-                    }
+            // Floorplan Triggers
+            if (floorplanTriggers.length > 0) {
+                floorplanTriggers.forEach((trigger, index) => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        currentLightboxData = floorplanData;
+                        currentLbIndex = index;
+                        currentLbSource = 'floorplans';
+                        
+                        scale = 1; panX = 0; panY = 0; updateTransform(true);
+                        
+                        const data = currentLightboxData[currentLbIndex];
+                        if (data.src) lightboxImage.src = data.src;
+                        
+                        if (lightboxCaption && lightboxCaptionContainer) {
+                            if (data.caption) {
+                                lightboxCaption.textContent = data.caption;
+                                lightboxCaptionContainer.style.display = 'flex';
+                            } else {
+                                lightboxCaptionContainer.style.display = 'none';
+                            }
+                        }
 
-                    // Reset navigation buttons for floorplans
-                    if (lightboxPrev) lightboxPrev.style.display = '';
-                    if (lightboxNext) lightboxNext.style.display = '';
-                    
-                    lightbox.classList.remove('pointer-events-none', 'opacity-0');
-                    lightbox.classList.add('opacity-100');
-                    document.body.style.overflow = 'hidden';
-                    if (window['lenis']) window['lenis'].stop();
+                        if (lightboxPrev) lightboxPrev.style.display = '';
+                        if (lightboxNext) lightboxNext.style.display = '';
+                        
+                        lightbox.classList.remove('pointer-events-none', 'opacity-0');
+                        lightbox.classList.add('opacity-100');
+                        document.body.style.overflow = 'hidden';
+                        if (window['lenis']) window['lenis'].stop();
+                    });
                 });
-            });
+            }
 
+            // Navigation Buttons
             if (lightboxPrev && lightboxNext) {
                 lightboxPrev.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    updateLightbox((currentLbIndex - 1 + floorplanData.length) % floorplanData.length);
+                    if (currentLightboxData.length > 0) {
+                        updateLightbox((currentLbIndex - 1 + currentLightboxData.length) % currentLightboxData.length);
+                    }
                 });
                 lightboxNext.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    updateLightbox((currentLbIndex + 1) % floorplanData.length);
+                    if (currentLightboxData.length > 0) {
+                        updateLightbox((currentLbIndex + 1) % currentLightboxData.length);
+                    }
                 });
             }
 
@@ -904,10 +942,11 @@ const galleryImages = [
                 setTimeout(() => { 
                     lightboxImage.src = ''; 
                     scale = 1; panX = 0; panY = 0; updateTransform(true);
+                    currentLbSource = null;
                     
-                    // Reset navigation buttons in case they were hidden by the mobile gallery
                     if (lightboxPrev) lightboxPrev.style.display = '';
                     if (lightboxNext) lightboxNext.style.display = '';
+                    if (lightboxCaptionContainer) lightboxCaptionContainer.style.display = 'flex';
 
                     document.body.style.overflow = '';
                     if (window['lenis']) window['lenis'].start();
@@ -916,41 +955,50 @@ const galleryImages = [
 
             if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
 
-            // Listen for custom event from the gallery to open images (MOBILE ONLY)
-            window.addEventListener('open-gallery-lightbox', (e: any) => {
-                // If the screen is tablet or desktop (768px or wider), do nothing.
-                if (window.innerWidth >= 768) return;
+            // --- Custom Events ---
+            // Catch the Carousel Lightbox Event (used by Carousels AND the Main Gallery)
+            window.addEventListener('open-carousel-lightbox', (e: any) => {
+                currentLightboxData = e.detail.images.map((src: string) => ({ src, caption: '' }));
+                currentLbIndex = e.detail.currentIndex || 0;
+                currentLbSource = e.detail.source || null;
 
                 scale = 1; panX = 0; panY = 0; updateTransform(true);
-                lightboxImage.src = e.detail.src;
+                lightboxImage.src = currentLightboxData[currentLbIndex].src!;
                 
-                // Hide caption and Next/Prev buttons for single gallery view
-                if (lightboxCaption) lightboxCaption.textContent = '';
-                if (lightboxPrev) lightboxPrev.style.display = 'none';
-                if (lightboxNext) lightboxNext.style.display = 'none';
+                if (lightboxCaptionContainer) lightboxCaptionContainer.style.display = 'none';
+                
+                if (currentLightboxData.length > 1) {
+                    if (lightboxPrev) lightboxPrev.style.display = '';
+                    if (lightboxNext) lightboxNext.style.display = '';
+                } else {
+                    if (lightboxPrev) lightboxPrev.style.display = 'none';
+                    if (lightboxNext) lightboxNext.style.display = 'none';
+                }
                 
                 lightbox.classList.remove('pointer-events-none', 'opacity-0');
                 lightbox.classList.add('opacity-100');
                 document.body.style.overflow = 'hidden';
                 if (window['lenis']) window['lenis'].stop();
             });
-            
+
             // Smart click-outside-to-close logic
             lightbox.addEventListener('click', (e) => {
-                // 1. If zoomed in, allow panning without closing
                 if (scale > 1) return;
-                
-                // 2. If clicking the actual image or the nav buttons, do nothing
                 if (e.target === lightboxImage || e.target === lightboxPrev || e.target === lightboxNext) return;
-                
-                // 3. Otherwise, tap background to close
                 closeLightbox();
             });
 
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && lightbox.classList.contains('opacity-100')) closeLightbox();
+                if (e.key === 'ArrowRight' && lightbox.classList.contains('opacity-100') && currentLightboxData.length > 1) {
+                    updateLightbox((currentLbIndex + 1) % currentLightboxData.length);
+                }
+                if (e.key === 'ArrowLeft' && lightbox.classList.contains('opacity-100') && currentLightboxData.length > 1) {
+                    updateLightbox((currentLbIndex - 1 + currentLightboxData.length) % currentLightboxData.length);
+                }
             });
         }
+
 
         // ---------------------------------------------------------
         // 3. MAIN GALLERY INTERACTIVE ENGINE
@@ -960,6 +1008,7 @@ const galleryImages = [
         const thumbnails = document.querySelectorAll('.gallery-thumb');
         const mobileScroll = document.getElementById('mobile-thumb-scroll');
         const swipeIndicator = document.getElementById('swipe-indicator');
+        const gallerySourceId = 'main-gallery-sync'; // ID for syncing with lightbox
 
         if (!mainImage || !mainContainer || thumbnails.length === 0) return;
 
@@ -1017,7 +1066,6 @@ const galleryImages = [
                     mainImage.style.opacity = '1'; 
                     isTransitioning = false; 
                 }
-
             }, 300); 
         }
 
@@ -1056,10 +1104,14 @@ const galleryImages = [
                 return; 
             }
 
-            // Trigger the lightbox using the custom event
+            // Trigger the unified lightbox using the carousel event so we can swipe through the whole array!
             if (mainImage.src) {
-                window.dispatchEvent(new CustomEvent('open-gallery-lightbox', { 
-                    detail: { src: mainImage.src } 
+                window.dispatchEvent(new CustomEvent('open-carousel-lightbox', { 
+                    detail: { 
+                        images: imageList,
+                        currentIndex: currentIndex,
+                        source: gallerySourceId // Attach the ID so the lightbox can talk back
+                    } 
                 }));
             }
         });
@@ -1081,6 +1133,19 @@ const galleryImages = [
                 updateGallery(activeMobileThumb);
             }
         }
+
+        // --- NEW IN STEP 2: Listen for Lightbox changes to sync the background gallery ---
+        window.addEventListener('lightbox-image-changed', (e: any) => {
+            if (e.detail.source === gallerySourceId) {
+                const targetIndex = e.detail.index;
+                const targetThumb = document.querySelector(`.desktop-thumb[data-index="${targetIndex}"]`);
+                if (targetThumb) {
+                    activeMobileThumb = document.querySelector(`.mobile-thumb[data-index="${targetIndex}"]`);
+                    updateGallery(targetThumb);
+                }
+            }
+        });
+
 
     // ---------------------------------------------------------
         // 4. INQUIRY FORM HANDLER (UI STATE)
@@ -1121,7 +1186,6 @@ const galleryImages = [
                         }, 50);
 
                     }, 500); // This 500ms matches the transition-opacity duration on the form container
-
                 }, 1500);
             });
         }
