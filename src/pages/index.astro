@@ -437,26 +437,45 @@ const galleryImages = [
                 </div>
 
                 <!-- Floor Area -->
-                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-200 gap-2 md:gap-8">
+                <div class="reveal-el flex flex-col md:flex-row py-6 md:py-8 border-b border-zinc-200 gap-4 md:gap-8">
                     <div class="font-sans text-xs font-medium tracking-widest uppercase text-zinc-400 md:w-1/3 pt-1">Floor Area</div>
-                    <div class="font-sans text-sm md:text-base lg:text-lg text-zinc-800 font-light md:w-2/3 leading-loose flex flex-col gap-4">
+                    <div class="md:w-2/3 flex flex-col gap-6">
+                        
+                        <!-- Global Estate Scale -->
                         <div class="flex flex-wrap items-baseline gap-x-6 gap-y-2">
                             <div class="flex items-baseline gap-2">
-                                <span class="font-serif text-2xl md:text-3xl text-zinc-800">598.855</span>
+                                <span class="font-serif text-3xl md:text-4xl text-zinc-800">598.855</span>
                                 <span class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">m&sup2;</span>
                             </div>
-                            <div class="hidden sm:block w-px h-5 bg-zinc-200"></div>
+                            <div class="hidden sm:block w-px h-6 bg-zinc-200"></div>
                             <div class="flex items-baseline gap-2">
                                 <span class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">Approx.</span>
-                                <span class="font-serif text-2xl md:text-3xl text-zinc-800">181.16</span>
+                                <span class="font-serif text-3xl md:text-4xl text-zinc-800">181.16</span>
                                 <span class="font-sans text-[10px] md:text-xs font-medium tracking-widest uppercase text-zinc-400">Tsubo</span>
                             </div>
                         </div>
-                        <div class="font-sans text-[10px] md:text-xs text-zinc-500 tracking-widest uppercase mt-1 flex flex-col gap-2 leading-relaxed">
-                            <span>Main Residence &middot; 377.274 m&sup2; (114.13 Tsubo)</span>
-                            <span>Guest House &middot; 210.088 m&sup2; (63.55 Tsubo)</span>
-                            <span>Connecting Hallway &middot; 11.493 m&sup2; (3.48 Tsubo)</span>
+                        
+                        <!-- Minimal Breakdown Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
+                            <div class="bg-zinc-50 p-5 rounded-xl border border-zinc-200/60 flex flex-col gap-1">
+                                <span class="font-sans text-[9px] font-semibold tracking-widest uppercase text-zinc-400">Main Residence</span>
+                                <span class="font-serif text-xl text-zinc-800 mt-1">377.274 <span class="font-sans text-[10px] tracking-normal uppercase text-zinc-400">m&sup2;</span></span>
+                                <span class="font-sans text-xs text-zinc-500 font-light mt-0.5">{114.13} Tsubo</span>
+                            </div>
+                            
+                            <div class="bg-zinc-50 p-5 rounded-xl border border-zinc-200/60 flex flex-col gap-1">
+                                <span class="font-sans text-[9px] font-semibold tracking-widest uppercase text-zinc-400">Guest House</span>
+                                <span class="font-serif text-xl text-zinc-800 mt-1">210.088 <span class="font-sans text-[10px] tracking-normal uppercase text-zinc-400">m&sup2;</span></span>
+                                <span class="font-sans text-xs text-zinc-500 font-light mt-0.5">{63.55} Tsubo</span>
+                            </div>
+                            
+                            <div class="bg-zinc-50 p-5 rounded-xl border border-zinc-200/60 flex flex-col gap-1">
+                                <span class="font-sans text-[9px] font-semibold tracking-widest uppercase text-zinc-400">Connecting Hall</span>
+                                <span class="font-serif text-xl text-zinc-800 mt-1">11.493 <span class="font-sans text-[10px] tracking-normal uppercase text-zinc-400">m&sup2;</span></span>
+                                <span class="font-sans text-xs text-zinc-500 font-light mt-0.5">{3.48} Tsubo</span>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
