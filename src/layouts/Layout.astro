@@ -67,22 +67,22 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
 
         <slot />
 
-        <script is:inline src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+        <script>
+            import Lenis from 'lenis';
 
-        <script is:inline>
             document.addEventListener('DOMContentLoaded', () => {
-                
+
                 // --- 1. LENIS CONFIGURATION ---
-                const lenis = new window.Lenis({ 
+                const lenis = new Lenis({
                     lerp: 0.08,
                     wheelMultiplier: 1.0, 
                     smoothWheel: true,
                     syncTouch: false 
                 });
                 lenis.stop(); // Pause scroll during preloader
-                window.lenis = lenis; 
+                (window as any).lenis = lenis;
 
-                function raf(time) { 
+                function raf(time: number) {
                     lenis.raf(time); 
                     requestAnimationFrame(raf); 
                 }
