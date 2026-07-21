@@ -1,46 +1,30 @@
-# Astro Starter Kit: Basics
+# The Karuizawa Estate — Hirafu Capital GK
 
-```sh
-npm create astro@latest -- --template basics
-```
+One-page property showcase site for a private luxury estate in Karuizawa, Nagano, Japan.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**Status: prototype** — English only. Contact form is UI-only (no backend yet). JP/ZH translations deferred until the English version is final.
 
-## 🚀 Project Structure
+## Tech
 
-Inside of your Astro project, you'll see the following folders and files:
+- [Astro](https://astro.build) (static site)
+- Tailwind CSS 4 (via `@tailwindcss/vite`)
+- Lenis smooth scroll
+- Fonts: Cormorant Garamond (serif) + Plus Jakarta Sans (sans)
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Commands
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+| Command | Action |
+| :-- | :-- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Dev server at `localhost:4321` |
+| `npm run build` | Production build to `./dist/` |
+| `npm run preview` | Preview the build locally |
 
-## 🧞 Commands
+## Structure
 
-All commands are run from the root of the project, from a terminal:
+- `src/pages/index.astro` — the entire landing page (sections, lightbox, gallery, form)
+- `src/layouts/Layout.astro` — head, fonts, preloader, Lenis, custom cursor, scroll reveals
+- `src/components/` — `Navigation`, `Footer`, `Carousel3D`
+- `src/assets/gallery/` — images used on the page; `unused/` holds the spare image pool (not bundled)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See `CLAUDE.md` for the design system and detailed architecture notes.
