@@ -4,9 +4,17 @@ import '../styles/global.css';
 interface Props {
     title: string;
     description?: string;
+    ogImage?: string;
 }
 
-const { title, description = "Luxury Property Real Estate" } = Astro.props;
+const {
+    title,
+    description = "A private luxury estate in Karuizawa, Nagano — seven ensuite suites across a main residence and guest house, with private spa, sauna and forest grounds.",
+    ogImage,
+} = Astro.props;
+
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
+const ogImageURL = ogImage && Astro.site ? new URL(ogImage, Astro.site).href : ogImage;
 ---
 
 <!doctype html>
@@ -23,6 +31,17 @@ const { title, description = "Luxury Property Real Estate" } = Astro.props;
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
         
         <title>{title}</title>
+
+        {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        {canonicalURL && <meta property="og:url" content={canonicalURL} />}
+        {ogImageURL && <meta property="og:image" content={ogImageURL} />}
+        <meta name="twitter:card" content={ogImageURL ? "summary_large_image" : "summary"} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        {ogImageURL && <meta name="twitter:image" content={ogImageURL} />}
 
         <style is:global>
             /* Lenis Core Setup */

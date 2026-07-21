@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import Carousel3D from '../components/Carousel3D.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 
 // ==========================================
 // IMAGE IMPORTS
@@ -90,8 +90,11 @@ const galleryImages = [
     { src: img0_13, label: "Image 13" }, { src: img0_14, label: "Image 14" },
     { src: img0_15, label: "Image 15" }, { src: img0_16, label: "Image 16" }
 ];
+
+// Optimized hero render used as the social-share (og:image) preview
+const ogHero = await getImage({ src: imgHeroHQ, width: 1200, format: 'jpeg' });
 ---
-<Layout title="Karuizawa | Hirafu Capital GK">
+<Layout title="Karuizawa | Hirafu Capital GK" ogImage={ogHero.src}>
     <Navigation />
     
     <main class="w-full tracking-normal leading-loose">
